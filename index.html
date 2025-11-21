@@ -406,46 +406,45 @@
             <h2>Let’s Work Together</h2>
             <p>Have a project in mind? Let’s bring your ideas to life.</p>
         </div>
-
         <form class="contact-form" id="contactForm">
             <div class="form-row">
-                <input type="text" name="first-name" id="firstName" placeholder="First Name" required>
-                <input type="text" name="last-name" id="lastName" placeholder="Last Name" required>
+                <input type="text" id="firstName" placeholder="First Name" required>
+                <input type="text" id="lastName" placeholder="Last Name" required>
             </div>
-
             <div class="form-row">
-                <input type="email" name="email" id="email" placeholder="Email Address" required>
-                <input type="tel" name="phone" id="phone" placeholder="Phone Number" required>
+                <input type="email" id="email" placeholder="Email Address" required>
+                <input type="tel" id="phone" placeholder="Phone Number" required>
             </div>
-
             <div class="form-row">
-                <select name="service" id="service" required>
+                <select id="service" required>
                     <option value="">Select Service</option>
-                    <option value="uiux">UI/UX Design</option>
-                    <option value="frontend">Frontend Development</option>
-                    <option value="graphics">Graphic Design</option>
-                    <option value="date-entry">Data Entry</option>
-                    <option value="logo">Logo Design</option>
-                    <option value="branding">Branding</option>
+                    <option value="UI/UX Design">UI/UX Design</option>
+                    <option value="Frontend Development">Frontend Development</option>
+                    <option value="Graphic Design">Graphic Design</option>
+                    <option value="Data Entry">Data Entry</option>
+                    <option value="Logo Design">Logo Design</option>
+                    <option value="Branding">Branding</option>
                 </select>
             </div>
-
-            <textarea name="message" id="message" placeholder="Write your message here..." required></textarea>
+            <textarea id="message" placeholder="Write your message here..." required></textarea>
 
             <button type="button" class="submit-btn" id="sendBtn"
                 style="margin: 5%; display: inline-block; text-align: center; padding: 12px 25px; color: #fff; border-radius: 6px; border: none; background-color: #007bff; cursor: pointer;">
                 Send Message
             </button>
+        </form>
 
-            <script>
-                document.getElementById('sendBtn').addEventListener('click', function () {
-                    const firstName = encodeURIComponent(document.getElementById('firstName').value);
-                    const lastName = encodeURIComponent(document.getElementById('lastName').value);
-                    const email = encodeURIComponent(document.getElementById('email').value);
-                    const phone = encodeURIComponent(document.getElementById('phone').value);
-                    const service = encodeURIComponent(document.getElementById('service').value);
-                    const message = encodeURIComponent(document.getElementById('message').value);
-const emailBody = encodeURIComponent(`Hello Mr. Prince,
+        <script>
+            document.getElementById('sendBtn').addEventListener('click', function () {
+                const firstName = document.getElementById('firstName').value.trim();
+                const lastName = document.getElementById('lastName').value.trim();
+                const email = document.getElementById('email').value.trim();
+                const phone = document.getElementById('phone').value.trim();
+                const service = document.getElementById('service').value;
+                const message = document.getElementById('message').value.trim();
+
+                // Construct the email body
+                const emailBody = encodeURIComponent(`Hello Mr. Prince,
 
 I hope you are doing well.
 
@@ -464,79 +463,79 @@ Looking forward to your response!
 Best regards,
 Prince Creative Graphics`);
 
-const mailtoLink = `mailto:softedgetech06@gmail.com?subject=New Project Inquiry&body=${emailBody}`;
+                // Open email client
+                const mailtoLink = `mailto:softedgetech06@gmail.com?subject=New Project Inquiry&body=${emailBody}`;
+                window.location.href = mailtoLink;
+            });
+        </script>
 
-window.location.href = mailtoLink;
 
-            </script>
+        <section id="contact" class="contact">
+            <div class="contact-content">
+                <div class="contact-info">
+                    <h3>Prince Creative Graphics</h3>
+                    <strong style="color: #cea8ff;"> Email: </strong></p><a
+                        href="mailto:princecreativegraphics@gmail.com">princecreativegraphics@gmail.com,</a></p> <a
+                        href="mailto:softedgetech06@gmail.com">softedgetech06@gmail.com</a></p>
 
+                    <p><strong style="color: #cea8ff;"> Phone: </strong> </p> <a href="https://wa.me/2347069943790">+234
+                        706 994 3790,</a></p>
+                    <a href="https://wa.me/2349075634424"> +234 907 563 4424 </a>
+                    <br>
+                    <strong style="color: #cea8ff;"> Location: </strong>
+                    <p style="color: #ccc;"> Rivers State, Nigeria</p>
+                </div>
 
-            <section id="contact" class="contact">
-                <div class="contact-content">
-                    <div class="contact-info">
-                        <h3>Prince Creative Graphics</h3>
-                        <strong style="color: #cea8ff;"> Email: </strong></p><a
-                            href="mailto:princecreativegraphics@gmail.com">princecreativegraphics@gmail.com,</a></p> <a
-                            href="mailto:softedgetech06@gmail.com">softedgetech06@gmail.com</a></p>
+                </form>
+        </section>
 
-                        <p><strong style="color: #cea8ff;"> Phone: </strong> </p> <a
-                            href="https://wa.me/2347069943790">+234 706 994 3790,</a></p>
-                        <a href="https://wa.me/2349075634424"> +234 907 563 4424 </a>
-                        <br>
-                        <strong style="color: #cea8ff;"> Location: </strong>
-                        <p style="color: #ccc;"> Rivers State, Nigeria</p>
-                    </div>
+        <!-- Contact & Footer Section -->
+        <footer>
+            <div class="footer-class">
+                <img src="Images/logo 1.png" alt="logo" class="footer-logo" loading="lazy">
+                <p>© 2025 Prince Creative Graphics. All rights reserved.</p>
+            </div>
+        </footer>
 
-        </form>
-    </section>
-
-    <!-- Contact & Footer Section -->
-    <footer>
-        <div class="footer-class">
-            <img src="Images/logo 1.png" alt="logo" class="footer-logo" loading="lazy">
-            <p>© 2025 Prince Creative Graphics. All rights reserved.</p>
-        </div>
-    </footer>
-
-    <script src="script.js"></script>
-    <!-- Code injected by live-server -->
-    <script>
-        // <![CDATA[  <-- For SVG support
-        if ('WebSocket' in window) {
-            (function () {
-                function refreshCSS() {
-                    var sheets = [].slice.call(document.getElementsByTagName("link"));
-                    var head = document.getElementsByTagName("head")[0];
-                    for (var i = 0; i < sheets.length; ++i) {
-                        var elem = sheets[i];
-                        var parent = elem.parentElement || head;
-                        parent.removeChild(elem);
-                        var rel = elem.rel;
-                        if (elem.href && typeof rel != "string" || rel.length == 0 || rel.toLowerCase() == "stylesheet") {
-                            var url = elem.href.replace(/(&|\?)_cacheOverride=\d+/, '');
-                            elem.href = url + (url.indexOf('?') >= 0 ? '&' : '?') + '_cacheOverride=' + (new Date().valueOf());
+        <script src="script.js"></script>
+        <!-- Code injected by live-server -->
+        <script>
+            // <![CDATA[  <-- For SVG support
+            if ('WebSocket' in window) {
+                (function () {
+                    function refreshCSS() {
+                        var sheets = [].slice.call(document.getElementsByTagName("link"));
+                        var head = document.getElementsByTagName("head")[0];
+                        for (var i = 0; i < sheets.length; ++i) {
+                            var elem = sheets[i];
+                            var parent = elem.parentElement || head;
+                            parent.removeChild(elem);
+                            var rel = elem.rel;
+                            if (elem.href && typeof rel != "string" || rel.length == 0 || rel.toLowerCase() == "stylesheet") {
+                                var url = elem.href.replace(/(&|\?)_cacheOverride=\d+/, '');
+                                elem.href = url + (url.indexOf('?') >= 0 ? '&' : '?') + '_cacheOverride=' + (new Date().valueOf());
+                            }
+                            parent.appendChild(elem);
                         }
-                        parent.appendChild(elem);
                     }
-                }
-                var protocol = window.location.protocol === 'http:' ? 'ws://' : 'wss://';
-                var address = protocol + window.location.host + window.location.pathname + '/ws';
-                var socket = new WebSocket(address);
-                socket.onmessage = function (msg) {
-                    if (msg.data == 'reload') window.location.reload();
-                    else if (msg.data == 'refreshcss') refreshCSS();
-                };
-                if (sessionStorage && !sessionStorage.getItem('IsThisFirstTime_Log_From_LiveServer')) {
-                    console.log('Live reload enabled.');
-                    sessionStorage.setItem('IsThisFirstTime_Log_From_LiveServer', true);
-                }
-            })();
-        }
-        else {
-            console.error('Upgrade your browser. This Browser is NOT supported WebSocket for Live-Reloading.');
-        }
-        // ]]>
-    </script>
+                    var protocol = window.location.protocol === 'http:' ? 'ws://' : 'wss://';
+                    var address = protocol + window.location.host + window.location.pathname + '/ws';
+                    var socket = new WebSocket(address);
+                    socket.onmessage = function (msg) {
+                        if (msg.data == 'reload') window.location.reload();
+                        else if (msg.data == 'refreshcss') refreshCSS();
+                    };
+                    if (sessionStorage && !sessionStorage.getItem('IsThisFirstTime_Log_From_LiveServer')) {
+                        console.log('Live reload enabled.');
+                        sessionStorage.setItem('IsThisFirstTime_Log_From_LiveServer', true);
+                    }
+                })();
+            }
+            else {
+                console.error('Upgrade your browser. This Browser is NOT supported WebSocket for Live-Reloading.');
+            }
+            // ]]>
+        </script>
 </body>
 
 </html>
