@@ -445,16 +445,29 @@
                     const phone = encodeURIComponent(document.getElementById('phone').value);
                     const service = encodeURIComponent(document.getElementById('service').value);
                     const message = encodeURIComponent(document.getElementById('message').value);
+const emailBody = encodeURIComponent(`Hello Mr. Prince,
 
-                    const emailBody = `Hello Mr. Prince,\n\nI hope this message finds you well.\n\nI am reaching out because I am interested in your expertise in Front-end Development, UI/UX Design, and Graphic Design. Here are my details:\n\nName: ${firstName} ${lastName}\nEmail: ${email}\nPhone: ${phone}\nService of Interest: ${service}\nMessage: ${message}\n\nI look forward to discussing how we can bring this project to life.\n\nBest regards,\n\nPrince Creative Graphics`;
+I hope you are doing well.
 
+I’m reaching out because I’d love to collaborate with you on a project where your expertise in Front-end Development, UI/UX Design, and Graphic Design can make an impact. Here are my details:
 
-                    // Create the mailto link
-                    const mailtoLink = `mailto:softedgetech06@gmail.com?subject=New Project Inquiry&body=${emailBody}`;
+Name: ${firstName} ${lastName}
+Email: ${email}
+Phone: ${phone}
+Service of Interest: ${service}
+Message: ${message}
 
-                    // Open the email client
-                    window.location.href = mailtoLink;
-                });
+I’m excited to discuss how we can bring this project to life and create something outstanding together.
+
+Looking forward to your response!
+
+Best regards,
+Prince Creative Graphics`);
+
+const mailtoLink = `mailto:softedgetech06@gmail.com?subject=New Project Inquiry&body=${emailBody}`;
+
+window.location.href = mailtoLink;
+
             </script>
 
 
