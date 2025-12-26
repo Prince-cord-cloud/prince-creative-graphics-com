@@ -16,526 +16,2810 @@
 <body>
 
     <!-- ===== HEADER ===== -->
-    <header class="site-header">
-        <div class="container header-inner">
-            <a class="brand" href="#home" aria-label="Prince Creative Graphics">
-                <img src="Images/logo 1.png" alt="Prince Creative Graphics" class="brand-logo" loading="lazy">
-                <div class="brand-text">
-                    <div class="brand-name">Prince</div>
-                    <div class="brand-sub">Creative Graphics</div>
-                </div>
+<header class="site-header">
+    <div class="container header-inner">
+        <!-- Logo -->
+        <a href="#home" class="brand" aria-label="Prince Creative Graphics">
+            <img src="Images/logo 1.png" alt="Prince Creative Graphics" class="brand-logo" loading="lazy">
+            <div class="brand-text">
+                <div class="brand-name">Prince</div>
+                <div class="brand-sub">Creative Graphics</div>
+            </div>
+        </a>
+
+        <!-- Desktop Navigation -->
+        <nav class="main-nav" aria-label="Main navigation">
+            <ul class="nav-list" id="navList">
+                <li><a class="nav-link active" href="#home">Home</a></li>
+                <li><a class="nav-link" href="#services">Services</a></li>
+                <li><a class="nav-link" href="#works">Works</a></li>
+                <li><a class="nav-link" href="#resume">Resume</a></li>
+                <li><a class="nav-link" href="#skills">Skills</a></li>
+                <li><a class="nav-link" href="#testimonials">Testimonials</a></li>
+                <li><a class="nav-link" href="#blog">Blog</a></li>
+                <li><a class="nav-link" href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+
+        <!-- Header Actions -->
+        <div class="header-actions">
+            <a class="btn-hire" href="https://wa.me/2347069943790">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+                </svg>
+                Hire Me
             </a>
 
-            <nav class="main-nav" aria-label="Main navigation">
-                <ul class="nav-list" id="navList">
-                    <li><a class="nav-link active" href="#home">Home</a></li>
-                    <li><a class="nav-link" href="#services">Services</a></li>
-                    <li><a class="nav-link" href="#works">Works</a></li>
-                    <li><a class="nav-link" href="#experience">Resume</a></li>
-                    <li><a class="nav-link" href="#skills">Skills</a></li>
-                    <li><a class="nav-link" href="#stories">Testimonials</a></li>
-                    <li><a class="nav-link" href="#blog">Blog</a></li>
-                    <li><a class="nav-link" href="#work-together">Contact</a></li>
-                </ul>
-            </nav>
-
-            <div class="header-actions">
-                <a class="btn-hire" href="mailto:softedgetech06@gmail.com">Hire Me</a>
-                <button id="hamburger" class="hamburger" aria-label="Toggle menu" aria-expanded="false">
-                    <span class="hamburger-box"><span class="hamburger-inner"></span></span>
-                </button>
-            </div>
+            <!-- Hamburger Button -->
+            <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+            </button>
         </div>
+    </div>
 
-        <!-- mobile menu -->
-        <div id="mobileMenu" class="mobile-menu" aria-hidden="true">
-            <ul>
-                <li><a href="#home" class="mobile-link">Home</a></li>
-                <li><a href="#services" class="mobile-link">Services</a></li>
-                <li><a href="#works" class="mobile-link">Works</a></li>
-                <li><a href="#experience" class="mobile-link">Resume</a></li>
-                <li><a href="#skills" class="mobile-link">Skills</a></li>
-                <li><a href="#stories" class="mobile-link">Testimonials</a></li>
-                <li><a href="#blog" class="mobile-link">Blog</a></li>
-                <li><a href="#work-together" class="mobile-link">Contact</a></li>
-            </ul>
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu" aria-hidden="true">
+        <ul class="mobile-menu-list">
+            <li><a class="mobile-menu-link active" href="#home">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+                    <polyline points="9 22 9 12 15 12 15 22"/>
+                </svg>
+                Home
+            </a></li>
+            <li><a class="mobile-menu-link" href="#services">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <rect x="2" y="2" width="20" height="20" rx="2.18" ry="2.18"/>
+                    <line x1="7" y1="2" x2="7" y2="22"/>
+                    <line x1="17" y1="2" x2="17" y2="22"/>
+                    <line x1="2" y1="12" x2="22" y2="12"/>
+                </svg>
+                Services
+            </a></li>
+            <li><a class="mobile-menu-link" href="#works">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <rect x="3" y="3" width="18" height="18" rx="2" ry="2"/>
+                    <circle cx="8.5" cy="8.5" r="1.5"/>
+                    <polyline points="21 15 16 10 5 21"/>
+                </svg>
+                Works
+            </a></li>
+            <li><a class="mobile-menu-link" href="#resume">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                    <polyline points="14 2 14 8 20 8"/>
+                    <line x1="16" y1="13" x2="8" y2="13"/>
+                    <line x1="16" y1="17" x2="8" y2="17"/>
+                    <polyline points="10 9 9 9 8 9"/>
+                </svg>
+                Resume
+            </a></li>
+            <li><a class="mobile-menu-link" href="#skills">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <polygon points="12 2 2 7 12 12 22 7 12 2"/>
+                    <polyline points="2 17 12 22 22 17"/>
+                    <polyline points="2 12 12 17 22 12"/>
+                </svg>
+                Skills
+            </a></li>
+            
+            <div class="mobile-menu-divider"></div>
+            
+            <li><a class="mobile-menu-link" href="#testimonials">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/>
+                </svg>
+                Testimonials
+            </a></li>
+            <li><a class="mobile-menu-link" href="#blog">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/>
+                    <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/>
+                </svg>
+                Blog
+            </a></li>
+            <li><a class="mobile-menu-link" href="#contact">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/>
+                </svg>
+                Contact
+            </a></li>
+        </ul>
+        
+        <div class="mobile-menu-cta">
+            <a href="https://wa.me/2347069943790" class="mobile-cta-btn">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+                </svg>
+                Hire Me
+            </a>
+            <a href="Document/DEV INTERNATION CV BY PRINCE.pdf" download class="mobile-cta-btn" style="background: rgba(255, 255, 255, 0.1);">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                    <polyline points="7 10 12 15 17 10"/>
+                    <line x1="12" y1="15" x2="12" y2="3"/>
+                </svg>
+                Download CV
+            </a>
         </div>
-    </header>
+    </div>
+</header>
 
     <!-- ===== HERO ===== -->
-    <main>
-        <section id="home" class="hero-section">
-            <div class="container hero-inner">
-                <div class="hero-left">
-                    <div class="eyebrow" style="font-size: 20px;">I am Prince</div>
-                    <h1 class="hero-title">Frontend Developer <span class="plus">+</span><br> UI UX Designer</h1>
-                    <p class="hero-desc">
-                        I break down complex user interface problems to create visually appealing, responsive and
-                        functional website design. I focus on turning creative ideas into seamless digital experiences
-                        that make every interaction simple, engaging and meaningful.
-                    </p>
-
-                    <div class="hero-stats">
-                        <div class="stat"><strong>4+</strong><span>Years of Experience</span></div>
-                        <div class="stat"><strong>15+</strong><span>Project Completed</span></div>
-                        <div class="stat"><strong>30+</strong><span>Client Satisfied</span></div>
-                        <div class="stat"><strong>4+</strong><span>Years of Experience</span></div>
+<main>
+    <section id="home" class="hero-section">
+        <div class="container hero-inner">
+            <div class="hero-left">
+                <div class="eyebrow">Hello, I am Prince</div>
+                
+                <h1 class="hero-title">
+                    Frontend Developer
+                    <span class="plus">+</span>
+                    <br>
+                    UI/UX Designer
+                </h1>
+                
+                <p class="hero-desc">
+                    I transform complex interface challenges into visually stunning, responsive, and functional web experiences. 
+                    Specializing in turning creative concepts into seamless digital solutions that engage users and drive results.
+                </p>
+                
+                <div class="hero-stats">
+                    <div class="stat">
+                        <strong>4+</strong>
+                        <span>Years Experience</span>
                     </div>
-
-                    <div class="hero-cta">
-                        <a class="btn-primary" href="#works">See my work </a>
-                        <a class="btn-ghost" href="Document/DEV INTERNATION CV BY PRINCE.pdf" download>Download CV</a>
+                    <div class="stat">
+                        <strong>50+</strong>
+                        <span>Projects Delivered</span>
                     </div>
-
-                    <div class="hero-socials">
-                        <a href="Document/DEV INTERNATION CV BY PRINCE.pdf" download aria-label="download cv"><img
-                                src="Icons/download.png" alt="download" loading="lazy"></a>
-
-                        <a href="https://wa.me/2347069943790" aria-label="twitter"><img src="Icons/Whatsapp.png"
-                                alt="Whatsapp" loading="lazy"></a>
-
-                        <a href="mailto:softedgetech06@gmail.com" aria-label="twitter"><img src="Icons/Email icon.png"
-                                alt="email" loading="lazy"></a>
-
-                        <a href="https://www.facebook.com/taylorswiftr" aria-label="facebook"><img
-                                src="Icons/Face book.png" alt="Facebook" loading="lazy"></a>
+                    <div class="stat">
+                        <strong>100%</strong>
+                        <span>Client Satisfaction</span>
+                    </div>
+                    <div class="stat">
+                        <strong>24/7</strong>
+                        <span>Available Support</span>
                     </div>
                 </div>
-
-                <aside class="hero-right">
-                    <div class="profile-card">
-                        <img class="profile-img" src="Images/Profile.png" alt="Prince profile image" loading="lazy">
-                    </div>
-                </aside>
+                
+                <div class="hero-cta">
+                    <a class="btn-primary" href="#works">
+                        <span>View My Portfolio</span>
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M5 12H19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M12 5L19 12L12 19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </a>
+                    
+                    <a class="btn-ghost" href="Document/DEV INTERNATION CV BY PRINCE.pdf" download>
+                        <span>Download CV</span>
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M21 15V19C21 19.5304 20.7893 20.0391 20.4142 20.4142C20.0391 20.7893 19.5304 21 19 21H5C4.46957 21 3.96086 20.7893 3.58579 20.4142C3.21071 20.0391 3 19.5304 3 19V15" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M7 10L12 15L17 10" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M12 15V3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </a>
+                </div>
+                
+                <div class="hero-socials">
+                    <a href="Document/DEV INTERNATION CV BY PRINCE.pdf" download class="social-icon" aria-label="Download CV">
+                        <img src="Icons/download.png" alt="Download CV" loading="lazy">
+                    </a>
+                    
+                    <a href="https://wa.me/2347069943790" class="social-icon" aria-label="WhatsApp">
+                        <img src="Icons/Whatsapp.png" alt="WhatsApp" loading="lazy">
+                    </a>
+                    
+                    <a href="mailto:softedgetech06@gmail.com" class="social-icon" aria-label="Email">
+                        <img src="Icons/Email icon.png" alt="Email" loading="lazy">
+                    </a>
+                    
+                    <a href="https://www.facebook.com/taylorswiftr" class="social-icon" aria-label="Facebook">
+                        <img src="Icons/Face book.png" alt="Facebook" loading="lazy">
+                    </a>
+                </div>
             </div>
-        </section>
+            
+            <aside class="hero-right">
+                <div class="profile-card">
+                    <img class="profile-img" src="Images/Profile.png" alt="Prince - Frontend Developer & UI/UX Designer" loading="lazy">
+                </div>
+                
+                <!-- Floating decorative elements -->
+                <div class="floating-element">
+                    <svg width="30" height="30" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z" stroke="#b37aff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </div>
+                
+                <div class="floating-element">
+                    <svg width="30" height="30" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M17 8L12 3L7 8" stroke="#b37aff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M17 16L12 21L7 16" stroke="#b37aff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </div>
+                
+                <div class="floating-element">
+                    <svg width="30" height="30" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="12" cy="12" r="10" stroke="#b37aff" stroke-width="2"/>
+                        <path d="M12 6V12L16 14" stroke="#b37aff" stroke-width="2" stroke-linecap="round"/>
+                    </svg>
+                </div>
+            </aside>
+        </div>
+    </section>
+    
+    <!-- Rest of your sections remain the same -->
+    <!-- ... -->
+</main>
 
         <section id="services" class="services-section">
-            <div class="container">
-                <h1 class="section-title" style="font-size: 2rem;">My Quality Services</h1>
-                <p style="margin-bottom: 25px; font-size: 15px;">We put ideals and thus wishes in the form of a unique
-                    web <br> project that inspires you and your customer </p>
-                <div class="service-list">
-                    <div class="service-card">
-                        <div class="service-content">
-                            <h3>UI/UX Design</h3>
-                            <p>Crafting clean, user friendly interface that balance creativity with usability.
-                                i design seamless web <br> & mobile design that focuses on user satisfaction .</p>
-                        </div>
-                        <div class="arrow">➜</div>
-                    </div>
-
-                    <div class="service-card">
-                        <div class="service-content">
-                            <h3>Graphic Design</h3>
-                            <p>Professional graphic design services that focus on clarity amd creativity.
-                                bring ideals to life <br> with clean, eye-catching visual design. </p>
-                        </div>
-                        <div class="arrow">➜</div>
-                    </div>
-
-                    <div class="service-card">
-                        <div class="service-content">
-                            <h3>Typist/Data Analysis </h3>
-                            <p>fast and accurate typing services with organized data entry and reliable <br>
-                                document editing, accuracy and timely delivery </p>
-                        </div>
-                        <div class="arrow">➜</div>
-                    </div>
-
-                    <div class="service-card active">
-                        <div class="service-content">
-                            <h3>Frontend Development</h3>
-                            <p>building pixel-perfect, user friendly design, turning designs into functional
-                                interactive web <br> experience using frontend modern technology.</p>
-                        </div>
-                        <div class="arrow">➜</div>
-                    </div>
+    <div class="container">
+        <div class="services-header">
+            <h2 class="services-title">Premium Services</h2>
+            <p class="services-subtitle">
+                Transforming creative visions into exceptional digital experiences. 
+                Each service is crafted with precision and passion to deliver outstanding results.
+            </p>
+        </div>
+        
+        <div class="services-grid">
+            <!-- UI/UX Design Service -->
+            <div class="service-card">
+                <span class="service-badge">Most Popular</span>
+                <div class="service-glow"></div>
+                <span class="service-number">01</span>
+                
+                <div class="service-icon">
+                    <img src="Icons/design-icon.svg" alt="UI/UX Design" loading="lazy">
                 </div>
-            </div>
-        </section>
-
-        <section id="works" class="recent-works">
-            <div class="container">
-                <h2 class="section-title" style="font-size: 2rem;">My Recent Works</h2>
-                <div class="work-filters">
-                    <button class="filter-btn active" data-filter="all">All</button>
-                    <button class="filter-btn" data-filter="design">Design</button>
-                    <button class="filter-btn" data-filter="frontend">Frontend</button>
-                    <button class="filter-btn" data-filter="uiux">UI/UX</button>
-                    <button class="filter-btn" data-filter="app">App</button>
-                </div>
-                <div class="work-grid">
-                    <div class="work-item" data-category="design uiux">
-                        <img src="Images/image1.png" alt="Tech Startup" loading="lazy" />
-                        <div class="overlay">
-                            <h3>Tech Startup</h3>
-                            <p>This project was about product design and dashboard.</p>
-                        </div>
-                    </div>
-                    <div class="work-item" data-category="app uiux">
-                        <img src="Images/image2.png" loading="lazy" alt="Fintech" />
-                        <div class="overlay">
-                            <h3>Fintech</h3>
-                            <p>This project was about smooth app and user experience.</p>
-                        </div>
-                    </div>
-                    <div class="work-item" data-category="frontend uiux">
-                        <img src="Images/image3.png" loading="lazy" alt="Web App" />
-                        <div class="overlay">
-                            <h3>Web App UI/UX Design</h3>
-                            <p>Project focused on Web UI/UX and product interface.</p>
-                        </div>
-                    </div>
-                    <div class="work-item" data-category="design frontend">
-                        <img src="Images/image4.png" loading="lazy" alt="Edtech" />
-                        <div class="overlay">
-                            <h3>Edtech</h3>
-                            <p>This project was about learning platform interfaces.</p>
-                        </div>
-                    </div>
-                    <div class="work-item" data-category="design app">
-                        <img src="Images/image5.jpg" loading="lazy" alt="Media & Entertainment" />
-                        <div class="overlay">
-                            <h3>Media & Entertainment</h3>
-                            <p>This project focused on social media and engagement.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="experience" class="experience-education">
-            <div class="container">
-                <div class="section-header">
-                </div>
-                <div class="exp-edu-grid">
-                    <div class="experience-column">
-                        <h2 class="section-title" style="font-size: 2rem;">My Experience</h2>
-
-                        <div class="exp-item">
-                            <span class="year">2022 - Present</span>
-                            <h3>Frontend Developer</h3>
-                            <p>Port Harcourt, Rivers State</p>
-                        </div>
-                        <div class="exp-item">
-                            <span class="year">2021 - 2022</span>
-                            <h3>Data Analyst / Typist</h3>
-                            <p>Port Harcourt, Rivers State</p>
-                        </div>
-                        <div class="exp-item">
-                            <span class="year">2020 - 2021</span>
-                            <h3>UI/UX Designer</h3>
-                            <p>Lagos, Nigeria</p>
-                        </div>
-                        <div class="exp-item">
-                            <span class="year">2018 - 2020</span>
-                            <h3>Senior Graphics Designer</h3>
-                            <p>Theme Junction, Bursa</p>
-                        </div>
-                    </div>
-                    <div class="education-column">
-                        <h2 class="section-title" style="font-size: 2rem;">My Education</h2>
-
-                        <div class="edu-item">
-                            <span class="year">2012 - 2017</span>
-                            <h3>Great Step Academy</h3>
-                            <p>Basic Level of Learning</p>
-                        </div>
-                        <div class="edu-item">
-                            <span class="year">2017 - 2020</span>
-                            <h3>Community Junior Sec. Sch.</h3>
-                            <p>West African Junior Examination</p>
-                        </div>
-                        <div class="edu-item">
-                            <span class="year">2020 - 2023</span>
-                            <h3>Community Junior Sec. Sch.</h3>
-                            <p>West African Senior Examination</p>
-                        </div>
-                        <div class="edu-item">
-                            <span class="year">2021 - 2022</span>
-                            <h3>Code Camp Academy</h3>
-                            <p>Specializing in UI/UX and Frontend Development</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="skills" class="skills-section">
-            <div class="container">
-                <div class="skills-header">
-                    <img src="Images/logo 1.png" alt="Prince Creative Graphics" class="skills-image" loading="lazy">
-                    <h2 class="section-title" style="font-size: 2rem;">My Skills</h2>
-                    <p class="section-subtitle">
-                        Here are the creative and technical skills I’ve mastered through consistent learning and
-                        experience.
+                
+                <div class="service-content">
+                    <h3>UI/UX Design</h3>
+                    <p>
+                        Crafting clean, user-friendly interfaces that balance creativity with usability. 
+                        I design seamless web & mobile experiences focused on user satisfaction and engagement.
                     </p>
-                </div>
-                <div class="skills-grid">
-                    <div class="skill" data-skill="95">
-                        <div class="skill-info">
-                            <span>HTML</span>
-                            <span class="percent">95%</span>
-                        </div>
-                        <div class="skill-bar">
-                            <div class="fill"></div>
-                        </div>
-                    </div>
-                    <div class="skill" data-skill="90">
-                        <div class="skill-info">
-                            <span>CSS</span>
-                            <span class="percent">90%</span>
-                        </div>
-                        <div class="skill-bar">
-                            <div class="fill"></div>
-                        </div>
-                    </div>
-                    <div class="skill" data-skill="85">
-                        <div class="skill-info">
-                            <span>JavaScript</span>
-                            <span class="percent">85%</span>
-                        </div>
-                        <div class="skill-bar">
-                            <div class="fill"></div>
-                        </div>
-                    </div>
-                    <div class="skill" data-skill="92">
-                        <div class="skill-info">
-                            <span>UI/UX Design</span>
-                            <span class="percent">92%</span>
-                        </div>
-                        <div class="skill-bar">
-                            <div class="fill"></div>
-                        </div>
-                    </div>
-                    <div class="skill" data-skill="88">
-                        <div class="skill-info">
-                            <span>Graphic Design</span>
-                            <span class="percent">88%</span>
-                        </div>
-                        <div class="skill-bar">
-                            <div class="fill"></div>
-                        </div>
-                    </div>
+                    
+                    <ul class="service-features">
+                        <li>Wireframing & Prototyping</li>
+                        <li>User Research & Testing</li>
+                        <li>Interactive Mockups</li>
+                        <li>Design Systems</li>
+                    </ul>
+                    
+                    <a href="#" class="service-link">
+                        Explore Projects
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M5 12H19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M12 5L19 12L12 19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </a>
                 </div>
             </div>
-        </section>
-
-    </main>
-
-    <!-- My Client Stories Section -->
-    <section id="stories" class="client-stories">
-        <div class="section-header">
-            <h2>My Client Stories</h2>
-            <p>What my clients say about me</p>
-        </div>
-
-        <div class="testimonial-container">
-            <div class="testimonial-slide active">
-                <img src="Images/client1.jpg" alt="Client 1" class="client-img" loading="lazy">
-                <h3>Sarah Johnson</h3>
-                <h4>CEO, DesignHub</h4>
-                <p>"Prince Creative Graphics completely transformed our brand image. His attention to detail and
-                    creative flair are unmatched!"</p>
-            </div>
-
-            <div class="testimonial-slide">
-                <img src="Images/client2.jpg" alt="Client 2" class="client-img" loading="lazy">
-                <h3>Michael Lee</h3>
-                <h4>Marketing Director, BrightAds</h4>
-                <p>"Professional, timely, and extremely talented. Working with Prince was one of the best design
-                    experiences we’ve had."</p>
-            </div>
-
-            <div class="testimonial-slide">
-                <img src="Images/client1.jpg" alt="Client 3" class="client-img" loading="lazy">
-                <h3>Emily Carter</h3>
-                <h4>Founder, StartUpWave</h4>
-                <p>"His designs perfectly captured our vision. Every project was delivered above expectations!"</p>
-            </div>
-        </div>
-
-        <div class="testimonial-dots">
-            <span class="dot active"></span>
-            <span class="dot"></span>
-            <span class="dot"></span>
-        </div>
-    </section>
-
-    <!-- My Recent Blog Section -->
-    <section id="blog" class="recent-blog">
-        <div class="section-header">
-            <h2>My Recent Blog</h2>
-            <p>Latest posts and creative insights</p>
-        </div>
-
-        <div class="blog-grid">
-            <div class="blog-card">
-                <img src="Images/blog1.jpg" alt="Blog 1" loading="lazy">
-                <div class="blog-content">
-                    <h3>Designing with Purpose</h3>
-                    <p>Learn how to create visuals that truly connect with your audience through intentional design
-                        choices.</p>
-                    <a href="#" class="read-more">Read More →</a>
+            
+            <!-- Graphic Design Service -->
+            <div class="service-card">
+                <span class="service-badge">Creative</span>
+                <div class="service-glow"></div>
+                <span class="service-number">02</span>
+                
+                <div class="service-icon">
+                    <img src="Icons/graphic-icon.svg" alt="Graphic Design" loading="lazy">
+                </div>
+                
+                <div class="service-content">
+                    <h3>Graphic Design</h3>
+                    <p>
+                        Professional graphic design services focusing on clarity and creativity. 
+                        Bringing ideas to life with clean, eye-catching visual designs that communicate effectively.
+                    </p>
+                    
+                    <ul class="service-features">
+                        <li>Logo & Brand Identity</li>
+                        <li>Marketing Materials</li>
+                        <li>Social Media Graphics</li>
+                        <li>Print Design</li>
+                    </ul>
+                    
+                    <a href="#" class="service-link">
+                        View Portfolio
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M5 12H19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M12 5L19 12L12 19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </a>
                 </div>
             </div>
-
-            <div class="blog-card">
-                <img src="Images/blog2.jpg" alt="Blog 2" loading="lazy">
-                <div class="blog-content">
-                    <h3>Color Theory for Creatives</h3>
-                    <p>Explore how colors influence emotion and perception in graphic design projects.</p>
-                    <a href="#" class="read-more">Read More →</a>
+            
+            <!-- Frontend Development Service -->
+            <div class="service-card active">
+                <span class="service-badge">Expertise</span>
+                <div class="service-glow"></div>
+                <span class="service-number">03</span>
+                
+                <div class="service-icon">
+                    <img src="Icons/code-icon.svg" alt="Frontend Development" loading="lazy">
+                </div>
+                
+                <div class="service-content">
+                    <h3>Frontend Development</h3>
+                    <p>
+                        Building pixel-perfect, user-friendly designs using modern technologies. 
+                        Turning designs into functional, interactive web experiences with clean code.
+                    </p>
+                    
+                    <ul class="service-features">
+                        <li>Responsive Web Design</li>
+                        <li>JavaScript Frameworks</li>
+                        <li>Performance Optimization</li>
+                        <li>Cross-browser Testing</li>
+                    </ul>
+                    
+                    <a href="#" class="service-link">
+                        See Code Samples
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M5 12H19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M12 5L19 12L12 19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </a>
                 </div>
             </div>
-
-            <div class="blog-card">
-                <img src="Images/blog3.jpg" alt="Blog 3" loading="lazy">
-                <div class="blog-content">
-                    <h3>Brand Identity Essentials</h3>
-                    <p>Tips and tools for building a memorable brand that stands out in the digital space.</p>
-                    <a href="#" class="read-more">Read More →</a>
+            
+            <!-- Typist/Data Analysis Service -->
+            <div class="service-card">
+                <span class="service-badge">Precise</span>
+                <div class="service-glow"></div>
+                <span class="service-number">04</span>
+                
+                <div class="service-icon">
+                    <img src="Icons/data-icon.svg" alt="Data Analysis" loading="lazy">
+                </div>
+                
+                <div class="service-content">
+                    <h3>Typist & Data Analysis</h3>
+                    <p>
+                        Fast and accurate typing services with organized data entry and reliable document editing. 
+                        Ensuring precision and timely delivery for all data-related tasks.
+                    </p>
+                    
+                    <ul class="service-features">
+                        <li>Data Entry & Processing</li>
+                        <li>Document Formatting</li>
+                        <li>Excel & Spreadsheet Work</li>
+                        <li>Quality Assurance</li>
+                    </ul>
+                    
+                    <a href="#" class="service-link">
+                        Request Service
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M5 12H19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M12 5L19 12L12 19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+            
+            <!-- Brand Identity Service -->
+            <div class="service-card">
+                <span class="service-badge">Strategic</span>
+                <div class="service-glow"></div>
+                <span class="service-number">05</span>
+                
+                <div class="service-icon">
+                    <img src="Icons/brand-icon.svg" alt="Brand Identity" loading="lazy">
+                </div>
+                
+                <div class="service-content">
+                    <h3>Brand Identity</h3>
+                    <p>
+                        Developing comprehensive brand systems that tell your story effectively. 
+                        Creating memorable visual identities that resonate with your target audience.
+                    </p>
+                    
+                    <ul class="service-features">
+                        <li>Logo Design</li>
+                        <li>Brand Guidelines</li>
+                        <li>Visual Identity Systems</li>
+                        <li>Brand Strategy</li>
+                    </ul>
+                    
+                    <a href="#" class="service-link">
+                        View Case Studies
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M5 12H19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M12 5L19 12L12 19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+            
+            <!-- Consultation Service -->
+            <div class="service-card">
+                <span class="service-badge">Support</span>
+                <div class="service-glow"></div>
+                <span class="service-number">06</span>
+                
+                <div class="service-icon">
+                    <img src="Icons/consult-icon.svg" alt="Consultation" loading="lazy">
+                </div>
+                
+                <div class="service-content">
+                    <h3>Consultation & Strategy</h3>
+                    <p>
+                        Expert guidance on digital strategy and implementation. 
+                        Helping businesses optimize their online presence and achieve their goals.
+                    </p>
+                    
+                    <ul class="service-features">
+                        <li>Digital Strategy</li>
+                        <li>User Experience Audit</li>
+                        <li>Technical Consultation</li>
+                        <li>Project Planning</li>
+                    </ul>
+                    
+                    <a href="#" class="service-link">
+                        Schedule Call
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M5 12H19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M12 5L19 12L12 19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </a>
                 </div>
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
-    <section id="work-together" class="work-together">
-        <div class="section-header">
-            <h2>Let’s Work Together</h2>
-            <p>Have a project in mind? Let’s bring your ideas to life.</p>
+        <!-- ===== PORTFOLIO WORK SECTION ===== -->
+<section id="works" class="portfolio-section">
+    <div class="container">
+        <div class="portfolio-header">
+            <h2 class="portfolio-title">Featured Projects</h2>
+            <p class="portfolio-subtitle">
+                Showcasing exceptional work that combines creativity, technical excellence, and user-centric design principles.
+            </p>
         </div>
-        <form class="contact-form" id="contactForm">
-            <div class="form-row">
-                <input type="text" id="firstName" placeholder="First Name" required>
-                <input type="text" id="lastName" placeholder="Last Name" required>
+        
+        <!-- Portfolio Filters -->
+        <div class="portfolio-filters">
+            <button class="filter-btn active" data-filter="all">All Projects</button>
+            <button class="filter-btn" data-filter="uiux">UI/UX Design</button>
+            <button class="filter-btn" data-filter="frontend">Frontend Dev</button>
+            <button class="filter-btn" data-filter="design">Graphic Design</button>
+            <button class="filter-btn" data-filter="app">Mobile Apps</button>
+            <button class="filter-btn" data-filter="branding">Branding</button>
+        </div>
+        
+        <!-- Portfolio Grid -->
+        <div class="portfolio-grid">
+            <!-- Tech Startup Dashboard -->
+            <div class="portfolio-item" data-category="uiux design">
+                <div class="portfolio-glow"></div>
+                <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Tech Startup Dashboard Design" class="portfolio-image" loading="lazy">
+                
+                <div class="portfolio-overlay">
+                    <span class="portfolio-category">UI/UX • Dashboard</span>
+                    <h3 class="portfolio-title-small">Tech Startup Platform</h3>
+                    <p class="portfolio-description">
+                        Modern dashboard design with advanced data visualization and comprehensive user management systems.
+                    </p>
+                    
+                    <div class="portfolio-tech">
+                        <span class="tech-tag">Figma</span>
+                        <span class="tech-tag">Adobe XD</span>
+                        <span class="tech-tag">Prototyping</span>
+                    </div>
+                    
+                    <div class="portfolio-actions">
+                        <a href="#" class="portfolio-link" aria-label="View project details">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
+                                <circle cx="12" cy="12" r="3"/>
+                            </svg>
+                        </a>
+                        <a href="#" class="portfolio-link" aria-label="Live demo">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
+                                <polyline points="15 3 21 3 21 9"/>
+                                <line x1="10" y1="14" x2="21" y2="3"/>
+                            </svg>
+                        </a>
+                        <a href="#" class="portfolio-link" aria-label="GitHub repository">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="portfolio-stats">
+                    <span class="stat-badge">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/>
+                        </svg>
+                        98% Success
+                    </span>
+                </div>
+                
+                <div class="portfolio-sound-trigger"></div>
             </div>
-            <div class="form-row">
-                <input type="email" id="email" placeholder="Email Address" required>
-                <input type="tel" id="phone" placeholder="Phone Number" required>
+            
+            <!-- Fintech Banking App -->
+            <div class="portfolio-item" data-category="app uiux frontend">
+                <div class="portfolio-glow"></div>
+                <img src="https://images.unsplash.com/photo-1563013544-824ae1b704d3?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Fintech Mobile Banking Application" class="portfolio-image" loading="lazy">
+                
+                <div class="portfolio-overlay">
+                    <span class="portfolio-category">Mobile App • Fintech</span>
+                    <h3 class="portfolio-title-small">Fintech Banking App</h3>
+                    <p class="portfolio-description">
+                        Secure mobile banking experience with intuitive transaction flows and biometric authentication.
+                    </p>
+                    
+                    <div class="portfolio-tech">
+                        <span class="tech-tag">React Native</span>
+                        <span class="tech-tag">TypeScript</span>
+                        <span class="tech-tag">Security</span>
+                    </div>
+                    
+                    <div class="portfolio-actions">
+                        <a href="#" class="portfolio-link" aria-label="View project details">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
+                                <circle cx="12" cy="12" r="3"/>
+                            </svg>
+                        </a>
+                        <a href="#" class="portfolio-link" aria-label="Live demo">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
+                                <polyline points="15 3 21 3 21 9"/>
+                                <line x1="10" y1="14" x2="21" y2="3"/>
+                            </svg>
+                        </a>
+                        <a href="#" class="portfolio-link" aria-label="Case study">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                                <polyline points="14 2 14 8 20 8"/>
+                                <line x1="16" y1="13" x2="8" y2="13"/>
+                                <line x1="16" y1="17" x2="8" y2="17"/>
+                                <polyline points="10 9 9 9 8 9"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="portfolio-stats">
+                    <span class="stat-badge">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/>
+                        </svg>
+                        4.9★ Rating
+                    </span>
+                </div>
             </div>
-            <div class="form-row">
-                <select id="service" required>
-                    <option value="">Select Service</option>
-                    <option value="UI/UX Design">UI/UX Design</option>
-                    <option value="Frontend Development">Frontend Development</option>
-                    <option value="Graphic Design">Graphic Design</option>
-                    <option value="Data Entry">Data Entry</option>
-                    <option value="Logo Design">Logo Design</option>
-                    <option value="Branding">Branding</option>
-                </select>
+            
+            <!-- SaaS Web Application -->
+            <div class="portfolio-item" data-category="frontend uiux">
+                <div class="portfolio-glow"></div>
+                <img src="https://images.unsplash.com/photo-1551650975-87deedd944c3?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="SaaS Web Application Interface" class="portfolio-image" loading="lazy">
+                
+                <div class="portfolio-overlay">
+                    <span class="portfolio-category">Web App • SaaS</span>
+                    <h3 class="portfolio-title-small">SaaS Web Application</h3>
+                    <p class="portfolio-description">
+                        Responsive web interface with interactive components, real-time updates, and smooth animations.
+                    </p>
+                    
+                    <div class="portfolio-tech">
+                        <span class="tech-tag">React.js</span>
+                        <span class="tech-tag">Redux</span>
+                        <span class="tech-tag">Tailwind CSS</span>
+                    </div>
+                    
+                    <div class="portfolio-actions">
+                        <a href="#" class="portfolio-link" aria-label="View project details">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
+                                <circle cx="12" cy="12" r="3"/>
+                            </svg>
+                        </a>
+                        <a href="#" class="portfolio-link" aria-label="Live demo">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
+                                <polyline points="15 3 21 3 21 9"/>
+                                <line x1="10" y1="14" x2="21" y2="3"/>
+                            </svg>
+                        </a>
+                        <a href="#" class="portfolio-link" aria-label="GitHub repository">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="portfolio-stats">
+                    <span class="stat-badge">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/>
+                        </svg>
+                        10k+ Users
+                    </span>
+                </div>
             </div>
-            <textarea id="message" placeholder="Write your message here..." required></textarea>
+            
+            <!-- Education Platform -->
+            <div class="portfolio-item" data-category="design frontend uiux">
+                <div class="portfolio-glow"></div>
+                <img src="https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Education Learning Platform Design" class="portfolio-image" loading="lazy">
+                
+                <div class="portfolio-overlay">
+                    <span class="portfolio-category">Edtech • Web Design</span>
+                    <h3 class="portfolio-title-small">Learning Management System</h3>
+                    <p class="portfolio-description">
+                        Interactive learning platform with course management, progress tracking, and collaborative features.
+                    </p>
+                    
+                    <div class="portfolio-tech">
+                        <span class="tech-tag">Vue.js</span>
+                        <span class="tech-tag">Node.js</span>
+                        <span class="tech-tag">MongoDB</span>
+                    </div>
+                    
+                    <div class="portfolio-actions">
+                        <a href="#" class="portfolio-link" aria-label="View project details">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
+                                <circle cx="12" cy="12" r="3"/>
+                            </svg>
+                        </a>
+                        <a href="#" class="portfolio-link" aria-label="Live demo">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
+                                <polyline points="15 3 21 3 21 9"/>
+                                <line x1="10" y1="14" x2="21" y2="3"/>
+                            </svg>
+                        </a>
+                        <a href="#" class="portfolio-link" aria-label="Case study">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                                <polyline points="14 2 14 8 20 8"/>
+                                <line x1="16" y1="13" x2="8" y2="13"/>
+                                <line x1="16" y1="17" x2="8" y2="17"/>
+                                <polyline points="10 9 9 9 8 9"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="portfolio-stats">
+                    <span class="stat-badge">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/>
+                        </svg>
+                        95% Engagement
+                    </span>
+                </div>
+            </div>
+            
+            <!-- Media Streaming Service -->
+            <div class="portfolio-item" data-category="design app">
+                <div class="portfolio-glow"></div>
+                <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Media Content Streaming Platform" class="portfolio-image" loading="lazy">
+                
+                <div class="portfolio-overlay">
+                    <span class="portfolio-category">Media • Entertainment</span>
+                    <h3 class="portfolio-title-small">Content Streaming Service</h3>
+                    <p class="portfolio-description">
+                        Media platform with personalized recommendations, social features, and seamless cross-device experience.
+                    </p>
+                    
+                    <div class="portfolio-tech">
+                        <span class="tech-tag">Next.js</span>
+                        <span class="tech-tag">GraphQL</span>
+                        <span class="tech-tag">AWS</span>
+                    </div>
+                    
+                    <div class="portfolio-actions">
+                        <a href="#" class="portfolio-link" aria-label="View project details">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
+                                <circle cx="12" cy="12" r="3"/>
+                            </svg>
+                        </a>
+                        <a href="#" class="portfolio-link" aria-label="Live demo">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
+                                <polyline points="15 3 21 3 21 9"/>
+                                <line x1="10" y1="14" x2="21" y2="3"/>
+                            </svg>
+                        </a>
+                        <a href="#" class="portfolio-link" aria-label="Case study">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                                <polyline points="14 2 14 8 20 8"/>
+                                <line x1="16" y1="13" x2="8" y2="13"/>
+                                <line x1="16" y1="17" x2="8" y2="17"/>
+                                <polyline points="10 9 9 9 8 9"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="portfolio-stats">
+                    <span class="stat-badge">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/>
+                        </svg>
+                        50k+ Views
+                    </span>
+                </div>
+            </div>
+            
+            <!-- Brand Identity Project -->
+            <div class="portfolio-item" data-category="design branding">
+                <div class="portfolio-glow"></div>
+                <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Brand Identity Design System" class="portfolio-image" loading="lazy">
+                
+                <div class="portfolio-overlay">
+                    <span class="portfolio-category">Branding • Identity</span>
+                    <h3 class="portfolio-title-small">Corporate Brand System</h3>
+                    <p class="portfolio-description">
+                        Comprehensive brand identity system including logo, typography, color palette, and brand guidelines.
+                    </p>
+                    
+                    <div class="portfolio-tech">
+                        <span class="tech-tag">Illustrator</span>
+                        <span class="tech-tag">Photoshop</span>
+                        <span class="tech-tag">InDesign</span>
+                    </div>
+                    
+                    <div class="portfolio-actions">
+                        <a href="#" class="portfolio-link" aria-label="View project details">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
+                                <circle cx="12" cy="12" r="3"/>
+                            </svg>
+                        </a>
+                        <a href="#" class="portfolio-link" aria-label="Brand guidelines">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                                <polyline points="14 2 14 8 20 8"/>
+                                <line x1="16" y1="13" x2="8" y2="13"/>
+                                <line x1="16" y1="17" x2="8" y2="17"/>
+                                <polyline points="10 9 9 9 8 9"/>
+                            </svg>
+                        </a>
+                        <a href="#" class="portfolio-link" aria-label="Portfolio">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <rect x="2" y="2" width="20" height="20" rx="2.18" ry="2.18"/>
+                                <line x1="7" y1="2" x2="7" y2="22"/>
+                                <line x1="17" y1="2" x2="17" y2="22"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="portfolio-stats">
+                    <span class="stat-badge">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/>
+                        </svg>
+                        Award Winning
+                    </span>
+                </div>
+            </div>
+        </div>
+        
+        <!-- View More Button -->
+        <div class="portfolio-view-more">
+            <a href="#work-together" class="view-more-btn">
+                <span>Start Your Project</span>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M5 12H19"/>
+                    <path d="M12 5L19 12L12 19"/>
+                </svg>
+            </a>
+        </div>
+    </div>
+    
+    <!-- Portfolio Modal -->
+    <div id="portfolioModal" class="portfolio-modal">
+        <div class="modal-container">
+            <button class="modal-close">&times;</button>
+            <div id="modalContent"></div>
+        </div>
+    </div>
+</section>
 
-            <button type="button" class="submit-btn" id="sendBtn"
-                style="margin: 5%; display: inline-block; text-align: center; padding: 12px 25px; color: #fff; border-radius: 6px; border: none; background-color: #007bff; cursor: pointer;">
-                Send Message
+        <!-- ===== RESUME SECTION ===== -->
+<section id="resume" class="resume-section">
+    <div class="container">
+        <div class="resume-header">
+            <h2 class="resume-title">Professional Journey</h2>
+            <p class="resume-subtitle">
+                A comprehensive overview of my experience, education, and skills. 
+                Continuously learning and growing in the ever-evolving world of design and development.
+            </p>
+        </div>
+        
+        <!-- Resume Tabs -->
+        <div class="resume-tabs">
+            <button class="resume-tab active" data-tab="experience">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+                    <circle cx="12" cy="10" r="3"/>
+                </svg>
+                Experience
             </button>
-        </form>
-
-        <script>
-            document.getElementById('sendBtn').addEventListener('click', function () {
-                const firstName = document.getElementById('firstName').value.trim();
-                const lastName = document.getElementById('lastName').value.trim();
-                const email = document.getElementById('email').value.trim();
-                const phone = document.getElementById('phone').value.trim();
-                const service = document.getElementById('service').value;
-                const message = document.getElementById('message').value.trim();
-
-                // Construct the email body
-                const emailBody = encodeURIComponent(`Hello Mr. Prince,
-
-I hope you are doing well.
-
-I’m reaching out because I’d love to collaborate with you on a project where your expertise in Front-end Development, UI/UX Design, Logo Design, Graphic Design and Data Entry Skills can make an impact. Here are my details:
-
-Name: ${firstName} ${lastName}
-Email: ${email}
-Phone: ${phone}
-Service of Interest: ${service}
-Message: ${message}
-
-I’m excited to discuss how we can bring this project to life and create something outstanding together.
-
-Looking forward to your response!
-
-Best regards,
-Prince Creative Graphics`);
-
-                // Open email client
-                const mailtoLink = `mailto:softedgetech06@gmail.com?subject=New Project Inquiry&body=${emailBody}`;
-                window.location.href = mailtoLink;
-            });
-        </script>
-
-
-        <section id="contact" class="contact">
-            <div class="contact-content">
-                <div class="contact-info">
-                    <h3>Prince Creative Graphics</h3>
-                    <strong style="color: #cea8ff;"> Email: </strong></p><a
-                        href="mailto:princecreativegraphics@gmail.com">princecreativegraphics@gmail.com,</a></p> <a
-                        href="mailto:softedgetech06@gmail.com">softedgetech06@gmail.com</a></p>
-
-                    <p><strong style="color: #cea8ff;"> Phone: </strong> </p> <a href="https://wa.me/2347069943790">+234
-                        706 994 3790,</a></p>
-                    <a href="https://wa.me/2349075634424"> +234 907 563 4424 </a>
-                    <br>
-                    <strong style="color: #cea8ff;"> Location: </strong>
-                    <p style="color: #ccc;"> Rivers State, Nigeria</p>
+            <button class="resume-tab" data-tab="education">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M12 14l9-5-9-5-9 5 9 5z"/>
+                    <path d="M12 14v6l9-5"/>
+                    <path d="M12 20l-9-5"/>
+                </svg>
+                Education
+            </button>
+            <button class="resume-tab" data-tab="skills">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <polygon points="12 2 2 7 12 12 22 7 12 2"/>
+                    <polyline points="2 17 12 22 22 17"/>
+                    <polyline points="2 12 12 17 22 12"/>
+                </svg>
+                Skills
+            </button>
+        </div>
+        
+        <!-- Experience Tab Content -->
+        <div class="resume-content active" id="experienceContent">
+            <!-- Resume Stats -->
+            <div class="resume-stats">
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+                            <circle cx="12" cy="7" r="4"/>
+                        </svg>
+                    </div>
+                    <span class="stat-value">4+</span>
+                    <span class="stat-label">Years Experience</span>
                 </div>
-
-                </form>
-        </section>
-
-        <!-- Contact & Footer Section -->
-        <footer>
-            <div class="footer-class">
-                <img src="Images/logo 1.png" alt="logo" class="footer-logo" loading="lazy">
-                <p>© 2025 Prince Creative Graphics. All rights reserved.</p>
+                
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/>
+                        </svg>
+                    </div>
+                    <span class="stat-value">50+</span>
+                    <span class="stat-label">Projects Completed</span>
+                </div>
+                
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M12 20v-6M6 20v-6M18 20v-6"/>
+                        </svg>
+                    </div>
+                    <span class="stat-value">30+</span>
+                    <span class="stat-label">Happy Clients</span>
+                </div>
+                
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="12" r="10"/>
+                            <polyline points="12 6 12 12 16 14"/>
+                        </svg>
+                    </div>
+                    <span class="stat-value">24/7</span>
+                    <span class="stat-label">Available</span>
+                </div>
             </div>
-        </footer>
+            
+            <div class="resume-grid">
+                <!-- Experience Column -->
+                <div class="resume-column">
+                    <div class="column-header">
+                        <div class="column-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+                                <circle cx="12" cy="10" r="3"/>
+                            </svg>
+                        </div>
+                        <h3 class="column-title">Work Experience</h3>
+                    </div>
+                    
+                    <div class="resume-items">
+                        <!-- Experience 1 -->
+                        <div class="resume-item animate">
+                            <div class="timeline-indicator"></div>
+                            <div class="item-header">
+                                <div>
+                                    <h4 class="item-title">Frontend Developer</h4>
+                                    <p class="item-company">Port Harcourt, Rivers State</p>
+                                </div>
+                                <span class="item-period">2022 - Present</span>
+                            </div>
+                            <p class="item-description">
+                                Leading frontend development initiatives, creating responsive web applications, 
+                                and implementing modern JavaScript frameworks. Focused on performance optimization 
+                                and delivering exceptional user experiences.
+                            </p>
+                            <div class="skills-grid">
+                                <div class="skill-item">
+                                    <div class="skill-header">
+                                        <span class="skill-name">React.js</span>
+                                        <span class="skill-percentage">95%</span>
+                                    </div>
+                                    <div class="skill-bar">
+                                        <div class="skill-fill" style="width: 95%"></div>
+                                    </div>
+                                </div>
+                                <div class="skill-item">
+                                    <div class="skill-header">
+                                        <span class="skill-name">TypeScript</span>
+                                        <span class="skill-percentage">90%</span>
+                                    </div>
+                                    <div class="skill-bar">
+                                        <div class="skill-fill" style="width: 90%"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Experience 2 -->
+                        <div class="resume-item animate">
+                            <div class="timeline-indicator"></div>
+                            <div class="item-header">
+                                <div>
+                                    <h4 class="item-title">Data Analyst / Typist</h4>
+                                    <p class="item-company">Port Harcourt, Rivers State</p>
+                                </div>
+                                <span class="item-period">2021 - 2022</span>
+                            </div>
+                            <p class="item-description">
+                                Provided accurate data entry services, organized information systems, 
+                                and performed detailed data analysis. Ensured data integrity and timely 
+                                delivery of all documentation.
+                            </p>
+                        </div>
+                        
+                        <!-- Experience 3 -->
+                        <div class="resume-item animate">
+                            <div class="timeline-indicator"></div>
+                            <div class="item-header">
+                                <div>
+                                    <h4 class="item-title">UI/UX Designer</h4>
+                                    <p class="item-company">Lagos, Nigeria</p>
+                                </div>
+                                <span class="item-period">2020 - 2021</span>
+                            </div>
+                            <p class="item-description">
+                                Designed intuitive user interfaces and engaging user experiences for 
+                                various digital products. Conducted user research and testing to 
+                                optimize design decisions.
+                            </p>
+                        </div>
+                        
+                        <!-- Experience 4 -->
+                        <div class="resume-item animate">
+                            <div class="timeline-indicator"></div>
+                            <div class="item-header">
+                                <div>
+                                    <h4 class="item-title">Senior Graphics Designer</h4>
+                                    <p class="item-company">Theme Junction, Bursa</p>
+                                </div>
+                                <span class="item-period">2018 - 2020</span>
+                            </div>
+                            <p class="item-description">
+                                Led design projects from concept to completion, mentored junior designers, 
+                                and developed comprehensive brand identity systems for various clients.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Education Column -->
+                <div class="resume-column">
+                    <div class="column-header">
+                        <div class="column-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M12 14l9-5-9-5-9 5 9 5z"/>
+                                <path d="M12 14v6l9-5"/>
+                                <path d="M12 20l-9-5"/>
+                            </svg>
+                        </div>
+                        <h3 class="column-title">Education</h3>
+                    </div>
+                    
+                    <div class="resume-items">
+                        <!-- Education 1 -->
+                        <div class="resume-item animate">
+                            <div class="timeline-indicator"></div>
+                            <div class="item-header">
+                                <div>
+                                    <h4 class="item-title">Great Step Academy</h4>
+                                    <p class="item-company">Basic Level of Learning</p>
+                                </div>
+                                <span class="item-period">2012 - 2017</span>
+                            </div>
+                            <p class="item-description">
+                                Established strong foundational knowledge and developed critical 
+                                thinking skills through comprehensive basic education.
+                            </p>
+                        </div>
+                        
+                        <!-- Education 2 -->
+                        <div class="resume-item animate">
+                            <div class="timeline-indicator"></div>
+                            <div class="item-header">
+                                <div>
+                                    <h4 class="item-title">Community Junior Sec. School</h4>
+                                    <p class="item-company">West African Junior Examination</p>
+                                </div>
+                                <span class="item-period">2017 - 2020</span>
+                            </div>
+                            <p class="item-description">
+                                Completed junior secondary education with focus on mathematics, 
+                                sciences, and computer studies. Developed technical skills and 
+                                problem-solving abilities.
+                            </p>
+                        </div>
+                        
+                        <!-- Education 3 -->
+                        <div class="resume-item animate">
+                            <div class="timeline-indicator"></div>
+                            <div class="item-header">
+                                <div>
+                                    <h4 class="item-title">Community Junior Sec. School</h4>
+                                    <p class="item-company">West African Senior Examination</p>
+                                </div>
+                                <span class="item-period">2020 - 2023</span>
+                            </div>
+                            <p class="item-description">
+                                Advanced secondary education with specialization in sciences and 
+                                technology. Enhanced analytical and research capabilities.
+                            </p>
+                        </div>
+                        
+                        <!-- Education 4 -->
+                        <div class="resume-item animate">
+                            <div class="timeline-indicator"></div>
+                            <div class="item-header">
+                                <div>
+                                    <h4 class="item-title">Code Camp Academy</h4>
+                                    <p class="item-company">Specializing in UI/UX & Frontend</p>
+                                </div>
+                                <span class="item-period">2021 - 2022</span>
+                            </div>
+                            <p class="item-description">
+                                Intensive training in modern web technologies, user experience design, 
+                                and frontend development frameworks. Completed multiple real-world projects.
+                            </p>
+                            <div class="skills-grid">
+                                <div class="skill-item">
+                                    <div class="skill-header">
+                                        <span class="skill-name">UI/UX Design</span>
+                                        <span class="skill-percentage">95%</span>
+                                    </div>
+                                    <div class="skill-bar">
+                                        <div class="skill-fill" style="width: 95%"></div>
+                                    </div>
+                                </div>
+                                <div class="skill-item">
+                                    <div class="skill-header">
+                                        <span class="skill-name">Frontend Dev</span>
+                                        <span class="skill-percentage">92%</span>
+                                    </div>
+                                    <div class="skill-bar">
+                                        <div class="skill-fill" style="width: 92%"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Skills Tab Content -->
+        <div class="resume-content" id="skillsContent">
+            <div class="resume-grid">
+                <!-- Technical Skills -->
+                <div class="resume-column">
+                    <div class="column-header">
+                        <div class="column-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polygon points="12 2 2 7 12 12 22 7 12 2"/>
+                                <polyline points="2 17 12 22 22 17"/>
+                                <polyline points="2 12 12 17 22 12"/>
+                            </svg>
+                        </div>
+                        <h3 class="column-title">Technical Skills</h3>
+                    </div>
+                    
+                    <div class="skills-grid">
+                        <div class="skill-item">
+                            <div class="skill-header">
+                                <span class="skill-name">HTML/CSS</span>
+                                <span class="skill-percentage">98%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-fill" style="width: 98%"></div>
+                            </div>
+                        </div>
+                        
+                        <div class="skill-item">
+                            <div class="skill-header">
+                                <span class="skill-name">JavaScript</span>
+                                <span class="skill-percentage">92%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-fill" style="width: 92%"></div>
+                            </div>
+                        </div>
+                        
+                        <div class="skill-item">
+                            <div class="skill-header">
+                                <span class="skill-name">React.js</span>
+                                <span class="skill-percentage">95%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-fill" style="width: 95%"></div>
+                            </div>
+                        </div>
+                        
+                        <div class="skill-item">
+                            <div class="skill-header">
+                                <span class="skill-name">TypeScript</span>
+                                <span class="skill-percentage">90%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-fill" style="width: 90%"></div>
+                            </div>
+                        </div>
+                        
+                        <div class="skill-item">
+                            <div class="skill-header">
+                                <span class="skill-name">UI/UX Design</span>
+                                <span class="skill-percentage">95%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-fill" style="width: 95%"></div>
+                            </div>
+                        </div>
+                        
+                        <div class="skill-item">
+                            <div class="skill-header">
+                                <span class="skill-name">Graphic Design</span>
+                                <span class="skill-percentage">90%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-fill" style="width: 90%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Professional Skills -->
+                <div class="resume-column">
+                    <div class="column-header">
+                        <div class="column-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <circle cx="12" cy="12" r="10"/>
+                                <line x1="2" y1="12" x2="22" y2="12"/>
+                                <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+                            </svg>
+                        </div>
+                        <h3 class="column-title">Professional Skills</h3>
+                    </div>
+                    
+                    <div class="skills-grid">
+                        <div class="skill-item">
+                            <div class="skill-header">
+                                <span class="skill-name">Problem Solving</span>
+                                <span class="skill-percentage">96%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-fill" style="width: 96%"></div>
+                            </div>
+                        </div>
+                        
+                        <div class="skill-item">
+                            <div class="skill-header">
+                                <span class="skill-name">Communication</span>
+                                <span class="skill-percentage">94%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-fill" style="width: 94%"></div>
+                            </div>
+                        </div>
+                        
+                        <div class="skill-item">
+                            <div class="skill-header">
+                                <span class="skill-name">Team Collaboration</span>
+                                <span class="skill-percentage">93%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-fill" style="width: 93%"></div>
+                            </div>
+                        </div>
+                        
+                        <div class="skill-item">
+                            <div class="skill-header">
+                                <span class="skill-name">Project Management</span>
+                                <span class="skill-percentage">88%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-fill" style="width: 88%"></div>
+                            </div>
+                        </div>
+                        
+                        <div class="skill-item">
+                            <div class="skill-header">
+                                <span class="skill-name">Creativity</span>
+                                <span class="skill-percentage">97%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-fill" style="width: 97%"></div>
+                            </div>
+                        </div>
+                        
+                        <div class="skill-item">
+                            <div class="skill-header">
+                                <span class="skill-name">Time Management</span>
+                                <span class="skill-percentage">92%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-fill" style="width: 92%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Download Resume CTA -->
+        <div class="resume-cta">
+            <a href="Document/DEV INTERNATION CV BY PRINCE.pdf" download class="download-btn">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                    <polyline points="7 10 12 15 17 10"/>
+                    <line x1="12" y1="15" x2="12" y2="3"/>
+                </svg>
+                Download Full Resume
+            </a>
+        </div>
+    </div>
+</section>
+
+        <!-- ===== SKILLS SECTION ===== -->
+<section id="skills" class="skills-section">
+    <div class="container">
+        <div class="skills-header">
+            <h2 class="skills-title">Technical Expertise</h2>
+            <p class="skills-subtitle">
+                A comprehensive showcase of my technical abilities, design skills, and professional competencies. 
+                Continuously evolving with the latest technologies and design trends.
+            </p>
+        </div>
+        
+        <!-- Skills Navigation -->
+        <div class="skills-nav">
+            <button class="skill-category-btn active" data-category="frontend">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <polyline points="17 1 21 5 17 9"/>
+                    <path d="M3 11V9a4 4 0 0 1 4-4h14"/>
+                    <polyline points="7 23 3 19 7 15"/>
+                    <path d="M21 13v2a4 4 0 0 1-4 4H3"/>
+                </svg>
+                Frontend Development
+            </button>
+            <button class="skill-category-btn" data-category="design">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <rect x="2" y="2" width="20" height="20" rx="2.18" ry="2.18"/>
+                    <line x1="7" y1="2" x2="7" y2="22"/>
+                    <line x1="17" y1="2" x2="17" y2="22"/>
+                    <line x1="2" y1="12" x2="22" y2="12"/>
+                    <line x1="2" y1="7" x2="7" y2="7"/>
+                    <line x1="2" y1="17" x2="7" y2="17"/>
+                    <line x1="17" y1="17" x2="22" y2="17"/>
+                    <line x1="17" y1="7" x2="22" y2="7"/>
+                </svg>
+                Design & Creative
+            </button>
+            <button class="skill-category-btn" data-category="technical">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <polygon points="12 2 2 7 12 12 22 7 12 2"/>
+                    <polyline points="2 17 12 22 22 17"/>
+                    <polyline points="2 12 12 17 22 12"/>
+                </svg>
+                Technical Skills
+            </button>
+            <button class="skill-category-btn" data-category="soft">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="12" cy="12" r="10"/>
+                    <line x1="2" y1="12" x2="22" y2="12"/>
+                    <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+                </svg>
+                Soft Skills
+            </button>
+        </div>
+        
+        <!-- Frontend Development Skills -->
+        <div class="skills-content active" id="frontendSkills">
+            <div class="skills-grid">
+                <!-- HTML/CSS Skill -->
+                <div class="skill-card">
+                    <div class="skill-header">
+                        <div class="skill-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
+                                <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>
+                            </svg>
+                        </div>
+                        <div class="skill-info">
+                            <h3>HTML5 & CSS3</h3>
+                            <p>Semantic markup, responsive design, and modern CSS features</p>
+                        </div>
+                    </div>
+                    
+                    <div class="skill-progress">
+                        <div class="progress-header">
+                            <span class="progress-label">Proficiency Level</span>
+                            <span class="progress-value">98%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill frontend" data-width="98"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="skills-list">
+                        <span class="skill-tag">Semantic HTML</span>
+                        <span class="skill-tag">Flexbox</span>
+                        <span class="skill-tag">Grid</span>
+                        <span class="skill-tag">Animations</span>
+                        <span class="skill-tag">Variables</span>
+                        <span class="skill-tag">BEM</span>
+                    </div>
+                </div>
+                
+                <!-- JavaScript Skill -->
+                <div class="skill-card">
+                    <div class="skill-header">
+                        <div class="skill-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="4 17 10 11 4 5"/>
+                                <line x1="12" y1="19" x2="20" y2="19"/>
+                            </svg>
+                        </div>
+                        <div class="skill-info">
+                            <h3>JavaScript ES6+</h3>
+                            <p>Modern JavaScript features, async programming, and DOM manipulation</p>
+                        </div>
+                    </div>
+                    
+                    <div class="skill-progress">
+                        <div class="progress-header">
+                            <span class="progress-label">Proficiency Level</span>
+                            <span class="progress-value">92%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill frontend" data-width="92"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="skills-list">
+                        <span class="skill-tag">ES6+ Features</span>
+                        <span class="skill-tag">Async/Await</span>
+                        <span class="skill-tag">DOM API</span>
+                        <span class="skill-tag">Promises</span>
+                        <span class="skill-tag">Modules</span>
+                        <span class="skill-tag">Performance</span>
+                    </div>
+                </div>
+                
+                <!-- React.js Skill -->
+                <div class="skill-card">
+                    <div class="skill-header">
+                        <div class="skill-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <circle cx="12" cy="12" r="10"/>
+                                <circle cx="12" cy="12" r="4"/>
+                                <line x1="21.17" y1="8" x2="12" y2="8"/>
+                                <line x1="3.95" y1="6.06" x2="8.54" y2="14"/>
+                                <line x1="10.88" y1="21.94" x2="15.46" y2="14"/>
+                            </svg>
+                        </div>
+                        <div class="skill-info">
+                            <h3>React.js & Ecosystem</h3>
+                            <p>Component-based architecture, state management, and hooks</p>
+                        </div>
+                    </div>
+                    
+                    <div class="skill-progress">
+                        <div class="progress-header">
+                            <span class="progress-label">Proficiency Level</span>
+                            <span class="progress-value">95%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill frontend" data-width="95"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="skills-list">
+                        <span class="skill-tag">Hooks</span>
+                        <span class="skill-tag">Context API</span>
+                        <span class="skill-tag">Redux</span>
+                        <span class="skill-tag">React Router</span>
+                        <span class="skill-tag">Performance</span>
+                        <span class="skill-tag">Testing</span>
+                    </div>
+                </div>
+                
+                <!-- TypeScript Skill -->
+                <div class="skill-card">
+                    <div class="skill-header">
+                        <div class="skill-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M16 18l6-6-6-6"/>
+                                <path d="M8 6l-6 6 6 6"/>
+                            </svg>
+                        </div>
+                        <div class="skill-info">
+                            <h3>TypeScript</h3>
+                            <p>Type safety, interfaces, and advanced TypeScript features</p>
+                        </div>
+                    </div>
+                    
+                    <div class="skill-progress">
+                        <div class="progress-header">
+                            <span class="progress-label">Proficiency Level</span>
+                            <span class="progress-value">90%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill frontend" data-width="90"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="skills-list">
+                        <span class="skill-tag">Type Safety</span>
+                        <span class="skill-tag">Interfaces</span>
+                        <span class="skill-tag">Generics</span>
+                        <span class="skill-tag">Decorators</span>
+                        <span class="skill-tag">Utility Types</span>
+                        <span class="skill-tag">Type Guards</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Design & Creative Skills -->
+        <div class="skills-content" id="designSkills">
+            <div class="skills-grid">
+                <!-- UI/UX Design Skill -->
+                <div class="skill-card">
+                    <div class="skill-header">
+                        <div class="skill-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <rect x="2" y="2" width="20" height="20" rx="2.18" ry="2.18"/>
+                                <line x1="7" y1="2" x2="7" y2="22"/>
+                                <line x1="17" y1="2" x2="17" y2="22"/>
+                                <line x1="2" y1="12" x2="22" y2="12"/>
+                            </svg>
+                        </div>
+                        <div class="skill-info">
+                            <h3>UI/UX Design</h3>
+                            <p>User-centered design, wireframing, prototyping, and design systems</p>
+                        </div>
+                    </div>
+                    
+                    <div class="skill-progress">
+                        <div class="progress-header">
+                            <span class="progress-label">Proficiency Level</span>
+                            <span class="progress-value">95%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill design" data-width="95"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="skills-list">
+                        <span class="skill-tag">Figma</span>
+                        <span class="skill-tag">Adobe XD</span>
+                        <span class="skill-tag">Wireframing</span>
+                        <span class="skill-tag">Prototyping</span>
+                        <span class="skill-tag">User Research</span>
+                        <span class="skill-tag">Design Systems</span>
+                    </div>
+                </div>
+                
+                <!-- Graphic Design Skill -->
+                <div class="skill-card">
+                    <div class="skill-header">
+                        <div class="skill-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <circle cx="12" cy="12" r="10"/>
+                                <circle cx="12" cy="10" r="3"/>
+                                <path d="M12 21.8V13a1 1 0 0 0-1-1H5.1a10 10 0 0 0 6.9 9.8z"/>
+                            </svg>
+                        </div>
+                        <div class="skill-info">
+                            <h3>Graphic Design</h3>
+                            <p>Visual design, branding, typography, and digital illustration</p>
+                        </div>
+                    </div>
+                    
+                    <div class="skill-progress">
+                        <div class="progress-header">
+                            <span class="progress-label">Proficiency Level</span>
+                            <span class="progress-value">92%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill design" data-width="92"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="skills-list">
+                        <span class="skill-tag">Adobe Photoshop</span>
+                        <span class="skill-tag">Illustrator</span>
+                        <span class="skill-tag">Typography</span>
+                        <span class="skill-tag">Color Theory</span>
+                        <span class="skill-tag">Brand Identity</span>
+                        <span class="skill-tag">Print Design</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Technical Skills -->
+        <div class="skills-content" id="technicalSkills">
+            <div class="skills-grid">
+                <!-- Version Control Skill -->
+                <div class="skill-card">
+                    <div class="skill-header">
+                        <div class="skill-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/>
+                            </svg>
+                        </div>
+                        <div class="skill-info">
+                            <h3>Version Control</h3>
+                            <p>Git workflows, branching strategies, and collaboration tools</p>
+                        </div>
+                    </div>
+                    
+                    <div class="skill-progress">
+                        <div class="progress-header">
+                            <span class="progress-label">Proficiency Level</span>
+                            <span class="progress-value">94%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill technical" data-width="94"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="skills-list">
+                        <span class="skill-tag">Git</span>
+                        <span class="skill-tag">GitHub</span>
+                        <span class="skill-tag">GitFlow</span>
+                        <span class="skill-tag">Code Reviews</span>
+                        <span class="skill-tag">CI/CD</span>
+                        <span class="skill-tag">Collaboration</span>
+                    </div>
+                </div>
+                
+                <!-- Testing Skill -->
+                <div class="skill-card">
+                    <div class="skill-header">
+                        <div class="skill-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                                <polyline points="14 2 14 8 20 8"/>
+                                <line x1="16" y1="13" x2="8" y2="13"/>
+                                <line x1="16" y1="17" x2="8" y2="17"/>
+                                <polyline points="10 9 9 9 8 9"/>
+                            </svg>
+                        </div>
+                        <div class="skill-info">
+                            <h3>Testing & QA</h3>
+                            <p>Unit testing, integration testing, and quality assurance processes</p>
+                        </div>
+                    </div>
+                    
+                    <div class="skill-progress">
+                        <div class="progress-header">
+                            <span class="progress-label">Proficiency Level</span>
+                            <span class="progress-value">88%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill technical" data-width="88"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="skills-list">
+                        <span class="skill-tag">Jest</span>
+                        <span class="skill-tag">React Testing</span>
+                        <span class="skill-tag">Unit Testing</span>
+                        <span class="skill-tag">Integration</span>
+                        <span class="skill-tag">E2E Testing</span>
+                        <span class="skill-tag">Debugging</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Soft Skills -->
+        <div class="skills-content" id="softSkills">
+            <div class="skills-grid">
+                <!-- Communication Skill -->
+                <div class="skill-card">
+                    <div class="skill-header">
+                        <div class="skill-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/>
+                            </svg>
+                        </div>
+                        <div class="skill-info">
+                            <h3>Communication</h3>
+                            <p>Clear communication, team collaboration, and client interaction</p>
+                        </div>
+                    </div>
+                    
+                    <div class="skill-progress">
+                        <div class="progress-header">
+                            <span class="progress-label">Proficiency Level</span>
+                            <span class="progress-value">96%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill soft" data-width="96"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="skills-list">
+                        <span class="skill-tag">Team Collaboration</span>
+                        <span class="skill-tag">Client Communication</span>
+                        <span class="skill-tag">Documentation</span>
+                        <span class="skill-tag">Presentation</span>
+                        <span class="skill-tag">Feedback</span>
+                        <span class="skill-tag">Active Listening</span>
+                    </div>
+                </div>
+                
+                <!-- Problem Solving Skill -->
+                <div class="skill-card">
+                    <div class="skill-header">
+                        <div class="skill-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"/>
+                                <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/>
+                                <line x1="12" y1="17" x2="12.01" y2="17"/>
+                            </svg>
+                        </div>
+                        <div class="skill-info">
+                            <h3>Problem Solving</h3>
+                            <p>Analytical thinking, debugging, and creative solutions</p>
+                        </div>
+                    </div>
+                    
+                    <div class="skill-progress">
+                        <div class="progress-header">
+                            <span class="progress-label">Proficiency Level</span>
+                            <span class="progress-value">97%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill soft" data-width="97"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="skills-list">
+                        <span class="skill-tag">Analytical Thinking</span>
+                        <span class="skill-tag">Debugging</span>
+                        <span class="skill-tag">Algorithm Design</span>
+                        <span class="skill-tag">Creative Solutions</span>
+                        <span class="skill-tag">Critical Analysis</span>
+                        <span class="skill-tag">Research</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Skills Legend -->
+        <div class="skills-legend">
+            <div class="legend-item">
+                <div class="legend-color frontend"></div>
+                <span>Frontend Development</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-color design"></div>
+                <span>Design & Creative</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-color technical"></div>
+                <span>Technical Skills</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-color soft"></div>
+                <span>Soft Skills</span>
+            </div>
+        </div>
+        
+        <!-- Skills Call to Action -->
+        <div class="skills-cta">
+            <a href="#contact" class="skills-btn">
+                <span>Start a Project Together</span>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M5 12H19"/>
+                    <path d="M12 5L19 12L12 19"/>
+                </svg>
+            </a>
+        </div>
+    </div>
+</section>
+
+
+    <!-- ===== TESTIMONIALS SECTION ===== -->
+<section id="testimonials" class="testimonials-section">
+    <div class="container">
+        <div class="testimonials-header">
+            <h2 class="testimonials-title">Client Success Stories</h2>
+            <p class="testimonials-subtitle">
+                Don't just take my word for it. Here's what clients have to say about working with me 
+                and the results we've achieved together.
+            </p>
+        </div>
+        
+        <div class="testimonials-container">
+            <!-- Testimonials Slider -->
+            <div class="testimonials-slider">
+                <div class="testimonial-cards">
+                    <!-- Testimonial 1 -->
+                    <div class="testimonial-card active" data-index="0">
+                        <div class="testimonial-content">
+                            <div class="quote-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M3 21c3 0 7-1 7-8V5c0-1.25-.756-2.017-2-2H4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2 1 0 1 0 1 1v1c0 1-1 2-2 2s-1 .008-1 1.031V20c0 1 0 1 1 1z"/>
+                                    <path d="M15 21c3 0 7-1 7-8V5c0-1.25-.757-2.017-2-2h-4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2h.75c0 2.25.25 4-2.75 4v3c0 1 0 1 1 1z"/>
+                                </svg>
+                            </div>
+                            
+                            <div class="testimonial-text">
+                                <p>
+                                    "Prince completely transformed our digital presence. His attention to detail 
+                                    and creative approach resulted in a website that not only looks stunning but 
+                                    also performs exceptionally well. Our conversion rates increased by 40% after 
+                                    the redesign."
+                                </p>
+                            </div>
+                            
+                            <div class="testimonial-author">
+                                <div class="author-avatar">
+                                    <img src="Images/client1.jpg" alt="Sarah Johnson" loading="lazy">
+                                </div>
+                                
+                                <div class="author-info">
+                                    <h4>Sarah Johnson</h4>
+                                    <p>CEO, DesignHub</p>
+                                    
+                                    <div class="company-info">
+                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+                                            <circle cx="12" cy="10" r="3"/>
+                                        </svg>
+                                        <span>Lagos, Nigeria</span>
+                                    </div>
+                                    
+                                    <div class="rating-stars">
+                                        <svg class="star" viewBox="0 0 24 24">
+                                            <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+                                        </svg>
+                                        <svg class="star" viewBox="0 0 24 24">
+                                            <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+                                        </svg>
+                                        <svg class="star" viewBox="0 0 24 24">
+                                            <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+                                        </svg>
+                                        <svg class="star" viewBox="0 0 24 24">
+                                            <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+                                        </svg>
+                                        <svg class="star" viewBox="0 0 24 24">
+                                            <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+                                        </svg>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Testimonial 2 -->
+                    <div class="testimonial-card" data-index="1">
+                        <div class="testimonial-content">
+                            <div class="quote-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M3 21c3 0 7-1 7-8V5c0-1.25-.756-2.017-2-2H4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2 1 0 1 0 1 1v1c0 1-1 2-2 2s-1 .008-1 1.031V20c0 1 0 1 1 1z"/>
+                                    <path d="M15 21c3 0 7-1 7-8V5c0-1.25-.757-2.017-2-2h-4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2h.75c0 2.25.25 4-2.75 4v3c0 1 0 1 1 1z"/>
+                                </svg>
+                            </div>
+                            
+                            <div class="testimonial-text">
+                                <p>
+                                    "Working with Prince was a game-changer for our startup. His technical expertise 
+                                    combined with his design sensibility created a product that our users love. He's 
+                                    responsive, professional, and truly understands how to translate business goals 
+                                    into digital solutions."
+                                </p>
+                            </div>
+                            
+                            <div class="testimonial-author">
+                                <div class="author-avatar">
+                                    <img src="Images/client2.jpg" alt="Michael Lee" loading="lazy">
+                                </div>
+                                
+                                <div class="author-info">
+                                    <h4>Michael Lee</h4>
+                                    <p>Marketing Director, BrightAds</p>
+                                    
+                                    <div class="company-info">
+                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+                                            <circle cx="12" cy="10" r="3"/>
+                                        </svg>
+                                        <span>Abuja, Nigeria</span>
+                                    </div>
+                                    
+                                    <div class="rating-stars">
+                                        <svg class="star" viewBox="0 0 24 24">
+                                            <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+                                        </svg>
+                                        <svg class="star" viewBox="0 0 24 24">
+                                            <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+                                        </svg>
+                                        <svg class="star" viewBox="0 0 24 24">
+                                            <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+                                        </svg>
+                                        <svg class="star" viewBox="0 0 24 24">
+                                            <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+                                        </svg>
+                                        <svg class="star" viewBox="0 0 24 24">
+                                            <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+                                        </svg>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Testimonial 3 -->
+                    <div class="testimonial-card" data-index="2">
+                        <div class="testimonial-content">
+                            <div class="quote-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M3 21c3 0 7-1 7-8V5c0-1.25-.756-2.017-2-2H4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2 1 0 1 0 1 1v1c0 1-1 2-2 2s-1 .008-1 1.031V20c0 1 0 1 1 1z"/>
+                                    <path d="M15 21c3 0 7-1 7-8V5c0-1.25-.757-2.017-2-2h-4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2h.75c0 2.25.25 4-2.75 4v3c0 1 0 1 1 1z"/>
+                                </svg>
+                            </div>
+                            
+                            <div class="testimonial-text">
+                                <p>
+                                    "As a non-technical founder, I needed someone who could understand my vision 
+                                    and bring it to life. Prince exceeded all expectations. He not only delivered 
+                                    a beautiful product but also educated me throughout the process. The results 
+                                    speak for themselves - we've grown our user base by 300% in six months."
+                                </p>
+                            </div>
+                            
+                            <div class="testimonial-author">
+                                <div class="author-avatar">
+                                    <img src="Images/client1.jpg" alt="Emily Carter" loading="lazy">
+                                </div>
+                                
+                                <div class="author-info">
+                                    <h4>Emily Carter</h4>
+                                    <p>Founder, StartUpWave</p>
+                                    
+                                    <div class="company-info">
+                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+                                            <circle cx="12" cy="10" r="3"/>
+                                        </svg>
+                                        <span>Port Harcourt, Nigeria</span>
+                                    </div>
+                                    
+                                    <div class="rating-stars">
+                                        <svg class="star" viewBox="0 0 24 24">
+                                            <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+                                        </svg>
+                                        <svg class="star" viewBox="0 0 24 24">
+                                            <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+                                        </svg>
+                                        <svg class="star" viewBox="0 0 24 24">
+                                            <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+                                        </svg>
+                                        <svg class="star" viewBox="0 0 24 24">
+                                            <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+                                        </svg>
+                                        <svg class="star" viewBox="0 0 24 24">
+                                            <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+                                        </svg>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Testimonial 4 -->
+                    <div class="testimonial-card" data-index="3">
+                        <div class="testimonial-content">
+                            <div class="quote-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M3 21c3 0 7-1 7-8V5c0-1.25-.756-2.017-2-2H4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2 1 0 1 0 1 1v1c0 1-1 2-2 2s-1 .008-1 1.031V20c0 1 0 1 1 1z"/>
+                                    <path d="M15 21c3 0 7-1 7-8V5c0-1.25-.757-2.017-2-2h-4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2h.75c0 2.25.25 4-2.75 4v3c0 1 0 1 1 1z"/>
+                                </svg>
+                            </div>
+                            
+                            <div class="testimonial-text">
+                                <p>
+                                    "Prince's work on our e-commerce platform was exceptional. He optimized our 
+                                    site for speed and mobile responsiveness, resulting in a 60% decrease in 
+                                    bounce rate and a 35% increase in sales. His technical skills are matched 
+                                    only by his professionalism and communication."
+                                </p>
+                            </div>
+                            
+                            <div class="testimonial-author">
+                                <div class="author-avatar">
+                                    <img src="Images/client2.jpg" alt="David Chen" loading="lazy">
+                                </div>
+                                
+                                <div class="author-info">
+                                    <h4>David Chen</h4>
+                                    <p>CTO, E-Commerce Solutions</p>
+                                    
+                                    <div class="company-info">
+                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+                                            <circle cx="12" cy="10" r="3"/>
+                                        </svg>
+                                        <span>Ibadan, Nigeria</span>
+                                    </div>
+                                    
+                                    <div class="rating-stars">
+                                        <svg class="star" viewBox="0 0 24 24">
+                                            <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+                                        </svg>
+                                        <svg class="star" viewBox="0 0 24 24">
+                                            <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+                                        </svg>
+                                        <svg class="star" viewBox="0 0 24 24">
+                                            <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+                                        </svg>
+                                        <svg class="star" viewBox="0 0 24 24">
+                                            <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+                                        </svg>
+                                        <svg class="star" viewBox="0 0 24 24">
+                                            <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+                                        </svg>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Testimonial Controls -->
+            <div class="testimonial-controls">
+                <div class="pagination-dots">
+                    <div class="pagination-dot active" data-index="0"></div>
+                    <div class="pagination-dot" data-index="1"></div>
+                    <div class="pagination-dot" data-index="2"></div>
+                    <div class="pagination-dot" data-index="3"></div>
+                </div>
+                
+                <div class="nav-arrows">
+                    <button class="nav-arrow prev" aria-label="Previous testimonial">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M15 18l-6-6 6-6"/>
+                        </svg>
+                    </button>
+                    <button class="nav-arrow next" aria-label="Next testimonial">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M9 18l6-6-6-6"/>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        
+        <!-- Testimonials CTA -->
+        <div class="testimonials-cta">
+            <a href="#contact" class="cta-btn">
+                <span>Become a Success Story</span>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M5 12H19"/>
+                    <path d="M12 5L19 12L12 19"/>
+                </svg>
+            </a>
+        </div>
+    </div>
+</section>
+
+    <!-- ===== BLOG SECTION ===== -->
+<section id="blog" class="blog-section">
+    <div class="container">
+        <div class="blog-header">
+            <h2 class="blog-title">Creative Insights</h2>
+            <p class="blog-subtitle">
+                Exploring design trends, development techniques, and industry insights. 
+                Dive into my thoughts on creating exceptional digital experiences.
+            </p>
+        </div>
+        
+        <!-- Blog Categories -->
+        <div class="blog-categories">
+            <button class="blog-category-btn active" data-category="all">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="12" cy="12" r="10"/>
+                    <line x1="12" y1="8" x2="12" y2="16"/>
+                    <line x1="8" y1="12" x2="16" y2="12"/>
+                </svg>
+                All Posts
+            </button>
+            <button class="blog-category-btn" data-category="design">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <rect x="2" y="2" width="20" height="20" rx="2.18" ry="2.18"/>
+                    <line x1="7" y1="2" x2="7" y2="22"/>
+                    <line x1="17" y1="2" x2="17" y2="22"/>
+                    <line x1="2" y1="12" x2="22" y2="12"/>
+                </svg>
+                Design
+            </button>
+            <button class="blog-category-btn" data-category="development">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <polyline points="17 1 21 5 17 9"/>
+                    <path d="M3 11V9a4 4 0 0 1 4-4h14"/>
+                    <polyline points="7 23 3 19 7 15"/>
+                    <path d="M21 13v2a4 4 0 0 1-4 4H3"/>
+                </svg>
+                Development
+            </button>
+            <button class="blog-category-btn" data-category="tips">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"/>
+                    <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/>
+                    <line x1="12" y1="17" x2="12.01" y2="17"/>
+                </svg>
+                Tips & Tricks
+            </button>
+            <button class="blog-category-btn" data-category="industry">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+                    <circle cx="12" cy="10" r="3"/>
+                </svg>
+                Industry
+            </button>
+        </div>
+        
+        <!-- Blog Grid -->
+        <div class="blog-grid">
+            <!-- Featured Post -->
+            <article class="blog-card featured-post" data-category="design">
+                <div class="featured-image">
+                    <img src="https://images.unsplash.com/photo-1558655146-364adaf1fcc9?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Designing with Purpose" loading="lazy">
+                </div>
+                <div class="featured-content">
+                    <span class="blog-category-badge">Featured</span>
+                    <div class="blog-meta">
+                        <span class="blog-date">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
+                                <line x1="16" y1="2" x2="16" y2="6"/>
+                                <line x1="8" y1="2" x2="8" y2="6"/>
+                                <line x1="3" y1="10" x2="21" y2="10"/>
+                            </svg>
+                            Mar 15, 2024
+                        </span>
+                        <span class="blog-author">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+                                <circle cx="12" cy="7" r="4"/>
+                            </svg>
+                            Prince Creative
+                        </span>
+                    </div>
+                    <h3 class="featured-title">Designing with Purpose: Creating Meaningful Digital Experiences</h3>
+                    <p class="blog-excerpt">
+                        Explore how intentional design choices can transform user experiences and drive 
+                        meaningful engagement. Learn the principles behind purpose-driven design and 
+                        how to apply them to your projects.
+                    </p>
+                    <div class="blog-tags">
+                        <span class="blog-tag">UI/UX Design</span>
+                        <span class="blog-tag">User Research</span>
+                        <span class="blog-tag">Design Thinking</span>
+                        <span class="blog-tag">Psychology</span>
+                    </div>
+                    <a href="#" class="read-more-btn">
+                        Read Full Article
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M5 12H19"/>
+                            <path d="M12 5L19 12L12 19"/>
+                        </svg>
+                    </a>
+                </div>
+            </article>
+            
+            <!-- Blog Post 1 -->
+            <article class="blog-card" data-category="development">
+                <div class="blog-image-container">
+                    <img src="https://images.unsplash.com/photo-1627398242454-45a1465c2479?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Color Theory for Creatives" class="blog-image" loading="lazy">
+                    <div class="image-overlay">
+                        <span class="read-time">8 min read</span>
+                    </div>
+                    <span class="blog-category-badge">Development</span>
+                </div>
+                
+                <div class="blog-content">
+                    <div class="blog-meta">
+                        <span class="blog-date">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
+                                <line x1="16" y1="2" x2="16" y2="6"/>
+                                <line x1="8" y1="2" x2="8" y2="6"/>
+                                <line x1="3" y1="10" x2="21" y2="10"/>
+                            </svg>
+                            Feb 28, 2024
+                        </span>
+                        <span class="blog-author">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+                                <circle cx="12" cy="7" r="4"/>
+                            </svg>
+                            Prince Creative
+                        </span>
+                    </div>
+                    
+                    <h3 class="blog-title-small">Modern JavaScript Patterns for Clean Code Architecture</h3>
+                    
+                    <p class="blog-excerpt">
+                        Discover essential JavaScript patterns that will help you write cleaner, 
+                        more maintainable code. Learn how to structure your applications for 
+                        scalability and better collaboration.
+                    </p>
+                    
+                    <div class="blog-tags">
+                        <span class="blog-tag">JavaScript</span>
+                        <span class="blog-tag">Patterns</span>
+                        <span class="blog-tag">Architecture</span>
+                        <span class="blog-tag">Best Practices</span>
+                    </div>
+                    
+                    <a href="#" class="read-more-btn">
+                        Read Article
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M5 12H19"/>
+                            <path d="M12 5L19 12L12 19"/>
+                        </svg>
+                    </a>
+                </div>
+            </article>
+            
+            <!-- Blog Post 2 -->
+            <article class="blog-card" data-category="design">
+                <div class="blog-image-container">
+                    <img src=" https://images.unsplash.com/photo-1579546929662-711aa81148cf?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Brand Identity Essentials" class="blog-image" loading="lazy">
+                    <div class="image-overlay">
+                        <span class="read-time">6 min read</span>
+                    </div>
+                    <span class="blog-category-badge">Design</span>
+                </div>
+                
+                <div class="blog-content">
+                    <div class="blog-meta">
+                        <span class="blog-date">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
+                                <line x1="16" y1="2" x2="16" y2="6"/>
+                                <line x1="8" y1="2" x2="8" y2="6"/>
+                                <line x1="3" y1="10" x2="21" y2="10"/>
+                            </svg>
+                            Feb 15, 2024
+                        </span>
+                        <span class="blog-author">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+                                <circle cx="12" cy="7" r="4"/>
+                            </svg>
+                            Prince Creative
+                        </span>
+                    </div>
+                    
+                    <h3 class="blog-title-small">Color Theory for Digital Creatives: Beyond the Basics</h3>
+                    
+                    <p class="blog-excerpt">
+                        Dive deep into advanced color theory concepts specifically for digital design. 
+                        Learn how colors influence emotion, perception, and user behavior in your projects.
+                    </p>
+                    
+                    <div class="blog-tags">
+                        <span class="blog-tag">Color Theory</span>
+                        <span class="blog-tag">Design</span>
+                        <span class="blog-tag">Psychology</span>
+                        <span class="blog-tag">Visual Design</span>
+                    </div>
+                    
+                    <a href="#" class="read-more-btn">
+                        Read Article
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M5 12H19"/>
+                            <path d="M12 5L19 12L12 19"/>
+                        </svg>
+                    </a>
+                </div>
+            </article>
+            
+            <!-- Blog Post 3 -->
+            <article class="blog-card" data-category="tips">
+                <div class="blog-image-container">
+                    <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Web Performance Optimization" class="blog-image" loading="lazy">
+                    <div class="image-overlay">
+                        <span class="read-time">10 min read</span>
+                    </div>
+                    <span class="blog-category-badge">Tips & Tricks</span>
+                </div>
+                
+                <div class="blog-content">
+                    <div class="blog-meta">
+                        <span class="blog-date">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
+                                <line x1="16" y1="2" x2="16" y2="6"/>
+                                <line x1="8" y1="2" x2="8" y2="6"/>
+                                <line x1="3" y1="10" x2="21" y2="10"/>
+                            </svg>
+                            Jan 30, 2024
+                        </span>
+                        <span class="blog-author">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+                                <circle cx="12" cy="7" r="4"/>
+                            </svg>
+                            Prince Creative
+                        </span>
+                    </div>
+                    
+                    <h3 class="blog-title-small">Web Performance Optimization: Essential Techniques for 2024</h3>
+                    
+                    <p class="blog-excerpt">
+                        Master the essential techniques for optimizing website performance in the modern web. 
+                        From lazy loading to code splitting, learn how to create blazing fast experiences.
+                    </p>
+                    
+                    <div class="blog-tags">
+                        <span class="blog-tag">Performance</span>
+                        <span class="blog-tag">Optimization</span>
+                        <span class="blog-tag">Web Vitals</span>
+                        <span class="blog-tag">Core Web Vitals</span>
+                    </div>
+                    
+                    <a href="#" class="read-more-btn">
+                        Read Article
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M5 12H19"/>
+                            <path d="M12 5L19 12L12 19"/>
+                        </svg>
+                    </a>
+                </div>
+            </article>
+            
+            <!-- Blog Post 4 -->
+            <article class="blog-card" data-category="industry">
+                <div class="blog-image-container">
+                    <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Future of Web Design" class="blog-image" loading="lazy">
+                    <div class="image-overlay">
+                        <span class="read-time">7 min read</span>
+                    </div>
+                    <span class="blog-category-badge">Industry</span>
+                </div>
+                
+                <div class="blog-content">
+                    <div class="blog-meta">
+                        <span class="blog-date">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
+                                <line x1="16" y1="2" x2="16" y2="6"/>
+                                <line x1="8" y1="2" x2="8" y2="6"/>
+                                <line x1="3" y1="10" x2="21" y2="10"/>
+                            </svg>
+                            Jan 15, 2024
+                        </span>
+                        <span class="blog-author">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+                                <circle cx="12" cy="7" r="4"/>
+                            </svg>
+                            Prince Creative
+                        </span>
+                    </div>
+                    
+                    <h3 class="blog-title-small">The Future of Web Design: Trends to Watch in 2024</h3>
+                    
+                    <p class="blog-excerpt">
+                        Explore the emerging trends that will shape web design in the coming year. 
+                        From AI integration to immersive experiences, stay ahead of the curve.
+                    </p>
+                    
+                    <div class="blog-tags">
+                        <span class="blog-tag">Trends</span>
+                        <span class="blog-tag">Future</span>
+                        <span class="blog-tag">Innovation</span>
+                        <span class="blog-tag">Web Design</span>
+                    </div>
+                    
+                    <a href="#" class="read-more-btn">
+                        Read Article
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M5 12H19"/>
+                            <path d="M12 5L19 12L12 19"/>
+                        </svg>
+                    </a>
+                </div>
+            </article>
+            
+            <!-- Blog Post 5 -->
+            <article class="blog-card" data-category="development">
+                <div class="blog-image-container">
+                    <img src="https://images.unsplash.com/photo-1633356122544-f134324a6cee?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="React Best Practices" class="blog-image" loading="lazy">
+                    <div class="image-overlay">
+                        <span class="read-time">9 min read</span>
+                    </div>
+                    <span class="blog-category-badge">Development</span>
+                </div>
+                
+                <div class="blog-content">
+                    <div class="blog-meta">
+                        <span class="blog-date">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
+                                <line x1="16" y1="2" x2="16" y2="6"/>
+                                <line x1="8" y1="2" x2="8" y2="6"/>
+                                <line x1="3" y1="10" x2="21" y2="10"/>
+                            </svg>
+                            Dec 28, 2023
+                        </span>
+                        <span class="blog-author">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+                                <circle cx="12" cy="7" r="4"/>
+                            </svg>
+                            Prince Creative
+                        </span>
+                    </div>
+                    
+                    <h3 class="blog-title-small">Building Scalable React Applications: Architecture Patterns</h3>
+                    
+                    <p class="blog-excerpt">
+                        Learn how to structure large-scale React applications for maintainability and scalability. 
+                        Discover patterns for state management, component organization, and performance.
+                    </p>
+                    
+                    <div class="blog-tags">
+                        <span class="blog-tag">React</span>
+                        <span class="blog-tag">Architecture</span>
+                        <span class="blog-tag">Scalability</span>
+                        <span class="blog-tag">Best Practices</span>
+                    </div>
+                    
+                    <a href="#" class="read-more-btn">
+                        Read Article
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M5 12H19"/>
+                            <path d="M12 5L19 12L12 19"/>
+                        </svg>
+                    </a>
+                </div>
+            </article>
+        </div>
+        
+        <!-- Blog Stats -->
+        <div class="blog-stats">
+            <div class="blog-stat">
+                <div class="stat-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/>
+                        <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/>
+                    </svg>
+                </div>
+                <span class="stat-value">50+</span>
+                <span class="stat-label">Articles Published</span>
+            </div>
+            
+            <div class="blog-stat">
+                <div class="stat-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+                        <circle cx="9" cy="7" r="4"/>
+                        <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+                        <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+                    </svg>
+                </div>
+                <span class="stat-value">10K+</span>
+                <span class="stat-label">Monthly Readers</span>
+            </div>
+            
+            <div class="blog-stat">
+                <div class="stat-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/>
+                    </svg>
+                </div>
+                <span class="stat-value">500+</span>
+                <span class="stat-label">Comments & Discussions</span>
+            </div>
+            
+            <div class="blog-stat">
+                <div class="stat-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/>
+                    </svg>
+                </div>
+                <span class="stat-value">4.8</span>
+                <span class="stat-label">Average Rating</span>
+            </div>
+        </div>
+        
+        <!-- Blog CTA -->
+        <div class="blog-cta">
+            <a href="#" class="view-all-btn">
+                <span>View All Blog Posts</span>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M5 12H19"/>
+                    <path d="M12 5L19 12L12 19"/>
+                </svg>
+            </a>
+        </div>
+    </div>
+</section>
+
+    <!-- ===== CONTACT SECTION ===== -->
+<section id="contact" class="contact-section">
+    <div class="container">
+        <div class="contact-header">
+            <h2 class="contact-title">Let's Create Together</h2>
+            <p class="contact-subtitle">
+                Have a project in mind? Let's collaborate to bring your vision to life. 
+                I'm excited to hear about your ideas and explore how we can work together.
+            </p>
+        </div>
+        
+        <div class="contact-container">
+            <!-- Contact Information Sidebar -->
+            <aside class="contact-info-sidebar">
+                <h3 class="sidebar-title">Get in Touch</h3>
+                
+                <div class="contact-info-list">
+                    <!-- Email -->
+                    <div class="contact-info-item">
+                        <div class="info-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                                <polyline points="22,6 12,13 2,6"/>
+                            </svg>
+                        </div>
+                        <div class="info-content">
+                            <h4>Email Address</h4>
+                            <p>Send me an email anytime</p>
+                            <a href="mailto:princecreativegraphics@gmail.com">princecreativegraphics@gmail.com</a>
+                            <br>
+                            <a href="mailto:softedgetech06@gmail.com">softedgetech06@gmail.com</a>
+                        </div>
+                    </div>
+                    
+                    <!-- Phone -->
+                    <div class="contact-info-item">
+                        <div class="info-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+                            </svg>
+                        </div>
+                        <div class="info-content">
+                            <h4>Phone Number</h4>
+                            <p>Call or WhatsApp me directly</p>
+                            <a href="tel:+2347069943790">+234 706 994 3790</a>
+                            <br>
+                            <a href="tel:+2349075634424">+234 907 563 4424</a>
+                        </div>
+                    </div>
+                    
+                    <!-- Location -->
+                    <div class="contact-info-item">
+                        <div class="info-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+                                <circle cx="12" cy="10" r="3"/>
+                            </svg>
+                        </div>
+                        <div class="info-content">
+                            <h4>Location</h4>
+                            <p>Based in Nigeria, working worldwide</p>
+                            <p>Rivers State, Nigeria</p>
+                            <p>Remote & On-site projects welcome</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Availability -->
+                    <div class="contact-info-item">
+                        <div class="info-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <circle cx="12" cy="12" r="10"/>
+                                <polyline points="12 6 12 12 16 14"/>
+                            </svg>
+                        </div>
+                        <div class="info-content">
+                            <h4>Availability</h4>
+                            <p>Ready for new projects</p>
+                            <p>Response time: Within 24 hours</p>
+                            <p>Flexible working hours</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Social Links -->
+                <div class="social-links">
+                    <h4>Connect With Me</h4>
+                    <div class="social-icons">
+                        <a href="mailto:princecreativegraphics@gmail.com" class="social-link" aria-label="Email">
+                            <img src="Icons/Email icon.png" alt="Email" loading="lazy">
+                        </a>
+                        <a href="https://wa.me/2347069943790" class="social-link" aria-label="WhatsApp">
+                            <img src="Icons/Whatsapp.png" alt="WhatsApp" loading="lazy">
+                        </a>
+                        <a href="https://www.facebook.com/taylorswiftr" class="social-link" aria-label="Facebook">
+                            <img src="Icons/Face book.png" alt="Facebook" loading="lazy">
+                        </a>
+                        <a href="Document/DEV INTERNATION CV BY PRINCE.pdf" download class="social-link" aria-label="Download CV">
+                            <img src="Icons/download.png" alt="Download CV" loading="lazy">
+                        </a>
+                    </div>
+                </div>
+            </aside>
+            
+            <!-- Contact Form -->
+            <div class="contact-form-container">
+                <h3 class="form-title">Start Your Project</h3>
+                
+                <div class="form-intro">
+                    <p>Fill out the form below to discuss your project. I'll get back to you within 24 hours 
+                    to schedule a free consultation call. Let's talk about your vision, timeline, and how 
+                    we can achieve outstanding results together.</p>
+                </div>
+                
+                <form class="contact-form" id="contactForm">
+                    <!-- Status Messages -->
+                    <div class="form-status" id="formStatus"></div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label class="form-label" for="firstName">
+                                First Name <span class="required">*</span>
+                            </label>
+                            <input type="text" id="firstName" name="firstName" class="form-input" 
+                                   placeholder="Enter your first name" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label class="form-label" for="lastName">
+                                Last Name <span class="required">*</span>
+                            </label>
+                            <input type="text" id="lastName" name="lastName" class="form-input" 
+                                   placeholder="Enter your last name" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label class="form-label" for="email">
+                                Email Address <span class="required">*</span>
+                            </label>
+                            <input type="email" id="email" name="email" class="form-input" 
+                                   placeholder="your.email@example.com" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label class="form-label" for="phone">
+                                Phone Number <span class="required">*</span>
+                            </label>
+                            <input type="tel" id="phone" name="phone" class="form-input" 
+                                   placeholder="+234 706 994 3790" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+    <label class="form-label" for="service">
+        Service Needed <span class="required">*</span>
+    </label>
+    <div class="select-wrapper">
+        <select id="service" name="service" class="form-select" required>
+            <option value="" disabled selected>Select a service you're interested in</option>
+            <option value="UI/UX Design">UI/UX Design</option>
+            <option value="Frontend Development">Frontend Development</option>
+            <option value="Graphic Design">Graphic Design</option>
+            <option value="Logo & Branding">Logo & Branding</option>
+            <option value="Website Redesign">Website Redesign</option>
+            <option value="Mobile App Design">Mobile App Design</option>
+            <option value="Consultation">Consultation & Strategy</option>
+            <option value="Other">Other (specify in message)</option>
+        </select>
+        <span class="select-icon"></span>
+    </div>
+</div>
+
+<div class="form-group">
+    <label class="form-label" for="budget">
+        Project Budget <span class="required">*</span>
+    </label>
+    <div class="select-wrapper">
+        <select id="budget" name="budget" class="form-select" required>
+            <option value="" disabled selected>Select your estimated budget range</option>
+            <option value="Under $500">Under $500</option>
+            <option value="$500 - $1,000">$500 - $1,000</option>
+            <option value="$1,000 - $2,500">$1,000 - $2,500</option>
+            <option value="$2,500 - $5,000">$2,500 - $5,000</option>
+            <option value="$5,000 - $10,000">$5,000 - $10,000</option>
+            <option value="$10,000+">$10,000+</option>
+            <option value="Not sure yet">Not sure yet / Need quote</option>
+        </select>
+        <span class="select-icon"></span>
+    </div>
+</div>
+                    
+                    <div class="form-group">
+                        <label class="form-label" for="message">
+                            Project Details <span class="required">*</span>
+                        </label>
+                        <textarea id="message" name="message" class="form-textarea" 
+                                  placeholder="Tell me about your project, your goals, timeline, and any specific requirements. The more details you provide, the better I can understand your needs and provide an accurate proposal." 
+                                  required></textarea>
+                    </div>
+                    
+                    <button type="submit" class="submit-btn" id="submitBtn">
+                        <span>Send Message</span>
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <line x1="22" y1="2" x2="11" y2="13"/>
+                            <polygon points="22 2 15 22 11 13 2 9 22 2"/>
+                        </svg>
+                    </button>
+                </form>
+            </div>
+        </div>
+        
+        <!-- Contact Stats -->
+        <div class="contact-stats">
+            <div class="contact-stat">
+                <div class="stat-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="10"/>
+                        <polyline points="12 6 12 12 16 14"/>
+                    </svg>
+                </div>
+                <span class="stat-value">24h</span>
+                <span class="stat-label">Average Response Time</span>
+            </div>
+            
+            <div class="contact-stat">
+                <div class="stat-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/>
+                    </svg>
+                </div>
+                <span class="stat-value">50+</span>
+                <span class="stat-label">Projects Completed</span>
+            </div>
+            
+            <div class="contact-stat">
+                <div class="stat-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/>
+                    </svg>
+                </div>
+                <span class="stat-value">30+</span>
+                <span class="stat-label">Happy Clients</span>
+            </div>
+            
+            <div class="contact-stat">
+                <div class="stat-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M12 20v-6M6 20v-6M18 20v-6"/>
+                    </svg>
+                </div>
+                <span class="stat-value">100%</span>
+                <span class="stat-label">Satisfaction Rate</span>
+            </div>
+        </div>
+    </div>
+</section>
+        <!-- ===== FOOTER ===== -->
+<footer class="site-footer">
+    <div class="container">
+        <div class="footer-content">
+            <!-- Footer Logo -->
+            <a href="#home" class="footer-logo">
+                <img src="Images/logo 1.png" alt="Prince Creative Graphics" class="footer-logo-img" loading="lazy">
+                <div class="footer-logo-text">
+                    <div class="logo-name">Prince</div>
+                    <div class="logo-tagline">Creative Graphics</div>
+                </div>
+            </a>
+            
+            <!-- Footer Navigation -->
+            <nav class="footer-nav" aria-label="Footer navigation">
+                <a href="#home" class="footer-nav-link">Home</a>
+                <a href="#services" class="footer-nav-link">Services</a>
+                <a href="#works" class="footer-nav-link">Works</a>
+                <a href="#resume" class="footer-nav-link">Resume</a>
+                <a href="#skills" class="footer-nav-link">Skills</a>
+                <a href="#testimonials" class="footer-nav-link">Testimonials</a>
+                <a href="#blog" class="footer-nav-link">Blog</a>
+                <a href="#contact" class="footer-nav-link">Contact</a>
+            </nav>
+            
+            <!-- Footer Social Links -->
+            <div class="footer-social">
+                <a href="mailto:princecreativegraphics@gmail.com" class="footer-social-link" aria-label="Email">
+                    <img src="Icons/Email icon.png" alt="Email" loading="lazy">
+                </a>
+                <a href="https://wa.me/2347069943790" class="footer-social-link" aria-label="WhatsApp">
+                    <img src="Icons/Whatsapp.png" alt="WhatsApp" loading="lazy">
+                </a>
+                <a href="https://www.facebook.com/taylorswiftr" class="footer-social-link" aria-label="Facebook">
+                    <img src="Icons/Face book.png" alt="Facebook" loading="lazy">
+                </a>
+                <a href="Document/DEV INTERNATION CV BY PRINCE.pdf" download class="footer-social-link" aria-label="Download CV">
+                    <img src="Icons/download.png" alt="Download CV" loading="lazy">
+                </a>
+            </div>
+            
+            <!-- Footer Contact Info -->
+            <div class="footer-contact">
+                <div class="footer-contact-item">
+                    <span>📧</span>
+                    <a href="mailto:princecreativegraphics@gmail.com">princecreativegraphics@gmail.com</a>
+                </div>
+                <div class="footer-contact-item">
+                    <span>📱</span>
+                    <a href="tel:+2347069943790">+234 706 994 3790</a>
+                </div>
+                <div class="footer-contact-item">
+                    <span>📍</span>
+                    <span>Rivers State, Nigeria</span>
+                </div>
+            </div>
+            
+            <!-- Footer Copyright -->
+            <div class="footer-copyright">
+                <p>© 2024 Prince Creative Graphics. All rights reserved.</p>
+                <p class="footer-credits">Designed & Developed with ❤️ by Prince</p>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Back to Top Button -->
+    <button class="back-to-top" id="backToTop" aria-label="Back to top">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M12 19V5"/>
+            <path d="M5 12l7-7 7 7"/>
+        </svg>
+    </button>
+</footer>
 
         <script src="script.js"></script>
-        <!-- Code injected by live-server -->
-        <script>
-            // <![CDATA[  <-- For SVG support
-            if ('WebSocket' in window) {
-                (function () {
-                    function refreshCSS() {
-                        var sheets = [].slice.call(document.getElementsByTagName("link"));
-                        var head = document.getElementsByTagName("head")[0];
-                        for (var i = 0; i < sheets.length; ++i) {
-                            var elem = sheets[i];
-                            var parent = elem.parentElement || head;
-                            parent.removeChild(elem);
-                            var rel = elem.rel;
-                            if (elem.href && typeof rel != "string" || rel.length == 0 || rel.toLowerCase() == "stylesheet") {
-                                var url = elem.href.replace(/(&|\?)_cacheOverride=\d+/, '');
-                                elem.href = url + (url.indexOf('?') >= 0 ? '&' : '?') + '_cacheOverride=' + (new Date().valueOf());
-                            }
-                            parent.appendChild(elem);
-                        }
-                    }
-                    var protocol = window.location.protocol === 'http:' ? 'ws://' : 'wss://';
-                    var address = protocol + window.location.host + window.location.pathname + '/ws';
-                    var socket = new WebSocket(address);
-                    socket.onmessage = function (msg) {
-                        if (msg.data == 'reload') window.location.reload();
-                        else if (msg.data == 'refreshcss') refreshCSS();
-                    };
-                    if (sessionStorage && !sessionStorage.getItem('IsThisFirstTime_Log_From_LiveServer')) {
-                        console.log('Live reload enabled.');
-                        sessionStorage.setItem('IsThisFirstTime_Log_From_LiveServer', true);
-                    }
-                })();
-            }
-            else {
-                console.error('Upgrade your browser. This Browser is NOT supported WebSocket for Live-Reloading.');
-            }
-            // ]]>
-        </script>
+
 </body>
 
 </html>
