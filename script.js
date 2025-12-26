@@ -370,6 +370,309 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 });
+// Portfolio Section JavaScript
+document.addEventListener('DOMContentLoaded', function() {
+    const portfolioItems = document.querySelectorAll('.portfolio-item');
+    const filterButtons = document.querySelectorAll('.filter-btn');
+    const portfolioGrid = document.querySelector('.portfolio-grid');
+    
+    // Initialize portfolio filtering
+    function initPortfolioFilter() {
+        // Add click event to filter buttons
+        filterButtons.forEach(button => {
+            button.addEventListener('click', function() {
+                const filterValue = this.dataset.filter;
+                
+                // Remove active class from all buttons
+                filterButtons.forEach(btn => btn.classList.remove('active'));
+                // Add active class to clicked button
+                this.classList.add('active');
+                
+                // Filter portfolio items
+                filterPortfolioItems(filterValue);
+                
+                // Play click sound
+                playClickSound();
+            });
+        });
+    }
+    
+    // Filter portfolio items based on selected category
+    function filterPortfolioItems(filter) {
+        if (filter === 'all') {
+            // Show all items with animation
+            portfolioItems.forEach(item => {
+                showItemWithAnimation(item);
+            });
+        } else {
+            // Filter items based on category
+            portfolioItems.forEach(item => {
+                const categories = item.dataset.category.split(' ');
+                
+                if (categories.includes(filter)) {
+                    showItemWithAnimation(item);
+                } else {
+                    hideItemWithAnimation(item);
+                }
+            });
+        }
+        
+        // Reinitialize animations after filtering
+        setTimeout(initPortfolioAnimations, 300);
+    }
+    
+    // Show item with animation
+    function showItemWithAnimation(item) {
+        item.style.display = 'block';
+        setTimeout(() => {
+            item.style.opacity = '1';
+            item.style.transform = 'scale(1) translateY(0)';
+        }, 50);
+    }
+    
+    // Hide item with animation
+    function hideItemWithAnimation(item) {
+        item.style.opacity = '0';
+        item.style.transform = 'scale(0.8) translateY(20px)';
+        setTimeout(() => {
+            item.style.display = 'none';
+        }, 300);
+    }
+    
+    // Initialize portfolio item animations
+    function initPortfolioAnimations() {
+        portfolioItems.forEach((item, index) => {
+            if (item.style.display !== 'none') {
+                item.style.opacity = '0';
+                item.style.transform = 'translateY(30px)';
+                item.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+                
+                setTimeout(() => {
+                    item.style.opacity = '1';
+                    item.style.transform = 'translateY(0)';
+                    item.style.transitionDelay = `${index * 0.1}s`;
+                }, 100);
+            }
+        });
+    }
+    
+    // Portfolio item hover effects
+    function initPortfolioItemHover() {
+        portfolioItems.forEach(item => {
+            // Mouse enter
+            item.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-10px) scale(1.02)';
+                this.style.zIndex = '10';
+                
+                const glow = this.querySelector('.portfolio-glow');
+                if (glow) {
+                    glow.style.opacity = '1';
+                }
+                
+                playHoverSound();
+            });
+            
+            // Mouse leave
+            item.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0) scale(1)';
+                this.style.zIndex = '1';
+                
+                const glow = this.querySelector('.portfolio-glow');
+                if (glow) {
+                    glow.style.opacity = '0';
+                }
+            });
+            
+            // Keyboard navigation
+            item.setAttribute('tabindex', '0');
+            item.addEventListener('keydown', function(e) {
+                if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    openPortfolioModal(this);
+                }
+            });
+        });
+    }
+    
+    // Portfolio modal functionality
+    function initPortfolioModal() {
+        const modal = document.getElementById('portfolioModal');
+        const modalClose = modal.querySelector('.modal-close');
+        const modalContent = document.getElementById('modalContent');
+        
+        // Close modal
+        modalClose.addEventListener('click', function() {
+            closePortfolioModal();
+        });
+        
+        // Close on background click
+        modal.addEventListener('click', function(e) {
+            if (e.target === modal) {
+                closePortfolioModal();
+            }
+        });
+        
+        // Close on Escape key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape' && modal.classList.contains('open')) {
+                closePortfolioModal();
+            }
+        });
+        
+        // Portfolio item click to open modal
+        portfolioItems.forEach(item => {
+            item.addEventListener('click', function(e) {
+                if (!e.target.closest('.portfolio-link')) {
+                    openPortfolioModal(this);
+                }
+            });
+        });
+        
+        // Portfolio link click (for external links)
+        const portfolioLinks = document.querySelectorAll('.portfolio-link');
+        portfolioLinks.forEach(link => {
+            link.addEventListener('click', function(e) {
+                // Only handle if it's a view/details link (not external)
+                if (!this.href.includes('#') && !this.href.includes('github.com')) {
+                    e.preventDefault();
+                    const item = this.closest('.portfolio-item');
+                    openPortfolioModal(item);
+                }
+            });
+        });
+    }
+    
+    function openPortfolioModal(item) {
+        const modal = document.getElementById('portfolioModal');
+        const modalContent = document.getElementById('modalContent');
+        
+        // Get item data
+        const title = item.querySelector('.portfolio-title-small').textContent;
+        const category = item.querySelector('.portfolio-category').textContent;
+        const description = item.querySelector('.portfolio-description').textContent;
+        const image = item.querySelector('.portfolio-image').src;
+        const techTags = Array.from(item.querySelectorAll('.tech-tag')).map(tag => tag.textContent);
+        
+        // Create modal content
+        modalContent.innerHTML = `
+            <div class="modal-header">
+                <span class="modal-category">${category}</span>
+                <h3 class="modal-title">${title}</h3>
+            </div>
+            
+            <div class="modal-image">
+                <img src="${image}" alt="${title}" loading="lazy">
+            </div>
+            
+            <div class="modal-body">
+                <p class="modal-description">${description}</p>
+                
+                <div class="modal-tech">
+                    <h4>Technologies Used:</h4>
+                    <div class="tech-tags">
+                        ${techTags.map(tag => `<span class="tech-tag">${tag}</span>`).join('')}
+                    </div>
+                </div>
+                
+                <div class="modal-actions">
+                    <button class="modal-action-btn">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
+                            <circle cx="12" cy="12" r="3"/>
+                        </svg>
+                        View Case Study
+                    </button>
+                    <button class="modal-action-btn">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
+                            <polyline points="15 3 21 3 21 9"/>
+                            <line x1="10" y1="14" x2="21" y2="3"/>
+                        </svg>
+                        Live Demo
+                    </button>
+                </div>
+            </div>
+        `;
+        
+        // Open modal
+        modal.classList.add('open');
+        document.body.style.overflow = 'hidden';
+        
+        // Play open sound
+        playClickSound();
+    }
+    
+    function closePortfolioModal() {
+        const modal = document.getElementById('portfolioModal');
+        modal.classList.remove('open');
+        document.body.style.overflow = '';
+        
+        // Play close sound
+        playClickSound();
+    }
+    
+    // Sound effects
+    function playClickSound() {
+        // Optional: Add subtle click sound
+        /*
+        const clickSound = new Audio('path/to/click-sound.mp3');
+        clickSound.volume = 0.1;
+        clickSound.play();
+        */
+    }
+    
+    function playHoverSound() {
+        // Optional: Add subtle hover sound
+        /*
+        const hoverSound = new Audio('path/to/hover-sound.mp3');
+        hoverSound.volume = 0.1;
+        hoverSound.play();
+        */
+    }
+    
+    // Initialize everything
+    initPortfolioFilter();
+    initPortfolioItemHover();
+    initPortfolioModal();
+    initPortfolioAnimations();
+    
+    // View More button interaction
+    const viewMoreBtn = document.querySelector('.view-more-btn');
+    if (viewMoreBtn) {
+        viewMoreBtn.addEventListener('click', function(e) {
+            // Smooth scroll to contact section
+            const target = document.querySelector('#contact');
+            if (target && e.target.tagName === 'A') {
+                e.preventDefault();
+                target.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }
+        });
+    }
+    
+    // Add keyboard navigation for filter buttons
+    filterButtons.forEach((button, index) => {
+        button.addEventListener('keydown', function(e) {
+            if (e.key === 'ArrowRight') {
+                const nextBtn = filterButtons[(index + 1) % filterButtons.length];
+                nextBtn.focus();
+                nextBtn.click();
+            } else if (e.key === 'ArrowLeft') {
+                const prevBtn = filterButtons[(index - 1 + filterButtons.length) % filterButtons.length];
+                prevBtn.focus();
+                prevBtn.click();
+            } else if (e.key === 'Home') {
+                filterButtons[0].focus();
+                filterButtons[0].click();
+            } else if (e.key === 'End') {
+                filterButtons[filterButtons.length - 1].focus();
+                filterButtons[filterButtons.length - 1].click();
+            }
+        });
+    });
+});
 
 // Service modal functionality (optional enhancement)
 function openServiceModal(serviceId) {
@@ -500,7 +803,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const resumeObserver = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
-                entry.target.classList.add('animate');
+                entry.target.classList.add('animate');  
                 
                 // Animate skill bars in this item
                 const skillBars = entry.target.querySelectorAll('.skill-fill');
