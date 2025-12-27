@@ -823,12 +823,15 @@ body{
     transform: translateZ(20px);
     transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
     filter: brightness(1.05) contrast(1.1);
+    cursor: pointer;
 }
 
 .profile-card:hover .profile-img {
     transform: translateZ(30px) rotateY(5deg) rotateX(5deg);
     box-shadow: 0 40px 80px rgba(125, 73, 229, 0.3);
     filter: brightness(1.1) contrast(1.2);
+    cursor: pointer;
+
 }
 
 .profile-card::after {
@@ -859,18 +862,18 @@ body{
     display: flex;
     align-items: center;
     justify-content: center;
-    animation: float 6s ease-in-out infinite;
+    animation: float 3s ease-in-out infinite;
     z-index: -1;
 }
 
 .floating-element:nth-child(1) {
-    top: -20px;
-    left: -20px;
+    top: -30px;
+    left: -30px;
     animation-delay: 0s;
 }
 
 .floating-element:nth-child(2) {
-    bottom: 20px;
+    bottom: 30px;
     right: -30px;
     animation-delay: 2s;
 }
@@ -3807,7 +3810,7 @@ a:focus,button:focus{outline:3px solid rgba(125,73,229,0.15);outline-offset:3px}
     
     .testimonial-cards {
         padding: 20px;
-        gap: 20px;
+        gap: 5px;
     }
     
     .testimonial-content {
@@ -3917,7 +3920,7 @@ a:focus,button:focus{outline:3px solid rgba(125,73,229,0.15);outline-offset:3px}
 
 @media (max-width: 480px) {
     .testimonials-section {
-        padding: 60px 0;
+        padding: 50px 0;
     }
     
     .testimonial-cards {

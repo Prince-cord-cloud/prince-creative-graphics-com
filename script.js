@@ -370,111 +370,144 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 });
-// Portfolio Section JavaScript
+
+
+// Portfolio Section JavaScript - Fixed Version
 document.addEventListener('DOMContentLoaded', function() {
-    const portfolioItems = document.querySelectorAll('.portfolio-item');
-    const filterButtons = document.querySelectorAll('.filter-btn');
-    const portfolioGrid = document.querySelector('.portfolio-grid');
+    console.log('Portfolio script loaded');
     
-    // Initialize portfolio filtering
-    function initPortfolioFilter() {
-        // Add click event to filter buttons
-        filterButtons.forEach(button => {
-            button.addEventListener('click', function() {
-                const filterValue = this.dataset.filter;
-                
-                // Remove active class from all buttons
-                filterButtons.forEach(btn => btn.classList.remove('active'));
-                // Add active class to clicked button
-                this.classList.add('active');
-                
-                // Filter portfolio items
-                filterPortfolioItems(filterValue);
-                
-                // Play click sound
-                playClickSound();
-            });
-        });
-    }
+    // Variables
+    let portfolioItems = [];
+    let filterButtons = [];
+    let isFiltering = false;
     
-    // Filter portfolio items based on selected category
-    function filterPortfolioItems(filter) {
-        if (filter === 'all') {
-            // Show all items with animation
-            portfolioItems.forEach(item => {
-                showItemWithAnimation(item);
-            });
-        } else {
-            // Filter items based on category
-            portfolioItems.forEach(item => {
-                const categories = item.dataset.category.split(' ');
-                
-                if (categories.includes(filter)) {
-                    showItemWithAnimation(item);
-                } else {
-                    hideItemWithAnimation(item);
-                }
-            });
+    // Initialize
+    function initPortfolio() {
+        console.log('Initializing portfolio...');
+        
+        // Get elements
+        portfolioItems = Array.from(document.querySelectorAll('.portfolio-item'));
+        filterButtons = Array.from(document.querySelectorAll('.filter-btn'));
+        
+        console.log('Found items:', portfolioItems.length, 'buttons:', filterButtons.length);
+        
+        if (portfolioItems.length === 0) {
+            console.warn('No portfolio items found');
+            return;
         }
         
-        // Reinitialize animations after filtering
-        setTimeout(initPortfolioAnimations, 300);
-    }
-    
-    // Show item with animation
-    function showItemWithAnimation(item) {
-        item.style.display = 'block';
-        setTimeout(() => {
+        // Set initial states
+        portfolioItems.forEach(item => {
             item.style.opacity = '1';
-            item.style.transform = 'scale(1) translateY(0)';
-        }, 50);
+            item.style.transform = 'translateY(0)';
+        });
+        
+        // Initialize features
+        initPortfolioFilter();
+        initPortfolioItemHover();
+        initPortfolioModal();
+        setupKeyboardNavigation();
+        
+        console.log('Portfolio initialized successfully');
     }
     
-    // Hide item with animation
-    function hideItemWithAnimation(item) {
-        item.style.opacity = '0';
-        item.style.transform = 'scale(0.8) translateY(20px)';
-        setTimeout(() => {
-            item.style.display = 'none';
-        }, 300);
-    }
-    
-    // Initialize portfolio item animations
-    function initPortfolioAnimations() {
-        portfolioItems.forEach((item, index) => {
-            if (item.style.display !== 'none') {
-                item.style.opacity = '0';
-                item.style.transform = 'translateY(30px)';
-                item.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-                
-                setTimeout(() => {
-                    item.style.opacity = '1';
-                    item.style.transform = 'translateY(0)';
-                    item.style.transitionDelay = `${index * 0.1}s`;
-                }, 100);
-            }
+    // Filter initialization with event delegation
+    function initPortfolioFilter() {
+        console.log('Setting up filters...');
+        
+        // Use event delegation instead of individual handlers
+        document.addEventListener('click', function(e) {
+            const filterBtn = e.target.closest('.filter-btn');
+            if (!filterBtn || isFiltering) return;
+            
+            e.preventDefault();
+            
+            const filterValue = filterBtn.dataset.filter;
+            console.log('Filter clicked:', filterValue);
+            
+            // Update active state
+            filterButtons.forEach(btn => {
+                btn.classList.remove('active');
+                btn.setAttribute('aria-selected', 'false');
+            });
+            filterBtn.classList.add('active');
+            filterBtn.setAttribute('aria-selected', 'true');
+            
+            // Filter items
+            filterPortfolioItems(filterValue);
         });
     }
     
-    // Portfolio item hover effects
-    function initPortfolioItemHover() {
+    // Filter function
+    function filterPortfolioItems(filter) {
+        if (isFiltering) return;
+        isFiltering = true;
+        
+        console.log('Filtering with:', filter);
+        
         portfolioItems.forEach(item => {
-            // Mouse enter
-            item.addEventListener('mouseenter', function() {
-                this.style.transform = 'translateY(-10px) scale(1.02)';
+            // Get categories safely
+            const categories = item.dataset?.category ? 
+                item.dataset.category.toLowerCase().split(' ') : [];
+            
+            const shouldShow = filter === 'all' || categories.includes(filter);
+            
+            // Force reflow
+            void item.offsetWidth;
+            
+            if (shouldShow) {
+                item.style.display = 'block';
+                setTimeout(() => {
+                    item.style.opacity = '1';
+                    item.style.transform = 'scale(1) translateY(0)';
+                }, 50);
+            } else {
+                item.style.opacity = '0';
+                item.style.transform = 'scale(0.8) translateY(20px)';
+                setTimeout(() => {
+                    item.style.display = 'none';
+                }, 300);
+            }
+        });
+        
+        // Reset filtering flag
+        setTimeout(() => {
+            isFiltering = false;
+        }, 350);
+    }
+    
+    // Hover effects with event delegation
+    function initPortfolioItemHover() {
+        console.log('Setting up hover effects...');
+        
+        portfolioItems.forEach(item => {
+            // Remove any existing listeners first
+            const newItem = item.cloneNode(true);
+            item.parentNode.replaceChild(newItem, item);
+        });
+        
+        // Update reference
+        portfolioItems = Array.from(document.querySelectorAll('.portfolio-item'));
+        
+        portfolioItems.forEach(item => {
+            item.addEventListener('mouseenter', function(e) {
+                if (isFiltering) return;
+                
+                this.style.transform = 'translateY(-5px) scale(1.02)';
+                this.style.transition = 'transform 0.3s ease';
                 this.style.zIndex = '10';
                 
                 const glow = this.querySelector('.portfolio-glow');
                 if (glow) {
-                    glow.style.opacity = '1';
+                    glow.style.opacity = '0.5';
                 }
-                
-                playHoverSound();
             });
             
-            // Mouse leave
-            item.addEventListener('mouseleave', function() {
+            item.addEventListener('mouseleave', function(e) {
+                if (isFiltering) return;
+                
                 this.style.transform = 'translateY(0) scale(1)';
+                this.style.transition = 'transform 0.3s ease';
                 this.style.zIndex = '1';
                 
                 const glow = this.querySelector('.portfolio-glow');
@@ -483,7 +516,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 }
             });
             
-            // Keyboard navigation
+            // Keyboard support
             item.setAttribute('tabindex', '0');
             item.addEventListener('keydown', function(e) {
                 if (e.key === 'Enter' || e.key === ' ') {
@@ -494,101 +527,108 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
     
-    // Portfolio modal functionality
+    // Modal with proper event handling
     function initPortfolioModal() {
-        const modal = document.getElementById('portfolioModal');
-        const modalClose = modal.querySelector('.modal-close');
-        const modalContent = document.getElementById('modalContent');
+        console.log('Setting up modal...');
         
-        // Close modal
-        modalClose.addEventListener('click', function() {
-            closePortfolioModal();
-        });
+        const modal = document.getElementById('portfolioModal');
+        if (!modal) {
+            console.warn('Modal not found in DOM');
+            return;
+        }
+        
+        // Clear existing listeners
+        const newModal = modal.cloneNode(true);
+        modal.parentNode.replaceChild(newModal, modal);
+        
+        // Get fresh references
+        const freshModal = document.getElementById('portfolioModal');
+        const modalClose = freshModal.querySelector('.modal-close');
+        
+        // Close modal handler
+        if (modalClose) {
+            modalClose.addEventListener('click', function(e) {
+                e.stopPropagation();
+                closePortfolioModal();
+            });
+        }
         
         // Close on background click
-        modal.addEventListener('click', function(e) {
-            if (e.target === modal) {
+        freshModal.addEventListener('click', function(e) {
+            if (e.target === this) {
                 closePortfolioModal();
             }
         });
         
-        // Close on Escape key
+        // Escape key to close
         document.addEventListener('keydown', function(e) {
-            if (e.key === 'Escape' && modal.classList.contains('open')) {
+            if (e.key === 'Escape' && freshModal.classList.contains('open')) {
                 closePortfolioModal();
             }
         });
         
-        // Portfolio item click to open modal
+        // Item click handler
         portfolioItems.forEach(item => {
             item.addEventListener('click', function(e) {
-                if (!e.target.closest('.portfolio-link')) {
-                    openPortfolioModal(this);
+                // Don't open modal if clicking links or buttons
+                if (e.target.closest('.portfolio-link') || 
+                    e.target.closest('button') ||
+                    e.target.closest('.filter-btn')) {
+                    return;
                 }
+                
+                openPortfolioModal(this);
             });
         });
         
-        // Portfolio link click (for external links)
-        const portfolioLinks = document.querySelectorAll('.portfolio-link');
-        portfolioLinks.forEach(link => {
+        // Link click handlers - prevent bubbling issues
+        document.querySelectorAll('.portfolio-link').forEach(link => {
             link.addEventListener('click', function(e) {
-                // Only handle if it's a view/details link (not external)
-                if (!this.href.includes('#') && !this.href.includes('github.com')) {
+                if (this.getAttribute('href') === '#') {
                     e.preventDefault();
+                    e.stopPropagation();
                     const item = this.closest('.portfolio-item');
-                    openPortfolioModal(item);
+                    if (item) openPortfolioModal(item);
                 }
+                // External links will navigate normally
             });
         });
     }
     
     function openPortfolioModal(item) {
+        console.log('Opening modal for item');
+        
         const modal = document.getElementById('portfolioModal');
         const modalContent = document.getElementById('modalContent');
         
-        // Get item data
-        const title = item.querySelector('.portfolio-title-small').textContent;
-        const category = item.querySelector('.portfolio-category').textContent;
-        const description = item.querySelector('.portfolio-description').textContent;
-        const image = item.querySelector('.portfolio-image').src;
-        const techTags = Array.from(item.querySelectorAll('.tech-tag')).map(tag => tag.textContent);
+        if (!modal || !modalContent) {
+            console.error('Modal elements missing');
+            return;
+        }
+        
+        // Get item data with null checks
+        const title = item.querySelector('.portfolio-title-small')?.textContent || 'Project';
+        const category = item.querySelector('.portfolio-category')?.textContent || 'Category';
+        const description = item.querySelector('.portfolio-description')?.textContent || 'No description available.';
+        const image = item.querySelector('.portfolio-image')?.src || '';
         
         // Create modal content
         modalContent.innerHTML = `
             <div class="modal-header">
-                <span class="modal-category">${category}</span>
-                <h3 class="modal-title">${title}</h3>
+                <span class="modal-category">${escapeHtml(category)}</span>
+                <h3 class="modal-title">${escapeHtml(title)}</h3>
             </div>
             
             <div class="modal-image">
-                <img src="${image}" alt="${title}" loading="lazy">
+                <img src="${image}" alt="${escapeHtml(title)}" onerror="this.style.display='none'">
             </div>
             
             <div class="modal-body">
-                <p class="modal-description">${description}</p>
-                
-                <div class="modal-tech">
-                    <h4>Technologies Used:</h4>
-                    <div class="tech-tags">
-                        ${techTags.map(tag => `<span class="tech-tag">${tag}</span>`).join('')}
-                    </div>
-                </div>
+                <p class="modal-description">${escapeHtml(description)}</p>
                 
                 <div class="modal-actions">
-                    <button class="modal-action-btn">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
-                            <circle cx="12" cy="12" r="3"/>
-                        </svg>
-                        View Case Study
-                    </button>
-                    <button class="modal-action-btn">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
-                            <polyline points="15 3 21 3 21 9"/>
-                            <line x1="10" y1="14" x2="21" y2="3"/>
-                        </svg>
-                        Live Demo
+                    <button class="modal-action-btn" onclick="closePortfolioModal()">
+                        Close
                     </button>
                 </div>
             </div>
@@ -598,173 +638,894 @@ document.addEventListener('DOMContentLoaded', function() {
         modal.classList.add('open');
         document.body.style.overflow = 'hidden';
         
-        // Play open sound
-        playClickSound();
+        // Focus trap
+        modal.querySelector('.modal-close')?.focus();
     }
     
     function closePortfolioModal() {
+        console.log('Closing modal');
+        
         const modal = document.getElementById('portfolioModal');
+        if (!modal) return;
+        
         modal.classList.remove('open');
         document.body.style.overflow = '';
         
-        // Play close sound
-        playClickSound();
+        // Focus back to the item that opened the modal
+        setTimeout(() => {
+            document.querySelector('.portfolio-item:focus')?.focus();
+        }, 100);
     }
     
-    // Sound effects
-    function playClickSound() {
-        // Optional: Add subtle click sound
-        /*
-        const clickSound = new Audio('path/to/click-sound.mp3');
-        clickSound.volume = 0.1;
-        clickSound.play();
-        */
+    // Helper function to escape HTML
+    function escapeHtml(text) {
+        const div = document.createElement('div');
+        div.textContent = text;
+        return div.innerHTML;
     }
     
-    function playHoverSound() {
-        // Optional: Add subtle hover sound
-        /*
-        const hoverSound = new Audio('path/to/hover-sound.mp3');
-        hoverSound.volume = 0.1;
-        hoverSound.play();
-        */
-    }
-    
-    // Initialize everything
-    initPortfolioFilter();
-    initPortfolioItemHover();
-    initPortfolioModal();
-    initPortfolioAnimations();
-    
-    // View More button interaction
-    const viewMoreBtn = document.querySelector('.view-more-btn');
-    if (viewMoreBtn) {
-        viewMoreBtn.addEventListener('click', function(e) {
-            // Smooth scroll to contact section
-            const target = document.querySelector('#contact');
-            if (target && e.target.tagName === 'A') {
-                e.preventDefault();
-                target.scrollIntoView({
-                    behavior: 'smooth',
-                    block: 'start'
-                });
+    // Keyboard navigation
+    function setupKeyboardNavigation() {
+        document.addEventListener('keydown', function(e) {
+            // Don't interfere with form inputs
+            if (e.target.matches('input, textarea, select')) return;
+            
+            switch(e.key) {
+                case 'Escape':
+                    closePortfolioModal();
+                    break;
+                case 'ArrowRight':
+                    // Navigate filters
+                    const activeFilter = document.querySelector('.filter-btn.active');
+                    if (activeFilter) {
+                        const filters = Array.from(document.querySelectorAll('.filter-btn'));
+                        const currentIndex = filters.indexOf(activeFilter);
+                        const nextIndex = (currentIndex + 1) % filters.length;
+                        filters[nextIndex].click();
+                        filters[nextIndex].focus();
+                    }
+                    break;
+                case 'ArrowLeft':
+                    const activeFilter2 = document.querySelector('.filter-btn.active');
+                    if (activeFilter2) {
+                        const filters = Array.from(document.querySelectorAll('.filter-btn'));
+                        const currentIndex = filters.indexOf(activeFilter2);
+                        const prevIndex = (currentIndex - 1 + filters.length) % filters.length;
+                        filters[prevIndex].click();
+                        filters[prevIndex].focus();
+                    }
+                    break;
             }
         });
     }
     
-    // Add keyboard navigation for filter buttons
-    filterButtons.forEach((button, index) => {
-        button.addEventListener('keydown', function(e) {
-            if (e.key === 'ArrowRight') {
-                const nextBtn = filterButtons[(index + 1) % filterButtons.length];
-                nextBtn.focus();
-                nextBtn.click();
-            } else if (e.key === 'ArrowLeft') {
-                const prevBtn = filterButtons[(index - 1 + filterButtons.length) % filterButtons.length];
-                prevBtn.focus();
-                prevBtn.click();
-            } else if (e.key === 'Home') {
-                filterButtons[0].focus();
-                filterButtons[0].click();
-            } else if (e.key === 'End') {
-                filterButtons[filterButtons.length - 1].focus();
-                filterButtons[filterButtons.length - 1].click();
-            }
-        });
-    });
+    // Initialize
+    initPortfolio();
+    
+    // Make close function globally available
+    window.closePortfolioModal = closePortfolioModal;
 });
 
-// Service modal functionality (optional enhancement)
-function openServiceModal(serviceId) {
-    const modal = document.createElement('div');
-    modal.className = 'service-modal';
-    modal.innerHTML = `
-        <div class="modal-content">
-            <button class="modal-close">&times;</button>
-            <div id="modal-body"></div>
+// Enhanced Portfolio Modal Design
+function openPortfolioModal(item) {
+    console.log('Opening modal for item');
+    
+    const modal = document.getElementById('portfolioModal');
+    const modalContent = document.getElementById('modalContent');
+    
+    if (!modal || !modalContent) {
+        console.error('Modal elements missing');
+        return;
+    }
+    
+    // Get item data with null checks
+    const title = item.querySelector('.portfolio-title-small')?.textContent || 'Project';
+    const category = item.querySelector('.portfolio-category')?.textContent || 'Category';
+    const description = item.querySelector('.portfolio-description')?.textContent || 'No description available.';
+    const image = item.querySelector('.portfolio-image')?.src || '';
+    const techTags = Array.from(item.querySelectorAll('.tech-tag')).map(tag => tag.textContent);
+    
+    // Get stats if available
+    const stats = item.querySelector('.stat-badge')?.textContent.trim() || '';
+    
+    // Create beautiful modal content
+    modalContent.innerHTML = `
+        <div class="modal-close">&times;</div>
+        
+        <div class="modal-hero">
+            <div class="modal-image-wrapper">
+                <img src="${image}" alt="${escapeHtml(title)}" class="modal-main-image" onerror="this.src='https://images.unsplash.com/photo-1555066931-4365d14bab8c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80'">
+                <div class="image-overlay"></div>
+                <div class="modal-badge">
+                    <span class="modal-category">${escapeHtml(category)}</span>
+                    ${stats ? `<span class="modal-stat">${stats}</span>` : ''}
+                </div>
+            </div>
+        </div>
+        
+        <div class="modal-content-wrapper">
+            <div class="modal-header">
+                <div class="modal-title-section">
+                    <h2 class="modal-title">${escapeHtml(title)}</h2>
+                    <div class="modal-meta">
+                        <span class="modal-date">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
+                                <line x1="16" y1="2" x2="16" y2="6"/>
+                                <line x1="8" y1="2" x2="8" y2="6"/>
+                                <line x1="3" y1="10" x2="21" y2="10"/>
+                            </svg>
+                            Recent Project
+                        </span>
+                        <span class="modal-duration">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <circle cx="12" cy="12" r="10"/>
+                                <polyline points="12 6 12 12 16 14"/>
+                            </svg>
+                            3-4 Months
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="modal-actions-header">
+                    <button class="modal-action-btn primary" onclick="window.open('https://github.com', '_blank')">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/>
+                        </svg>
+                        View Code
+                    </button>
+                    <button class="modal-action-btn secondary" onclick="window.open('https://demo.com', '_blank')">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
+                            <polyline points="15 3 21 3 21 9"/>
+                            <line x1="10" y1="14" x2="21" y2="3"/>
+                        </svg>
+                        Live Demo
+                    </button>
+                </div>
+            </div>
+            
+            <div class="modal-body">
+                <div class="modal-section">
+                    <h3 class="section-title">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                            <polyline points="14 2 14 8 20 8"/>
+                            <line x1="16" y1="13" x2="8" y2="13"/>
+                            <line x1="16" y1="17" x2="8" y2="17"/>
+                            <polyline points="10 9 9 9 8 9"/>
+                        </svg>
+                        Project Overview
+                    </h3>
+                    <p class="modal-description">${escapeHtml(description)}</p>
+                </div>
+                
+                ${techTags.length > 0 ? `
+                <div class="modal-section">
+                    <h3 class="section-title">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+                        </svg>
+                        Technologies Used
+                    </h3>
+                    <div class="tech-tags-grid">
+                        ${techTags.map((tag, index) => `
+                            <div class="tech-tag-item" style="animation-delay: ${index * 0.1}s">
+                                <span class="tech-tag-icon">${getTechIcon(tag)}</span>
+                                <span class="tech-tag-name">${tag}</span>
+                            </div>
+                        `).join('')}
+                    </div>
+                </div>
+                ` : ''}
+                
+                <div class="modal-section">
+                    <h3 class="section-title">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+                            <circle cx="12" cy="7" r="4"/>
+                        </svg>
+                        Key Features
+                    </h3>
+                    <div class="features-list">
+                        ${getProjectFeatures(category).map((feature, index) => `
+                            <div class="feature-item" style="animation-delay: ${index * 0.1}s">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <polyline points="20 6 9 17 4 12"/>
+                                </svg>
+                                <span>${feature}</span>
+                            </div>
+                        `).join('')}
+                    </div>
+                </div>
+                
+                <div class="modal-section">
+                    <h3 class="section-title">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+                            <polyline points="22 4 12 14.01 9 11.01"/>
+                        </svg>
+                        Project Status
+                    </h3>
+                    <div class="status-info">
+                        <div class="status-badge completed">
+                            <div class="status-indicator"></div>
+                            Completed & Deployed
+                        </div>
+                        <div class="status-details">
+                            <div class="status-metric">
+                                <span class="metric-value">98%</span>
+                                <span class="metric-label">Client Satisfaction</span>
+                            </div>
+                            <div class="status-metric">
+                                <span class="metric-value">4.9/5</span>
+                                <span class="metric-label">User Rating</span>
+                            </div>
+                            <div class="status-metric">
+                                <span class="metric-value">30+</span>
+                                <span class="metric-label">Active Users</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="modal-footer">
+                <button class="modal-cta-btn" onclick="closePortfolioModal(); window.location.href='#contact'">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+                    </svg>
+                    Start Similar Project
+                </button>
+            </div>
         </div>
     `;
     
-    document.body.appendChild(modal);
+    // Add close button event
+    modalContent.querySelector('.modal-close').addEventListener('click', closePortfolioModal);
     
-    // Add modal styles
-    const style = document.createElement('style');
-    style.textContent = `
-        .service-modal {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: rgba(11, 0, 22, 0.95);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            z-index: 9999;
-            backdrop-filter: blur(10px);
-        }
-        
-        .modal-content {
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(179, 122, 255, 0.2);
-            border-radius: 24px;
-            padding: 40px;
-            max-width: 800px;
-            width: 90%;
-            max-height: 80vh;
-            overflow-y: auto;
-            position: relative;
-        }
-        
-        .modal-close {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            background: none;
-            border: none;
-            color: #fff;
-            font-size: 2rem;
-            cursor: pointer;
-            width: 40px;
-            height: 40px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 50%;
-            transition: all 0.3s ease;
-        }
-        
-        .modal-close:hover {
-            background: rgba(179, 122, 255, 0.2);
-            transform: rotate(90deg);
-        }
-    `;
+    // Open modal with animation
+    modal.classList.add('open');
+    document.body.classList.add('modal-open');
     
-    document.head.appendChild(style);
+    // Add entrance animation
+    setTimeout(() => {
+        modalContent.classList.add('animated');
+    }, 10);
     
-    // Close modal
-    modal.querySelector('.modal-close').addEventListener('click', () => {
-        document.body.removeChild(modal);
-        document.head.removeChild(style);
-    });
-    
-    // Close on background click
-    modal.addEventListener('click', (e) => {
-        if (e.target === modal) {
-            document.body.removeChild(modal);
-            document.head.removeChild(style);
-        }
-    });
-    
-    // Escape key to close
-    document.addEventListener('keydown', function closeOnEscape(e) {
-        if (e.key === 'Escape') {
-            document.body.removeChild(modal);
-            document.head.removeChild(style);
-            document.removeEventListener('keydown', closeOnEscape);
-        }
-    });
+    // Play open sound (optional)
+    playModalOpenSound();
 }
+
+// Helper functions for modal content
+function getTechIcon(tech) {
+    const icons = {
+        'React.js': '⚛️',
+        'React Native': '📱',
+        'Vue.js': '🟢',
+        'Next.js': '⏭️',
+        'TypeScript': '📘',
+        'Tailwind CSS': '🎨',
+        'Node.js': '🟢',
+        'GraphQL': '🟣',
+        'MongoDB': '🍃',
+        'AWS': '☁️',
+        'Figma': '🎨',
+        'Adobe XD': '✏️',
+        'Illustrator': '🎨',
+        'Photoshop': '🖼️',
+        'InDesign': '📰',
+        'Prototyping': '🔄',
+        'Security': '🔒',
+        'Redux': '🔄'
+    };
+    
+    return icons[tech] || '💻';
+}
+
+function getProjectFeatures(category) {
+    const features = {
+        'uiux': [
+            'Responsive Design',
+            'Interactive Prototypes',
+            'User Testing',
+            'Design System',
+            'Accessibility Compliance'
+        ],
+        'app': [
+            'Cross-platform Support',
+            'Offline Functionality',
+            'Push Notifications',
+            'Biometric Auth',
+            'Real-time Updates'
+        ],
+        'design': [
+            'Modern Aesthetics',
+            'Brand Consistency',
+            'Visual Hierarchy',
+            'Color Psychology',
+            'Typography System'
+        ],
+        'frontend': [
+            'Performance Optimized',
+            'SEO Friendly',
+            'Progressive Web App',
+            'Animations',
+            'Component Library'
+        ],
+        'branding': [
+            'Logo Design',
+            'Brand Guidelines',
+            'Color Palette',
+            'Typography System',
+            'Visual Assets'
+        ]
+    };
+    
+    // Default features
+    return features[category.toLowerCase()] || [
+        'Modern Design',
+        'Responsive Layout',
+        'User Friendly',
+        'Performance Optimized',
+        'Scalable Architecture'
+    ];
+}
+
+function playModalOpenSound() {
+    // Optional: Add subtle sound effect
+    try {
+        const audioContext = new (window.AudioContext || window.webkitAudioContext)();
+        const oscillator = audioContext.createOscillator();
+        const gainNode = audioContext.createGain();
+        
+        oscillator.connect(gainNode);
+        gainNode.connect(audioContext.destination);
+        
+        oscillator.frequency.value = 800;
+        gainNode.gain.value = 0.1;
+        
+        oscillator.start();
+        gainNode.gain.exponentialRampToValueAtTime(0.001, audioContext.currentTime + 0.1);
+        oscillator.stop(audioContext.currentTime + 0.1);
+    } catch (e) {
+        // Audio not supported
+    }
+}
+
+// Enhanced CSS styles for the modal
+const enhancedModalStyles = `
+    /* Modal Styles */
+    .portfolio-modal {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(11, 0, 22, 0.98);
+        display: none;
+        align-items: center;
+        justify-content: center;
+        z-index: 9999;
+        padding: 20px;
+        backdrop-filter: blur(10px);
+        opacity: 0;
+        transition: opacity 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    
+    .portfolio-modal.open {
+        display: flex;
+        opacity: 1;
+    }
+    
+    .portfolio-modal.open #modalContent {
+        transform: translateY(0) scale(1);
+        opacity: 1;
+    }
+    
+    #modalContent {
+        background: linear-gradient(145deg, rgba(26, 26, 46, 0.95), rgba(17, 17, 35, 0.95));
+        border-radius: 24px;
+        max-width: 1000px;
+        width: 100%;
+        max-height: 90vh;
+        overflow-y: auto;
+        position: relative;
+        border: 1px solid rgba(179, 122, 255, 0.2);
+        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5),
+                    0 0 0 1px rgba(255, 255, 255, 0.1);
+        transform: translateY(30px) scale(0.95);
+        opacity: 0;
+        transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        animation: modalGlow 4s infinite alternate;
+    }
+    
+    @keyframes modalGlow {
+        0% {
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5),
+                        0 0 0 1px rgba(179, 122, 255, 0.1),
+                        0 0 30px rgba(179, 122, 255, 0.05);
+        }
+        100% {
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5),
+                        0 0 0 1px rgba(179, 122, 255, 0.2),
+                        0 0 50px rgba(179, 122, 255, 0.1);
+        }
+    }
+    
+    .modal-close {
+        position: absolute;
+        top: 24px;
+        right: 24px;
+        background: rgba(255, 255, 255, 0.1);
+        border: none;
+        color: white;
+        width: 48px;
+        height: 48px;
+        border-radius: 50%;
+        font-size: 28px;
+        cursor: pointer;
+        z-index: 100;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: all 0.3s ease;
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    
+    .modal-close:hover {
+        background: rgba(255, 255, 255, 0.2);
+        transform: rotate(90deg) scale(1.1);
+    }
+    
+    /* Hero Section */
+    .modal-hero {
+        position: relative;
+        height: 300px;
+        overflow: hidden;
+        border-radius: 20px 20px 0 0;
+    }
+    
+    .modal-image-wrapper {
+        position: relative;
+        height: 100%;
+        width: 100%;
+    }
+    
+    .modal-main-image {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        filter: brightness(0.8) contrast(1.1);
+    }
+    
+    .image-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: linear-gradient(to bottom, transparent, rgba(11, 0, 22, 0.9));
+    }
+    
+    .modal-badge {
+        position: absolute;
+        top: 24px;
+        left: 24px;
+        display: flex;
+        gap: 12px;
+        align-items: center;
+    }
+    
+    .modal-category {
+        background: linear-gradient(45deg, #8B5CF6, #EC4899);
+        color: white;
+        padding: 8px 16px;
+        border-radius: 20px;
+        font-size: 14px;
+        font-weight: 600;
+        letter-spacing: 0.5px;
+        text-transform: uppercase;
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+    
+    .modal-stat {
+        background: rgba(255, 255, 255, 0.1);
+        color: white;
+        padding: 8px 16px;
+        border-radius: 20px;
+        font-size: 14px;
+        font-weight: 500;
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    
+    /* Content Wrapper */
+    .modal-content-wrapper {
+        padding: 40px;
+    }
+    
+    /* Header */
+    .modal-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        margin-bottom: 32px;
+    }
+    
+    .modal-title-section {
+        flex: 1;
+    }
+    
+    .modal-title {
+        font-size: 36px;
+        font-weight: 800;
+        background: linear-gradient(45deg, #FFFFFF, #B38BFF);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        margin-bottom: 12px;
+        letter-spacing: -0.5px;
+    }
+    
+    .modal-meta {
+        display: flex;
+        gap: 24px;
+        color: rgba(255, 255, 255, 0.7);
+        font-size: 14px;
+    }
+    
+    .modal-meta span {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+    }
+    
+    .modal-actions-header {
+        display: flex;
+        gap: 12px;
+    }
+    
+    .modal-action-btn {
+        padding: 12px 24px;
+        border-radius: 12px;
+        font-weight: 600;
+        font-size: 14px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        border: none;
+    }
+    
+    .modal-action-btn.primary {
+        background: linear-gradient(45deg, #8B5CF6, #6366F1);
+        color: white;
+    }
+    
+    .modal-action-btn.secondary {
+        background: rgba(255, 255, 255, 0.1);
+        color: white;
+        border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+    
+    .modal-action-btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 10px 20px rgba(139, 92, 246, 0.3);
+    }
+    
+    /* Body Sections */
+    .modal-section {
+        margin-bottom: 40px;
+        animation: fadeInUp 0.6s ease forwards;
+        opacity: 0;
+    }
+    
+    @keyframes fadeInUp {
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+    
+    .section-title {
+        font-size: 20px;
+        font-weight: 700;
+        color: white;
+        margin-bottom: 20px;
+        display: flex;
+        align-items: center;
+        gap: 12px;
+    }
+    
+    .modal-description {
+        color: rgba(255, 255, 255, 0.8);
+        line-height: 1.8;
+        font-size: 16px;
+        margin: 0;
+    }
+    
+    /* Tech Tags Grid */
+    .tech-tags-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+        gap: 12px;
+        margin-top: 20px;
+    }
+    
+    .tech-tag-item {
+        background: rgba(255, 255, 255, 0.05);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 12px;
+        padding: 16px;
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        transition: all 0.3s ease;
+        animation: fadeIn 0.5s ease forwards;
+        opacity: 0;
+    }
+    
+    @keyframes fadeIn {
+        to { opacity: 1; }
+    }
+    
+    .tech-tag-item:hover {
+        background: rgba(255, 255, 255, 0.1);
+        transform: translateY(-2px);
+        border-color: rgba(179, 122, 255, 0.3);
+    }
+    
+    .tech-tag-icon {
+        font-size: 24px;
+    }
+    
+    .tech-tag-name {
+        color: white;
+        font-weight: 500;
+        font-size: 14px;
+    }
+    
+    /* Features List */
+    .features-list {
+        display: grid;
+        gap: 12px;
+        margin-top: 20px;
+    }
+    
+    .feature-item {
+        background: rgba(255, 255, 255, 0.03);
+        padding: 16px;
+        border-radius: 12px;
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        color: rgba(255, 255, 255, 0.9);
+        animation: fadeIn 0.5s ease forwards;
+        opacity: 0;
+    }
+    
+    .feature-item svg {
+        color: #8B5CF6;
+        flex-shrink: 0;
+    }
+    
+    /* Status Info */
+    .status-info {
+        background: rgba(255, 255, 255, 0.03);
+        border-radius: 16px;
+        padding: 24px;
+        margin-top: 20px;
+        border: 1px solid rgba(255, 255, 255, 0.05);
+    }
+    
+    .status-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        padding: 10px 20px;
+        border-radius: 20px;
+        font-weight: 600;
+        font-size: 14px;
+        margin-bottom: 20px;
+    }
+    
+    .status-badge.completed {
+        background: rgba(34, 197, 94, 0.1);
+        color: #22C55E;
+        border: 1px solid rgba(34, 197, 94, 0.2);
+    }
+    
+    .status-indicator {
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background: #22C55E;
+        animation: pulse 2s infinite;
+    }
+    
+    @keyframes pulse {
+        0%, 100% { opacity: 1; }
+        50% { opacity: 0.5; }
+    }
+    
+    .status-details {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+    }
+    
+    .status-metric {
+        text-align: center;
+    }
+    
+    .metric-value {
+        display: block;
+        font-size: 28px;
+        font-weight: 800;
+        background: linear-gradient(45deg, #8B5CF6, #EC4899);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        margin-bottom: 4px;
+    }
+    
+    .metric-label {
+        color: rgba(255, 255, 255, 0.6);
+        font-size: 14px;
+    }
+    
+    /* Footer */
+    .modal-footer {
+        margin-top: 40px;
+        padding-top: 30px;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+        text-align: center;
+    }
+    
+    .modal-cta-btn {
+        background: linear-gradient(45deg, #8B5CF6, #6366F1);
+        color: white;
+        border: none;
+        padding: 18px 40px;
+        border-radius: 16px;
+        font-size: 16px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        display: inline-flex;
+        align-items: center;
+        gap: 12px;
+        box-shadow: 0 10px 30px rgba(139, 92, 246, 0.3);
+    }
+    
+    .modal-cta-btn:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 15px 40px rgba(139, 92, 246, 0.4);
+    }
+    
+    /* Scrollbar Styling */
+    #modalContent::-webkit-scrollbar {
+        width: 8px;
+    }
+    
+    #modalContent::-webkit-scrollbar-track {
+        background: rgba(255, 255, 255, 0.05);
+        border-radius: 4px;
+    }
+    
+    #modalContent::-webkit-scrollbar-thumb {
+        background: linear-gradient(45deg, #8B5CF6, #6366F1);
+        border-radius: 4px;
+    }
+    
+    /* Responsive Design */
+    @media (max-width: 768px) {
+        .modal-header {
+            flex-direction: column;
+            gap: 20px;
+        }
+        
+        .modal-title {
+            font-size: 28px;
+        }
+        
+        .modal-content-wrapper {
+            padding: 24px;
+        }
+        
+        .tech-tags-grid {
+            grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+        }
+        
+        .status-details {
+            grid-template-columns: 1fr;
+            gap: 16px;
+        }
+        
+        .modal-actions-header {
+            width: 100%;
+            justify-content: center;
+        }
+        
+        .modal-hero {
+            height: 200px;
+        }
+    }
+    
+    @media (max-width: 480px) {
+        .modal-category, .modal-stat {
+            font-size: 12px;
+            padding: 6px 12px;
+        }
+        
+        .modal-action-btn {
+            padding: 10px 16px;
+            font-size: 13px;
+        }
+        
+        .tech-tags-grid {
+            grid-template-columns: 1fr;
+        }
+    }
+`;
+
+// Add the enhanced styles to the document
+const enhancedStyleSheet = document.createElement("style");
+enhancedStyleSheet.textContent = enhancedModalStyles;
+document.head.appendChild(enhancedStyleSheet);
+
+// Add this to your existing code
+function escapeHtml(text) {
+    const div = document.createElement('div');
+    div.textContent = text;
+    return div.innerHTML;
+}
+
+// Add this CSS for body when modal is open
+const bodyStyles = `
+    body.modal-open {
+        overflow: hidden !important;
+        padding-right: 15px; /* Prevent layout shift */
+    }
+    
+    body.modal-open::before {
+        content: '';
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(11, 0, 22, 0.5);
+        backdrop-filter: blur(5px);
+        z-index: 9998;
+        animation: fadeIn 0.3s ease;
+    }
+`;
+
+const bodyStyleSheet = document.createElement("style");
+bodyStyleSheet.textContent = bodyStyles;
+document.head.appendChild(bodyStyleSheet);
+
+// Debug helper
+window.debugPortfolio = function() {
+    console.log('=== Portfolio Debug Info ===');
+    console.log('Items:', document.querySelectorAll('.portfolio-item').length);
+    console.log('Filter buttons:', document.querySelectorAll('.filter-btn').length);
+    console.log('Modal exists:', !!document.getElementById('portfolioModal'));
+    
+    const items = document.querySelectorAll('.portfolio-item');
+    items.forEach((item, i) => {
+        console.log(`Item ${i}:`, {
+            category: item.dataset.category,
+            display: item.style.display,
+            opacity: item.style.opacity
+        });
+    });
+};
 
 // Resume Section JavaScript
 document.addEventListener('DOMContentLoaded', function() {
@@ -1327,7 +2088,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const testimonialCardsContainer = document.querySelector('.testimonial-cards');
     let currentIndex = 0;
     let autoSlideInterval;
-    const slideInterval = 5000; // 5 seconds
+    const slideInterval = 3000; // 5 seconds
     
     // Initialize slider
     function initSlider() {
