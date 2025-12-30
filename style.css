@@ -6073,3 +6073,73 @@ a:focus,button:focus{outline:3px solid rgba(125,73,229,0.15);outline-offset:3px}
         font-size: 1.3rem;
     }
 }
+
+/* Remove blue tap highlight on mobile devices */
+* {
+    -webkit-tap-highlight-color: transparent;
+}
+
+/* You can also be more specific if needed */
+button,
+a,
+input,
+textarea,
+select,
+.btn-primary,
+.btn-secondary,
+.nav-link,
+.filter-btn,
+.blog-category-btn,
+.skill-category-btn,
+.portfolio-link,
+.social-link,
+.footer-social-link,
+.footer-nav-link,
+.mobile-menu-link,
+.nav-arrow,
+.pagination-dot,
+.resume-tab,
+.back-to-top,
+.cta-btn,
+.view-all-btn,
+.download-btn,
+.skills-btn,
+.view-more-btn,
+.read-more-btn,
+.btn-hire,
+.btn-ghost,
+.mobile-cta-btn,
+.service-link,
+.submit-btn {
+    -webkit-tap-highlight-color: transparent;
+}
+
+/* Also remove the grey overlay on tap for iOS */
+@media (hover: none) and (pointer: coarse) {
+    button:active,
+    a:active,
+    .btn-primary:active,
+    .btn-secondary:active {
+        background-color: transparent !important;
+        -webkit-tap-highlight-color: transparent !important;
+    }
+}
+
+/* For better touch experience */
+@media (max-width: 768px) {
+    button,
+    a,
+    input[type="button"],
+    input[type="submit"] {
+        min-height: 44px; /* Minimum touch target size */
+        min-width: 44px;
+    }
+    
+    /* Remove default iOS styles */
+    input,
+    textarea {
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+    }
+}
