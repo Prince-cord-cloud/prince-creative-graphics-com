@@ -3245,3 +3245,4 @@ document.addEventListener('DOMContentLoaded', function() {
     // Add current year to page load
     console.log(`Prince Creative Graphics Portfolio © ${currentYear}`);
 });
+
