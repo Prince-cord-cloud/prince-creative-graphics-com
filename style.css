@@ -5319,6 +5319,192 @@ a:focus,button:focus{outline:3px solid rgba(125,73,229,0.15);outline-offset:3px}
     }
 }
 
+/* ===== MOBILE DROPDOWN FIXES ===== */
+/* Only apply to mobile devices */
+@media screen and (max-width: 768px) {
+    /* Ensure dropdown appears above other elements */
+    .form-select {
+        position: relative !important;
+        z-index: 100 !important;
+        font-size: 16px !important; /* Prevents iOS zoom */
+        -webkit-appearance: menulist-button !important; /* Shows native dropdown on iOS */
+        height: 52px !important; /* Better touch target */
+        min-height: 52px !important;
+        line-height: 1.5 !important;
+        padding: 14px 45px 14px 16px !important;
+        background-color: rgba(255, 255, 255, 0.08) !important;
+        border: 1px solid rgba(179, 122, 255, 0.3) !important;
+    }
+    
+    /* Fix for iOS Safari */
+    @supports (-webkit-touch-callout: none) {
+        .form-select {
+            padding-right: 40px !important;
+            background-image: none !important;
+            -webkit-appearance: none !important;
+        }
+        
+        /* Add custom arrow for iOS */
+        .select-wrapper::after {
+            content: '▼';
+            position: absolute;
+            right: 16px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #b37aff;
+            font-size: 12px;
+            pointer-events: none;
+            z-index: 101;
+        }
+    }
+    
+    /* Fix for Android Chrome */
+    @supports not (-webkit-touch-callout: none) {
+        .form-select {
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' fill='%23b37aff' viewBox='0 0 16 16'%3E%3Cpath d='M7.247 11.14L2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z'/%3E%3C/svg%3E") !important;
+            background-repeat: no-repeat !important;
+            background-position: right 16px center !important;
+            background-size: 20px !important;
+        }
+    }
+    
+    /* Fix for Firefox Mobile */
+    @-moz-document url-prefix() {
+        .form-select {
+            padding-right: 16px !important;
+            background-image: none !important;
+            text-indent: 0.01px !important;
+            text-overflow: '' !important;
+        }
+        
+        /* Add arrow for Firefox */
+        .form-select::-moz-focus-inner {
+            border: 0 !important;
+        }
+        
+        .form-select:-moz-focusring {
+            color: transparent !important;
+            text-shadow: 0 0 0 #fff !important;
+        }
+    }
+    
+    /* Fix for Samsung Internet */
+    @media screen and (-webkit-min-device-pixel-ratio: 0) {
+        .form-select {
+            transform: translateZ(0); /* Force hardware acceleration */
+        }
+    }
+    
+    /* Ensure dropdown options are visible */
+    .form-select option {
+        background-color: #0b0016 !important;
+        color: #fff !important;
+        font-size: 16px !important;
+        padding: 12px 16px !important;
+        border-bottom: 1px solid rgba(179, 122, 255, 0.1) !important;
+    }
+    
+    /* Selected option styling */
+    .form-select option:checked,
+    .form-select option:hover,
+    .form-select option:focus {
+        background-color: rgba(179, 122, 255, 0.2) !important;
+        color: #b37aff !important;
+    }
+    
+    /* Placeholder styling */
+    .form-select option[value=""][disabled] {
+        color: rgba(255, 255, 255, 0.5) !important;
+        font-style: italic !important;
+    }
+    
+    /* Focus state */
+    .form-select:focus {
+        border-color: #b37aff !important;
+        box-shadow: 0 0 0 3px rgba(179, 122, 255, 0.1) !important;
+        outline: none !important;
+    }
+    
+    /* Active/open state */
+    .form-select:active {
+        background-color: rgba(179, 122, 255, 0.1) !important;
+    }
+    
+    /* Disabled state */
+    .form-select:disabled {
+        opacity: 0.5 !important;
+        cursor: not-allowed !important;
+    }
+    
+    /* Invalid state */
+    .form-select:invalid:not(:placeholder-shown) {
+        border-color: #ff4757 !important;
+        background-color: rgba(255, 71, 87, 0.05) !important;
+    }
+    
+    /* Valid state */
+    .form-select:valid:not(:placeholder-shown) {
+        border-color: #2ed573 !important;
+        background-color: rgba(46, 213, 115, 0.05) !important;
+    }
+    
+    /* Fix for very small screens */
+    @media screen and (max-width: 480px) {
+        .form-select {
+            padding: 12px 40px 12px 14px !important;
+            font-size: 15px !important;
+            height: 48px !important;
+            min-height: 48px !important;
+        }
+        
+        .select-wrapper::after {
+            right: 14px !important;
+            font-size: 11px !important;
+        }
+    }
+    
+    /* Fix for landscape mode */
+    @media screen and (max-height: 500px) and (orientation: landscape) {
+        .form-select {
+            height: 44px !important;
+            min-height: 44px !important;
+            padding: 10px 40px 10px 14px !important;
+        }
+    }
+}
+
+/* Fix for touch devices specifically */
+@media (hover: none) and (pointer: coarse) {
+    .form-select {
+        touch-action: manipulation !important;
+        -webkit-tap-highlight-color: rgba(179, 122, 255, 0.1) !important;
+    }
+    
+    /* Larger hit area for mobile */
+    .form-select,
+    .select-wrapper {
+        min-height: 44px !important;
+    }
+}
+
+/* Ensure dropdown doesn't break form layout on mobile */
+@media screen and (max-width: 768px) {
+    .form-row {
+        grid-template-columns: 1fr !important;
+        gap: 20px !important;
+    }
+    
+    .form-group {
+        margin-bottom: 0 !important;
+    }
+    
+    /* Make sure dropdown doesn't overflow */
+    .form-select {
+        max-width: 100% !important;
+        box-sizing: border-box !important;
+    }
+}
+
 /* Fix for Firefox */
 @-moz-document url-prefix() {
     .form-select {
@@ -5365,6 +5551,8 @@ a:focus,button:focus{outline:3px solid rgba(125,73,229,0.15);outline-offset:3px}
         padding-right: 35px;
     }
 }
+
+
 
 .submit-btn::before {
     content: '';
@@ -6313,3 +6501,815 @@ select,
     }
 }
 
+/* ===== MODERN LOADER STYLES ===== */
+.loader-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #0b0016;
+    z-index: 999999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 1;
+    visibility: visible;
+    transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1), 
+                visibility 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.loader-overlay.hidden {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+}
+
+.loader-container {
+    position: relative;
+    width: 100%;
+    max-width: 800px;
+    padding: 40px;
+    z-index: 2;
+}
+
+/* Animated Gradient Background */
+.gradient-background {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100vw;
+    height: 100vh;
+    background: radial-gradient(circle at 50% 50%, 
+                rgba(125, 73, 229, 0.2) 0%,
+                rgba(92, 53, 166, 0.1) 30%,
+                transparent 70%);
+    animation: pulse 8s ease-in-out infinite alternate;
+    z-index: 1;
+}
+
+@keyframes pulse {
+    0% {
+        transform: translate(-50%, -50%) scale(1);
+        opacity: 0.3;
+    }
+    100% {
+        transform: translate(-50%, -50%) scale(1.2);
+        opacity: 0.6;
+    }
+}
+
+/* Loader Content */
+.loader-content {
+    background: rgba(255, 255, 255, 0.02);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(179, 122, 255, 0.1);
+    border-radius: 32px;
+    padding: 60px;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5),
+                0 0 0 1px rgba(179, 122, 255, 0.05);
+    animation: fadeInUp 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Animated Logo */
+.loader-logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 25px;
+    margin-bottom: 50px;
+    animation: slideIn 0.8s cubic-bezier(0.4, 0, 0.2, 1) 0.2s both;
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateX(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.logo-spinner {
+    width: 80px;
+    height: 80px;
+    animation: rotate 4s linear infinite;
+}
+
+.logo-svg {
+    width: 100%;
+    height: 100%;
+}
+
+.logo-path {
+    stroke-dasharray: 300;
+    stroke-dashoffset: 300;
+    animation: drawLogo 2s ease-in-out forwards;
+}
+
+.logo-inner {
+    stroke-dasharray: 200;
+    stroke-dashoffset: 200;
+    animation: drawLogo 2s ease-in-out 0.3s forwards;
+}
+
+@keyframes drawLogo {
+    to {
+        stroke-dashoffset: 0;
+    }
+}
+
+@keyframes rotate {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.logo-text {
+    display: flex;
+    flex-direction: column;
+}
+
+.logo-name {
+    font-size: 2.8rem;
+    font-weight: 800;
+    background: linear-gradient(135deg, #fff 0%, #b37aff 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    line-height: 1;
+    margin-bottom: 5px;
+}
+
+.logo-tagline {
+    font-size: 1.1rem;
+    color: #b37aff;
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+
+/* Loading Progress */
+.loading-progress {
+    margin-bottom: 40px;
+}
+
+.progress-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    animation: fadeIn 0.6s ease 0.4s both;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.progress-label {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.progress-percentage {
+    font-size: 1.8rem;
+    font-weight: 800;
+    background: linear-gradient(135deg, #7d49e5, #b37aff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+/* Progress Bar */
+.progress-track {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 12px;
+    height: 14px;
+    overflow: hidden;
+    position: relative;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    animation: fadeIn 0.6s ease 0.5s both;
+}
+
+.progress-bar {
+    position: relative;
+    height: 100%;
+    width: 100%;
+}
+
+.progress-fill {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 0%;
+    background: linear-gradient(90deg, 
+                #5c35a6 0%,
+                #7d49e5 50%,
+                #b37aff 100%);
+    border-radius: 12px;
+    transition: width 0.3s ease;
+}
+
+.progress-glow {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background: linear-gradient(90deg, 
+                transparent 0%,
+                rgba(255, 255, 255, 0.3) 50%,
+                transparent 100%);
+    animation: shimmer 2s infinite;
+    border-radius: 12px;
+}
+
+@keyframes shimmer {
+    0% {
+        transform: translateX(-100%);
+    }
+    100% {
+        transform: translateX(100%);
+    }
+}
+
+.progress-dots {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 10px;
+}
+
+.progress-dot {
+    width: 8px;
+    height: 8px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    animation: pulseDot 2s infinite;
+}
+
+.progress-dot:nth-child(1) { animation-delay: 0s; }
+.progress-dot:nth-child(2) { animation-delay: 0.5s; }
+.progress-dot:nth-child(3) { animation-delay: 1s; }
+.progress-dot:nth-child(4) { animation-delay: 1.5s; }
+
+@keyframes pulseDot {
+    0%, 100% {
+        transform: scale(1);
+        opacity: 0.2;
+    }
+    50% {
+        transform: scale(1.3);
+        opacity: 1;
+    }
+}
+
+/* Loading Steps */
+.loading-steps {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 15px;
+    margin-top: 30px;
+    animation: fadeIn 0.6s ease 0.6s both;
+}
+
+.step {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    padding: 15px;
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 16px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    transition: all 0.3s ease;
+    opacity: 0.5;
+}
+
+.step.active {
+    background: rgba(179, 122, 255, 0.1);
+    border-color: rgba(179, 122, 255, 0.2);
+    opacity: 1;
+}
+
+.step-icon {
+    width: 32px;
+    height: 32px;
+    background: linear-gradient(135deg, #7d49e5, #b37aff);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: bold;
+    font-size: 14px;
+    animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-5px);
+    }
+}
+
+.step-text {
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.8);
+    font-weight: 500;
+    text-align: center;
+}
+
+/* Loading Stats */
+.loading-stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    margin-bottom: 40px;
+    animation: fadeIn 0.6s ease 0.7s both;
+}
+
+.loading-stats .stat {
+    text-align: center;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 16px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    transition: all 0.3s ease;
+}
+
+.loading-stats .stat:hover {
+    background: rgba(179, 122, 255, 0.05);
+    border-color: rgba(179, 122, 255, 0.1);
+    transform: translateY(-5px);
+}
+
+.stat-value {
+    display: block;
+    font-size: 1.8rem;
+    font-weight: 800;
+    background: linear-gradient(135deg, #fff, #b37aff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 5px;
+}
+
+.stat-label {
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.6);
+}
+
+/* Loading Message */
+.loading-message {
+    text-align: center;
+    animation: fadeIn 0.6s ease 0.8s both;
+}
+
+.message-text {
+    font-size: 1.1rem;
+    color: rgba(255, 255, 255, 0.8);
+    font-style: italic;
+    position: relative;
+    display: inline-block;
+}
+
+.message-text::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(90deg, 
+                transparent 0%,
+                #b37aff 50%,
+                transparent 100%);
+    animation: typing 3s infinite;
+}
+
+@keyframes typing {
+    0%, 100% {
+        width: 0;
+        left: 0;
+    }
+    50% {
+        width: 100%;
+        left: 0;
+    }
+    75% {
+        width: 0;
+        left: 100%;
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .loader-container {
+        padding: 20px;
+    }
+    
+    .loader-content {
+        padding: 40px 30px;
+        border-radius: 24px;
+    }
+    
+    .loader-logo {
+        flex-direction: column;
+        text-align: center;
+        gap: 20px;
+        margin-bottom: 40px;
+    }
+    
+    .logo-spinner {
+        width: 60px;
+        height: 60px;
+    }
+    
+    .logo-name {
+        font-size: 2.2rem;
+    }
+    
+    .logo-tagline {
+        font-size: 1rem;
+    }
+    
+    .progress-label {
+        font-size: 1rem;
+    }
+    
+    .progress-percentage {
+        font-size: 1.5rem;
+    }
+    
+    .loading-steps {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+    }
+    
+    .loading-stats {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+    
+    .loading-stats .stat {
+        padding: 15px;
+    }
+    
+    .stat-value {
+        font-size: 1.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .loader-content {
+        padding: 30px 20px;
+        border-radius: 20px;
+    }
+    
+    .logo-name {
+        font-size: 1.8rem;
+    }
+    
+    .progress-track {
+        height: 12px;
+    }
+    
+    .loading-steps {
+        grid-template-columns: 1fr;
+    }
+    
+    .step {
+        flex-direction: row;
+        justify-content: flex-start;
+        text-align: left;
+    }
+    
+    .message-text {
+        font-size: 1rem;
+    }
+}
+
+/* ===== LOADER MOBILE RESPONSIVENESS ===== */
+/* Tablet (768px and below) */
+@media screen and (max-width: 768px) {
+    /* Loading Steps - 2 per row */
+    .loading-steps {
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 12px !important;
+        margin-top: 25px !important;
+    }
+    
+    .step {
+        padding: 12px 8px !important;
+        min-height: 80px !important;
+        justify-content: center !important;
+    }
+    
+    .step-icon {
+        width: 28px !important;
+        height: 28px !important;
+        font-size: 12px !important;
+        margin-bottom: 5px !important;
+    }
+    
+    .step-text {
+        font-size: 0.8rem !important;
+        line-height: 1.3 !important;
+    }
+    
+    /* Loading Stats - 2 per row */
+    .loading-stats {
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 15px !important;
+        margin-bottom: 30px !important;
+    }
+    
+    .loading-stats .stat {
+        padding: 15px 10px !important;
+        min-height: 90px !important;
+        display: flex !important;
+        flex-direction: column !important;
+        justify-content: center !important;
+        align-items: center !important;
+    }
+    
+    .loading-stats .stat:hover {
+        transform: translateY(-3px) !important;
+    }
+    
+    .stat-value {
+        font-size: 1.5rem !important;
+        margin-bottom: 3px !important;
+    }
+    
+    .stat-label {
+        font-size: 0.8rem !important;
+        text-align: center !important;
+        line-height: 1.2 !important;
+    }
+    
+    /* Adjust progress elements */
+    .progress-header {
+        margin-bottom: 15px !important;
+    }
+    
+    .progress-label {
+        font-size: 1rem !important;
+    }
+    
+    .progress-percentage {
+        font-size: 1.4rem !important;
+    }
+    
+    .progress-track {
+        height: 12px !important;
+    }
+}
+
+/* Small Mobile (480px and below) */
+@media screen and (max-width: 480px) {
+    .loading-steps {
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 10px !important;
+        margin-top: 20px !important;
+    }
+    
+    .step {
+        padding: 10px 6px !important;
+        min-height: 70px !important;
+        border-radius: 12px !important;
+    }
+    
+    .step-icon {
+        width: 24px !important;
+        height: 24px !important;
+        font-size: 11px !important;
+    }
+    
+    .step-text {
+        font-size: 0.75rem !important;
+    }
+    
+    /* Loading Stats - 2 per row (with adjustments) */
+    .loading-stats {
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 12px !important;
+    }
+    
+    .loading-stats .stat {
+        padding: 12px 8px !important;
+        min-height: 80px !important;
+        border-radius: 12px !important;
+    }
+    
+    .stat-value {
+        font-size: 1.3rem !important;
+    }
+    
+    .stat-label {
+        font-size: 0.75rem !important;
+        padding: 0 5px !important;
+    }
+    
+    /* Adjust loader container padding */
+    .loader-content {
+        padding: 30px 20px !important;
+        border-radius: 20px !important;
+    }
+    
+    .loader-logo {
+        margin-bottom: 30px !important;
+    }
+    
+    .logo-name {
+        font-size: 1.8rem !important;
+    }
+    
+    .logo-tagline {
+        font-size: 0.9rem !important;
+    }
+}
+
+/* Very Small Mobile (360px and below) */
+@media screen and (max-width: 360px) {
+    .loading-steps {
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 8px !important;
+    }
+    
+    .step {
+        padding: 8px 5px !important;
+        min-height: 65px !important;
+    }
+    
+    .step-text {
+        font-size: 0.7rem !important;
+    }
+    
+    .loading-stats {
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 10px !important;
+    }
+    
+    .loading-stats .stat {
+        padding: 10px 6px !important;
+        min-height: 75px !important;
+    }
+    
+    .stat-value {
+        font-size: 1.2rem !important;
+    }
+    
+    .stat-label {
+        font-size: 0.7rem !important;
+    }
+}
+
+/* Portrait Mode Optimization */
+@media screen and (max-height: 700px) and (orientation: portrait) {
+    .loader-content {
+        padding: 25px 20px !important;
+    }
+    
+    .loader-logo {
+        margin-bottom: 25px !important;
+    }
+    
+    .loading-steps {
+        margin-top: 20px !important;
+    }
+    
+    .loading-stats {
+        margin-bottom: 25px !important;
+    }
+    
+    .loading-message {
+        margin-top: 15px !important;
+    }
+}
+
+/* Landscape Mode on Mobile */
+@media screen and (max-height: 500px) and (orientation: landscape) {
+    .loader-content {
+        padding: 20px 15px !important;
+    }
+    
+    .loading-steps,
+    .loading-stats {
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 10px !important;
+    }
+    
+    .step,
+    .loading-stats .stat {
+        min-height: 60px !important;
+        padding: 8px !important;
+    }
+    
+    .step-icon {
+        width: 22px !important;
+        height: 22px !important;
+        font-size: 10px !important;
+    }
+    
+    .step-text,
+    .stat-label {
+        font-size: 0.7rem !important;
+    }
+    
+    .stat-value {
+        font-size: 1.1rem !important;
+    }
+}
+
+/* Touch Device Optimizations */
+@media (hover: none) and (pointer: coarse) {
+    .step,
+    .loading-stats .stat {
+        min-height: 44px !important; /* Apple's minimum touch target */
+        padding: 12px !important; /* Extra padding for touch */
+    }
+    
+    .step-icon {
+        min-width: 32px !important;
+        min-height: 32px !important;
+    }
+    
+    /* Improve touch feedback */
+    .step:active,
+    .loading-stats .stat:active {
+        transform: scale(0.98) !important;
+        transition: transform 0.1s ease !important;
+    }
+}
+
+/* High DPI (Retina) Screens */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+    .progress-track,
+    .step,
+    .loading-stats .stat {
+        border-width: 0.5px !important;
+    }
+}
+
+/* Dark Mode Support */
+@media (prefers-color-scheme: dark) {
+    .loader-overlay {
+        background: #0a0014 !important; /* Slightly darker for OLED */
+    }
+    
+    .loader-content {
+        background: rgba(20, 10, 40, 0.95) !important;
+        border-color: rgba(179, 122, 255, 0.15) !important;
+    }
+}
+
+/* Reduce Motion Preference */
+@media (prefers-reduced-motion: reduce) {
+    .gradient-background,
+    .logo-spinner,
+    .progress-glow,
+    .progress-dot,
+    .step-icon,
+    .message-text::after {
+        animation: none !important;
+    }
+    
+    .step:hover,
+    .loading-stats .stat:hover {
+        transform: none !important;
+    }
+}

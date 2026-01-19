@@ -3246,3 +3246,339 @@ document.addEventListener('DOMContentLoaded', function() {
     console.log(`Prince Creative Graphics Portfolio © ${currentYear}`);
 });
 
+// Modern Loading System
+document.addEventListener('DOMContentLoaded', function() {
+    const loader = document.getElementById('loader');
+    const progressBar = document.getElementById('progressBar');
+    const progressFill = progressBar.querySelector('.progress-fill');
+    const progressPercentage = document.querySelector('.progress-percentage');
+    const loadingSteps = document.querySelectorAll('.step');
+    const loadedAssetsEl = document.getElementById('loadedAssets');
+    const loadSpeedEl = document.getElementById('loadSpeed');
+    const timeLeftEl = document.getElementById('timeLeft');
+    const loadingMessageEl = document.getElementById('loadingMessage');
+    
+    // Configuration
+    const config = {
+        targetProgress: 100,
+        totalAssets: 50,
+        minLoadTime: 2000, // Minimum 2 seconds
+        maxLoadTime: 4000, // Maximum 4 seconds
+        stepDuration: 800, // Time per step
+        messages: [
+            "Preparing your digital experience...",
+            "Loading interactive components...",
+            "Optimizing for your device...",
+            "Applying visual effects...",
+            "Final preparations...",
+            "Almost there..."
+        ]
+    };
+    
+    let currentProgress = 0;
+    let loadedAssets = 0;
+    let startTime = Date.now();
+    let isComplete = false;
+    
+    // Initialize loader
+    function initLoader() {
+        // Start progress animation
+        updateProgress(5);
+        
+        // Start loading simulation
+        simulateLoading();
+        
+        // Start actual resource loading
+        loadResources();
+        
+        // Update time remaining
+        updateTimeRemaining();
+    }
+    
+    // Simulate loading progress
+    function simulateLoading() {
+        const interval = setInterval(() => {
+            if (isComplete) {
+                clearInterval(interval);
+                return;
+            }
+            
+            // Calculate incremental progress
+            const timeElapsed = Date.now() - startTime;
+            const timeProgress = Math.min(timeElapsed / config.maxLoadTime, 0.9); // Cap at 90%
+            const assetProgress = (loadedAssets / config.totalAssets) * 0.8; // Cap at 80%
+            
+            // Combine progress (ensures we reach at least 95% before actual load)
+            const newProgress = Math.floor(Math.min(
+                (timeProgress + assetProgress) * 100,
+                95
+            ));
+            
+            if (newProgress > currentProgress) {
+                updateProgress(newProgress);
+                
+                // Update steps based on progress
+                updateSteps(newProgress);
+                
+                // Update loading message
+                updateLoadingMessage(newProgress);
+            }
+            
+            // Force complete if stuck
+            if (timeElapsed > config.maxLoadTime && newProgress < 95) {
+                updateProgress(95);
+            }
+            
+        }, 100);
+    }
+    
+    // Update progress bar
+    function updateProgress(progress) {
+        currentProgress = progress;
+        progressFill.style.width = `${progress}%`;
+        progressPercentage.textContent = `${progress}%`;
+        
+        // Update assets loaded counter (simulated)
+        loadedAssets = Math.floor((progress / 100) * config.totalAssets);
+        loadedAssetsEl.textContent = loadedAssets;
+        
+        // Update load speed
+        const elapsed = Date.now() - startTime;
+        loadSpeedEl.textContent = `${elapsed}ms`;
+    }
+    
+    // Update loading steps
+    function updateSteps(progress) {
+        const stepIndex = Math.floor(progress / 25);
+        
+        loadingSteps.forEach((step, index) => {
+            if (index <= stepIndex) {
+                step.classList.add('active');
+                step.querySelector('.step-icon').textContent = '✓';
+                step.querySelector('.step-icon').style.background = 'linear-gradient(135deg, #22C55E, #16A34A)';
+            } else if (index === stepIndex + 1) {
+                step.querySelector('.step-icon').textContent = '↻';
+                step.querySelector('.step-icon').style.animation = 'bounce 2s infinite';
+            }
+        });
+    }
+    
+    // Update loading message
+    function updateLoadingMessage(progress) {
+        const messageIndex = Math.floor(progress / (100 / config.messages.length));
+        if (messageIndex < config.messages.length) {
+            loadingMessageEl.textContent = config.messages[messageIndex];
+        }
+    }
+    
+    // Update time remaining
+    function updateTimeRemaining() {
+        const interval = setInterval(() => {
+            if (isComplete) {
+                clearInterval(interval);
+                return;
+            }
+            
+            const elapsed = Date.now() - startTime;
+            const remaining = Math.max(0, config.maxLoadTime - elapsed);
+            timeLeftEl.textContent = `${Math.ceil(remaining / 1000)}s`;
+            
+        }, 1000);
+    }
+    
+    // Load actual resources
+    function loadResources() {
+        // Track actual resource loading
+        const resources = [
+            // Images
+            ...document.querySelectorAll('img[data-src], img[src]'),
+            // CSS
+            document.querySelectorAll('link[rel="stylesheet"]'),
+            // Fonts
+            document.querySelectorAll('link[rel*="font"], link[rel*="icon"]')
+        ].flat();
+        
+        let loadedCount = 0;
+        
+        // Simulate loading each resource
+        resources.forEach((resource, index) => {
+            setTimeout(() => {
+                loadedCount++;
+                
+                // Update actual assets loaded (mix with simulated)
+                const actualProgress = Math.floor((loadedCount / resources.length) * 15); // Last 15%
+                
+                // Update progress
+                if (currentProgress < 100) {
+                    updateProgress(Math.min(currentProgress + actualProgress, 100));
+                }
+                
+                // Check if all resources are loaded
+                if (loadedCount === resources.length) {
+                    completeLoading();
+                }
+                
+            }, Math.random() * config.stepDuration + (index * 200));
+        });
+        
+        // Safety timeout - complete loading even if some resources fail
+        setTimeout(() => {
+            if (!isComplete) {
+                completeLoading();
+            }
+        }, config.maxLoadTime + 1000);
+    }
+    
+    // Complete loading
+    function completeLoading() {
+        if (isComplete) return;
+        
+        isComplete = true;
+        
+        // Ensure we reach 100%
+        updateProgress(100);
+        
+        // Mark all steps as complete
+        loadingSteps.forEach(step => {
+            step.classList.add('active');
+            const icon = step.querySelector('.step-icon');
+            icon.textContent = '✓';
+            icon.style.background = 'linear-gradient(135deg, #22C55E, #16A34A)';
+            icon.style.animation = 'none';
+        });
+        
+        // Final message
+        loadingMessageEl.textContent = "Ready!";
+        loadingMessageEl.style.color = "#b37aff";
+        
+        // Hide loader with delay
+        setTimeout(() => {
+            loader.classList.add('hidden');
+            
+            // Enable scrolling
+            document.body.style.overflow = '';
+            
+            // Remove loader from DOM after animation
+            setTimeout(() => {
+                loader.style.display = 'none';
+                
+                // Trigger custom event for other scripts
+                document.dispatchEvent(new CustomEvent('loaderComplete'));
+                
+                // Start entrance animations for main content
+                animateEntrance();
+                
+            }, 800);
+            
+        }, 1000);
+    }
+    
+    // Animate main content entrance
+    function animateEntrance() {
+        const sections = document.querySelectorAll('section, header, footer');
+        sections.forEach((section, index) => {
+            section.style.opacity = '0';
+            section.style.transform = 'translateY(20px)';
+            section.style.transition = 'opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1), transform 0.6s cubic-bezier(0.4, 0, 0.2, 1)';
+            
+            setTimeout(() => {
+                section.style.opacity = '1';
+                section.style.transform = 'translateY(0)';
+            }, 100 + (index * 100));
+        });
+    }
+    
+    // Initialize on page load
+    window.addEventListener('load', initLoader);
+    
+    // Fallback - complete loading if page takes too long
+    setTimeout(() => {
+        if (!isComplete) {
+            completeLoading();
+        }
+    }, config.maxLoadTime + 2000);
+    
+    // Add loader to window for debugging
+    window.loaderDebug = {
+        getProgress: () => currentProgress,
+        getLoadedAssets: () => loadedAssets,
+        completeNow: () => completeLoading(),
+        restart: () => {
+            loader.classList.remove('hidden');
+            loader.style.display = 'flex';
+            isComplete = false;
+            currentProgress = 0;
+            loadedAssets = 0;
+            startTime = Date.now();
+            initLoader();
+        }
+    };
+});
+
+// Mobile Dropdown Enhancement
+document.addEventListener('DOMContentLoaded', function() {
+    const dropdowns = document.querySelectorAll('.form-select');
+    
+    if (dropdowns.length > 0 && window.innerWidth <= 768) {
+        // Detect if iOS
+        const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
+        
+        dropdowns.forEach((dropdown, index) => {
+            // Store original placeholder
+            const placeholder = dropdown.querySelector('option[value=""][disabled]')?.textContent || 
+                               dropdown.getAttribute('placeholder') || 
+                               'Select an option';
+            
+            // Add mobile-specific attributes
+            dropdown.setAttribute('title', placeholder);
+            
+            // Fix for iOS to prevent zoom
+            if (isIOS) {
+                dropdown.addEventListener('focus', function() {
+                    this.style.fontSize = '16px';
+                });
+                
+                dropdown.addEventListener('blur', function() {
+                    this.style.fontSize = '';
+                });
+            }
+            
+            // Add visual feedback on mobile
+            dropdown.addEventListener('touchstart', function() {
+                this.style.backgroundColor = 'rgba(179, 122, 255, 0.1)';
+            });
+            
+            dropdown.addEventListener('touchend', function() {
+                setTimeout(() => {
+                    this.style.backgroundColor = '';
+                }, 200);
+            });
+            
+            // Show selected value
+            dropdown.addEventListener('change', function() {
+                if (this.value) {
+                    this.style.color = '#fff';
+                } else {
+                    this.style.color = 'rgba(255, 255, 255, 0.5)';
+                }
+            });
+            
+            // Initialize color based on current value
+            if (!dropdown.value) {
+                dropdown.style.color = 'rgba(255, 255, 255, 0.5)';
+            }
+        });
+        
+        // Fix for Android Chrome dropdown positioning
+        if (!isIOS && /Android/.test(navigator.userAgent)) {
+            document.addEventListener('focusin', function(e) {
+                if (e.target.classList.contains('form-select')) {
+                    // Scroll dropdown into view on Android
+                    setTimeout(() => {
+                        e.target.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                    }, 300);
+                }
+            });
+        }
+    }
+});
