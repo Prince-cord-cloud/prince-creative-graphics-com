@@ -1352,5 +1352,28 @@
             console.log('Window resized - charts would update');
         });
     </script>
+    <!-- Disable right-click and text selection -->
+<body oncontextmenu="return false" onselectstart="return false" 
+      ondragstart="return false" oncopy="return false">
+
+<!-- Add to your JavaScript -->
+<script>
+// Disable keyboard shortcuts for copy/paste
+document.addEventListener('keydown', function(e) {
+    // Disable Ctrl+U, Ctrl+S, Ctrl+Shift+I, F12
+    if (e.ctrlKey && (e.key === 'u' || e.key === 's')) {
+        e.preventDefault();
+        return false;
+    }
+    if (e.ctrlKey && e.shiftKey && e.key === 'I') {
+        e.preventDefault();
+        return false;
+    }
+    if (e.key === 'F12') {
+        e.preventDefault();
+        return false;
+    }
+});
+</script> 
 </body>
 </html>
