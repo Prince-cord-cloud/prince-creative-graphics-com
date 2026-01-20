@@ -1352,9 +1352,9 @@
             console.log('Window resized - charts would update');
         });
     </script>
-    <!-- Disable right-click and text selection -->
-<body oncontextmenu="return false" onselectstart="return false" 
-      ondragstart="return false" oncopy="return false">
+     
+    <!-- Disable right-click and keyboard shortcuts -->
+<body oncontextmenu="return false" ondragstart="return false" oncopy="return false">
 
 <!-- Add to your JavaScript -->
 <script>
@@ -1374,6 +1374,7 @@ document.addEventListener('keydown', function(e) {
         return false;
     }
 });
-</script> 
+</script>
+
 </body>
 </html>
