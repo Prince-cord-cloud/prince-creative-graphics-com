@@ -6368,136 +6368,99 @@ select,
     }
 }
 
-/* ===== BLOG STATS MOBILE FIX ===== */
-/* Force 2 columns on tablets and phones */
-@media screen and (max-width: 1024px) {
-    .blog-stats {
+/* ===== BLOG STATS MOBILE FIX (STRONGER VERSION) ===== */
+@media screen and (max-width: 768px) {
+    section#blog .blog-stats,
+    .blog-section .blog-stats {
+        display: grid !important;
         grid-template-columns: repeat(2, 1fr) !important;
         grid-template-rows: repeat(2, auto) !important;
-    }
-}
-
-/* Force 2 columns on mobile */
-@media screen and (max-width: 768px) {
-    .blog-stats {
-        display: grid !important;
-        grid-template-columns: 1fr 1fr !important;
-        grid-template-rows: auto auto !important;
         gap: 20px !important;
         width: 100% !important;
+        margin: 40px auto 0 auto !important;
+        padding: 0 !important;
+        max-width: 100% !important;
     }
     
-    .blog-stats .blog-stat {
+    section#blog .blog-stats .blog-stat,
+    .blog-section .blog-stats .blog-stat {
         width: 100% !important;
         min-width: 100% !important;
         max-width: 100% !important;
-        float: none !important;
-        display: block !important;
-        box-sizing: border-box !important;
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        justify-content: center !important;
+        padding: 20px 15px !important;
         margin: 0 !important;
-        flex: 0 0 calc(50% - 10px) !important;
-    }
-}
-
-/* Force 2 columns on small mobile */
-@media screen and (max-width: 480px) {
-    .blog-stats {
-        grid-template-columns: 1fr 1fr !important;
-        gap: 15px !important;
-    }
-    
-    .blog-stats .blog-stat {
-        padding: 15px 10px !important;
-        flex: 0 0 calc(50% - 7.5px) !important;
-    }
-    
-    .blog-stats .stat-value {
-        font-size: 1.6rem !important;
-    }
-}
-
-/* Force 1 column on very small screens */
-@media screen and (max-width: 360px) {
-    .blog-stats {
-        grid-template-columns: 1fr !important;
-        grid-template-rows: repeat(4, auto) !important;
-    }
-}
-
-/* ===== CONTACT STATS MOBILE FIX ===== */
-@media screen and (max-width: 768px) {
-    .contact-stats {
-        display: grid !important;
-        grid-template-columns: 1fr 1fr !important;
-        grid-template-rows: auto auto !important;
-        gap: 20px !important;
-        width: 100% !important;
-        margin-top: 60px !important;
-        padding-top: 40px !important;
-    }
-    
-    .contact-stat {
-        width: 100% !important;
-        min-width: 100% !important;
-        max-width: 100% !important;
-        float: none !important;
-        display: block !important;
-        box-sizing: border-box !important;
-        margin: 0 !important;
-        padding: 25px 20px !important;
         text-align: center !important;
+        box-sizing: border-box !important;
     }
     
-    .contact-stat .stat-icon {
+    section#blog .blog-stats .blog-stat .stat-icon,
+    .blog-section .blog-stats .blog-stat .stat-icon {
         width: 50px !important;
         height: 50px !important;
-        margin: 0 auto 15px !important;
+        margin: 0 auto 15px auto !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
     }
     
-    .contact-stat .stat-value {
+    section#blog .blog-stats .blog-stat .stat-value,
+    .blog-section .blog-stats .blog-stat .stat-value {
         font-size: 1.8rem !important;
         margin-bottom: 8px !important;
         display: block !important;
-    }
-    
-    .contact-stat .stat-label {
-        font-size: 0.9rem !important;
-        line-height: 1.4 !important;
-        display: block !important;
+        width: 100% !important;
     }
 }
 
-@media screen and (max-width: 480px) {
-    .contact-stats {
-        gap: 15px !important;
-        margin-top: 50px !important;
-        padding-top: 30px !important;
+/* ===== CONTACT STATS MOBILE FIX (STRONGER VERSION) ===== */
+@media screen and (max-width: 768px) {
+    section#contact .contact-stats,
+    .contact-section .contact-stats {
+        display: grid !important;
+        grid-template-columns: repeat(2, 1fr) !important;
+        grid-template-rows: repeat(2, auto) !important;
+        gap: 20px !important;
+        width: 100% !important;
+        margin: 40px auto 0 auto !important;
+        padding: 0 !important;
+        max-width: 100% !important;
     }
     
-    .contact-stat {
+    section#contact .contact-stats .contact-stat,
+    .contact-section .contact-stats .contact-stat {
+        width: 100% !important;
+        min-width: 100% !important;
+        max-width: 100% !important;
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        justify-content: center !important;
         padding: 20px 15px !important;
+        margin: 0 !important;
+        text-align: center !important;
+        box-sizing: border-box !important;
     }
     
-    .contact-stat .stat-icon {
-        width: 45px !important;
-        height: 45px !important;
-        margin-bottom: 12px !important;
+    section#contact .contact-stats .contact-stat .stat-icon,
+    .contact-section .contact-stats .contact-stat .stat-icon {
+        width: 50px !important;
+        height: 50px !important;
+        margin: 0 auto 15px auto !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
     }
     
-    .contact-stat .stat-value {
-        font-size: 1.6rem !important;
-    }
-    
-    .contact-stat .stat-label {
-        font-size: 0.85rem !important;
-    }
-}
-
-/* Single column on very small screens */
-@media screen and (max-width: 360px) {
-    .contact-stats {
-        grid-template-columns: 1fr !important;
-        grid-template-rows: repeat(4, auto) !important;
+    section#contact .contact-stats .contact-stat .stat-value,
+    .contact-section .contact-stats .contact-stat .stat-value {
+        font-size: 1.8rem !important;
+        margin-bottom: 8px !important;
+        display: block !important;
+        width: 100% !important;
     }
 }
 
