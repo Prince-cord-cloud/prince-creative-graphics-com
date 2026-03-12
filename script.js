@@ -39,62 +39,65 @@ document.addEventListener('DOMContentLoaded', function() {
         document.body.style.overflow = '';
     }
     
-    // Update active nav link
-    function updateActiveNavLink() {
-        const scrollPos = window.scrollY + 100;
-        
-        document.querySelectorAll('section[id]').forEach(section => {
-            const sectionTop = section.offsetTop;
-            const sectionHeight = section.clientHeight;
-            const sectionId = section.getAttribute('id');
-            
-            if (scrollPos >= sectionTop && scrollPos < sectionTop + sectionHeight) {
-                // Update desktop nav
-                navLinks.forEach(link => {
-                    link.classList.remove('active');
-                    if (link.getAttribute('href') === `#${sectionId}`) {
-                        link.classList.add('active');
-                    }
-                });
-                
-                // Update mobile nav
-                const mobileLink = document.querySelector(`.mobile-menu-link[href="#${sectionId}"]`);
-                if (mobileLink) {
-                    mobileLink.classList.add('active');
-                }
-            }
-        });
-    }
+    // Update active nav link based on scroll position (fixed)
+function updateActiveNavLink() {
+    const scrollPos = window.scrollY + 100; // offset for better UX
+    const headerHeight = header.offsetHeight;
     
-    // Smooth scroll to section
-    function smoothScrollToSection(e) {
-        const href = this.getAttribute('href');
+    document.querySelectorAll('section[id]').forEach(section => {
+        const rect = section.getBoundingClientRect();
+        const sectionTop = rect.top + window.scrollY;
+        const sectionBottom = rect.bottom + window.scrollY;
         
-        if (href.startsWith('#')) {
-            e.preventDefault();
-            const targetId = href.substring(1);
-            const targetElement = document.getElementById(targetId);
-            
-            if (targetElement) {
-                // Close mobile menu if open
-                if (mobileMenu.classList.contains('open')) {
-                    closeMobileMenu();
+        const sectionId = section.getAttribute('id');
+        
+        if (scrollPos >= sectionTop - headerHeight && scrollPos < sectionBottom - headerHeight) {
+            // Update desktop nav
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${sectionId}`) {
+                    link.classList.add('active');
                 }
-                
-                // Smooth scroll
-                const headerHeight = header.offsetHeight;
-                const targetPosition = targetElement.offsetTop - headerHeight;
-                
-                window.scrollTo({
-                    top: targetPosition,
-                    behavior: 'smooth'
-                });
-                
-                // Update URL without page reload
-                history.pushState(null, null, href);
+            });
+            
+            // Update mobile nav
+            const mobileLink = document.querySelector(`.mobile-menu-link[href="#${sectionId}"]`);
+            if (mobileLink) {
+                mobileLink.classList.add('active');
             }
         }
+    });
+}
+    
+   // Smooth scroll to section (fixed)
+function smoothScrollToSection(e) {
+    const href = this.getAttribute('href');
+    
+    if (href.startsWith('#')) {
+        e.preventDefault();
+        const targetId = href.substring(1);
+        const targetElement = document.getElementById(targetId);
+        
+        if (targetElement) {
+            // Close mobile menu if open
+            if (mobileMenu.classList.contains('open')) {
+                closeMobileMenu();
+            }
+            
+            // Use getBoundingClientRect for accurate position
+            const headerHeight = header.offsetHeight;
+            const targetPosition = targetElement.getBoundingClientRect().top + window.scrollY - headerHeight;
+            
+            window.scrollTo({
+                top: targetPosition,
+                behavior: 'smooth'
+            });
+            
+            // Update URL without page reload
+            history.pushState(null, null, href);
+        }
     }
+}
     
     // Click sound effect
     function playClickSound() {
