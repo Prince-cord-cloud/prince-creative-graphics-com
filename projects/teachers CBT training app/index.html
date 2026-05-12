@@ -1,0 +1,3554 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Master the fundamentals of the Internet with our interactive professional course. Learn how it works, stay secure, and maximize your digital potential.">
+  <title>Internet Fundamentals Pro — Interactive Learning Platform</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  
+  <style>
+    :root {
+      /* Light theme colors */
+      --primary: #2563eb;
+      --primary-dark: #1d4ed8;
+      --primary-light: #3b82f6;
+      --secondary: #0ea5a4;
+      --accent: #8b5cf6;
+      --success: #10b981;
+      --warning: #f59e0b;
+      --danger: #ef4444;
+      --info: #06b6d4;
+      
+      --bg-gradient: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+      --card-gradient: linear-gradient(135deg, #ffffff 0%, #fefefe 100%);
+      --accent-gradient: linear-gradient(90deg, var(--primary) 0%, var(--accent) 100%);
+      --success-gradient: linear-gradient(90deg, var(--success) 0%, #34d399 100%);
+      
+      --text-primary: #0f172a;
+      --text-secondary: #475569;
+      --text-muted: #64748b;
+      
+      --border-light: #e2e8f0;
+      --border-medium: #cbd5e1;
+      --border-dark: #94a3b8;
+      
+      --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.05);
+      --shadow-md: 0 10px 25px -5px rgba(0, 0, 0, 0.08);
+      --shadow-lg: 0 20px 50px -12px rgba(0, 0, 0, 0.12);
+      --shadow-xl: 0 25px 60px -15px rgba(0, 0, 0, 0.15);
+      --shadow-primary: 0 10px 30px -5px rgba(37, 99, 235, 0.3);
+      
+      --radius-sm: 8px;
+      --radius-md: 12px;
+      --radius-lg: 16px;
+      --radius-xl: 24px;
+      --radius-full: 9999px;
+      
+      --transition-fast: 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+      --transition-medium: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      --transition-slow: 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+      
+      --hover-lift: translateY(-3px);
+      --hover-shadow: var(--shadow-lg);
+    }
+    
+    /* Dark theme variables */
+    [data-theme="dark"] {
+      --primary: #3b82f6;
+      --primary-dark: #2563eb;
+      --primary-light: #60a5fa;
+      --secondary: #14b8a6;
+      --accent: #a78bfa;
+      --success: #10b981;
+      --warning: #f59e0b;
+      --danger: #ef4444;
+      --info: #06b6d4;
+      
+      --bg-gradient: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+      --card-gradient: linear-gradient(135deg, #1e293b 0%, #334155 100%);
+      --accent-gradient: linear-gradient(90deg, var(--primary) 0%, var(--accent) 100%);
+      --success-gradient: linear-gradient(90deg, var(--success) 0%, #34d399 100%);
+      
+      --text-primary: #f1f5f9;
+      --text-secondary: #cbd5e1;
+      --text-muted: #94a3b8;
+      
+      --border-light: #334155;
+      --border-medium: #475569;
+      --border-dark: #64748b;
+      
+      --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.3);
+      --shadow-md: 0 10px 25px -5px rgba(0, 0, 0, 0.4);
+      --shadow-lg: 0 20px 50px -12px rgba(0, 0, 0, 0.5);
+      --shadow-xl: 0 25px 60px -15px rgba(0, 0, 0, 0.6);
+      --shadow-primary: 0 10px 30px -5px rgba(37, 99, 235, 0.4);
+    }
+    
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    
+    html {
+      scroll-behavior: smooth;
+    }
+    
+    body {
+      font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: var(--bg-gradient);
+      color: var(--text-primary);
+      line-height: 1.6;
+      font-weight: 400;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      min-height: 100vh;
+      transition: background var(--transition-medium), color var(--transition-medium);
+    }
+    
+    h1, h2, h3, h4, h5 {
+      font-family: 'Space Grotesk', system-ui, sans-serif;
+      font-weight: 600;
+      line-height: 1.2;
+    }
+    
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+    
+    /* Modern Header */
+    .site-header {
+      background: var(--card-gradient);
+      border-bottom: 1px solid var(--border-light);
+      padding: 18px 0;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      backdrop-filter: blur(10px);
+      box-shadow: var(--shadow-sm);
+      transition: all var(--transition-medium);
+    }
+    
+    .header-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    
+    .logo {
+      width: 40px;
+      height: 40px;
+      background: var(--accent-gradient);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 20px;
+      font-weight: 700;
+      transition: all var(--transition-medium);
+    }
+    
+    .brand-text h1 {
+      font-size: 24px;
+      margin: 0;
+      background: var(--accent-gradient);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      transition: all var(--transition-medium);
+    }
+    
+    .brand-text p {
+      margin: 0;
+      font-size: 14px;
+      color: var(--text-muted);
+      transition: color var(--transition-medium);
+    }
+    
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+    
+    /* Enhanced Button Styles */
+    .btn-icon {
+      background: var(--card-gradient);
+      border: 1px solid var(--border-light);
+      width: 44px;
+      height: 44px;
+      border-radius: var(--radius-full);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--text-secondary);
+      cursor: pointer;
+      transition: all var(--transition-medium);
+      position: relative;
+      overflow: hidden;
+      box-shadow: var(--shadow-sm);
+    }
+    
+    .btn-icon::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: var(--accent-gradient);
+      opacity: 0;
+      transition: opacity var(--transition-medium);
+      z-index: 0;
+    }
+    
+    .btn-icon i {
+      position: relative;
+      z-index: 1;
+      transition: all var(--transition-medium);
+    }
+    
+    .btn-icon:hover {
+      border-color: var(--primary);
+      box-shadow: var(--shadow-primary);
+      transform: var(--hover-lift);
+    }
+    
+    .btn-icon:hover::before {
+      opacity: 1;
+    }
+    
+    .btn-icon:hover i {
+      color: white;
+    }
+    
+    .btn-icon:active {
+      transform: translateY(-1px);
+      transition: transform var(--transition-fast);
+    }
+    
+    /* Primary Button */
+    .btn-primary {
+      background: var(--accent-gradient);
+      color: white;
+      border: none;
+      padding: 14px 28px;
+      border-radius: var(--radius-md);
+      font-weight: 600;
+      font-size: 15px;
+      cursor: pointer;
+      transition: all var(--transition-medium);
+      box-shadow: var(--shadow-primary);
+      position: relative;
+      overflow: hidden;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      letter-spacing: 0.3px;
+    }
+    
+    .btn-primary::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+      transition: left 0.7s ease;
+    }
+    
+    .btn-primary:hover {
+      transform: var(--hover-lift);
+      box-shadow: 0 15px 40px -8px rgba(37, 99, 235, 0.4);
+    }
+    
+    .btn-primary:hover::before {
+      left: 100%;
+    }
+    
+    .btn-primary:active {
+      transform: translateY(-1px);
+      transition: transform var(--transition-fast);
+    }
+    
+    .btn-primary:disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
+      transform: none;
+    }
+    
+    .btn-primary:disabled:hover::before {
+      left: -100%;
+    }
+    
+    /* Secondary Button */
+    .btn-secondary {
+      background: var(--card-gradient);
+      color: var(--text-primary);
+      border: 1px solid var(--border-medium);
+      padding: 12px 22px;
+      border-radius: var(--radius-md);
+      font-weight: 600;
+      font-size: 14px;
+      cursor: pointer;
+      transition: all var(--transition-medium);
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      position: relative;
+      overflow: hidden;
+      box-shadow: var(--shadow-sm);
+    }
+    
+    .btn-secondary::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: var(--accent-gradient);
+      opacity: 0;
+      transition: opacity var(--transition-medium);
+      z-index: 0;
+    }
+    
+    .btn-secondary span, 
+    .btn-secondary i {
+      position: relative;
+      z-index: 1;
+      transition: all var(--transition-medium);
+    }
+    
+    .btn-secondary:hover {
+      border-color: var(--primary);
+      transform: var(--hover-lift);
+      box-shadow: var(--shadow-md);
+    }
+    
+    .btn-secondary:hover::before {
+      opacity: 0.1;
+    }
+    
+    .btn-secondary:hover i {
+      color: var(--primary);
+    }
+    
+    .btn-secondary:active {
+      transform: translateY(-1px);
+      transition: transform var(--transition-fast);
+    }
+    
+    /* Outline Button */
+    .btn-outline {
+      background: transparent;
+      color: var(--primary);
+      border: 2px solid var(--primary);
+      padding: 12px 22px;
+      border-radius: var(--radius-md);
+      font-weight: 600;
+      font-size: 14px;
+      cursor: pointer;
+      transition: all var(--transition-medium);
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .btn-outline::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: var(--primary);
+      transform: scaleX(0);
+      transform-origin: right;
+      transition: transform var(--transition-medium);
+      z-index: 0;
+    }
+    
+    .btn-outline span, 
+    .btn-outline i {
+      position: relative;
+      z-index: 1;
+      transition: all var(--transition-medium);
+    }
+    
+    .btn-outline:hover {
+      color: white;
+      transform: var(--hover-lift);
+      box-shadow: var(--shadow-primary);
+    }
+    
+    .btn-outline:hover::before {
+      transform: scaleX(1);
+      transform-origin: left;
+    }
+    
+    .btn-outline:hover i {
+      color: white;
+    }
+    
+    /* Success Button */
+    .btn-success {
+      background: var(--success-gradient);
+      color: white;
+      border: none;
+      padding: 12px 22px;
+      border-radius: var(--radius-md);
+      font-weight: 600;
+      font-size: 14px;
+      cursor: pointer;
+      transition: all var(--transition-medium);
+      box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
+      position: relative;
+      overflow: hidden;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+    
+    .btn-success:hover {
+      transform: var(--hover-lift);
+      box-shadow: 0 8px 20px rgba(16, 185, 129, 0.4);
+    }
+    
+    .btn-success:active {
+      transform: translateY(-1px);
+    }
+    
+    /* Danger Button */
+    .btn-danger {
+      background: linear-gradient(90deg, var(--danger) 0%, #f87171 100%);
+      color: white;
+      border: none;
+      padding: 12px 22px;
+      border-radius: var(--radius-md);
+      font-weight: 600;
+      font-size: 14px;
+      cursor: pointer;
+      transition: all var(--transition-medium);
+      box-shadow: 0 4px 12px rgba(239, 68, 68, 0.3);
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+    
+    .btn-danger:hover {
+      transform: var(--hover-lift);
+      box-shadow: 0 8px 20px rgba(239, 68, 68, 0.4);
+    }
+    
+    /* Info Button */
+    .btn-info {
+      background: linear-gradient(90deg, var(--info) 0%, #22d3ee 100%);
+      color: white;
+      border: none;
+      padding: 12px 22px;
+      border-radius: var(--radius-md);
+      font-weight: 600;
+      font-size: 14px;
+      cursor: pointer;
+      transition: all var(--transition-medium);
+      box-shadow: 0 4px 12px rgba(6, 182, 212, 0.3);
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+    
+    .btn-info:hover {
+      transform: var(--hover-lift);
+      box-shadow: 0 8px 20px rgba(6, 182, 212, 0.4);
+    }
+    
+    /* Main Layout */
+    .main-layout {
+      display: grid;
+      grid-template-columns: 300px 1fr;
+      gap: 32px;
+      padding: 32px 0;
+    }
+    
+    @media (max-width: 992px) {
+      .main-layout {
+        grid-template-columns: 1fr;
+      }
+    }
+    
+    /* Sidebar Navigation */
+    .sidebar {
+      position: sticky;
+      top: 100px;
+      height: fit-content;
+    }
+    
+    .toc-card {
+      background: var(--card-gradient);
+      border-radius: var(--radius-lg);
+      padding: 24px;
+      box-shadow: var(--shadow-md);
+      border: 1px solid var(--border-light);
+      transition: all var(--transition-medium);
+    }
+    
+    .toc-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 20px;
+      padding-bottom: 16px;
+      border-bottom: 1px solid var(--border-light);
+    }
+    
+    .toc-header h3 {
+      margin: 0;
+      font-size: 18px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    
+    .toc-header h3 i {
+      color: var(--primary);
+    }
+    
+    .progress-indicator {
+      background: var(--border-light);
+      height: 8px;
+      border-radius: 10px;
+      overflow: hidden;
+      margin-bottom: 16px;
+      transition: all var(--transition-medium);
+    }
+    
+    .progress-fill {
+      height: 100%;
+      background: var(--accent-gradient);
+      width: 0%;
+      transition: width 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+      border-radius: 10px;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .progress-fill::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+      animation: shimmer 2s infinite;
+    }
+    
+    .progress-text {
+      font-size: 14px;
+      color: var(--text-muted);
+      margin-bottom: 20px;
+      display: flex;
+      justify-content: space-between;
+      transition: color var(--transition-medium);
+    }
+    
+    .toc-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    
+    .toc-item {
+      position: relative;
+    }
+    
+    .toc-item button {
+      width: 100%;
+      text-align: left;
+      background: none;
+      border: none;
+      padding: 16px;
+      border-radius: var(--radius-md);
+      cursor: pointer;
+      font-size: 15px;
+      color: var(--text-secondary);
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      transition: all var(--transition-medium);
+      position: relative;
+      overflow: hidden;
+      border: 1px solid transparent;
+    }
+    
+    .toc-item button::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: var(--accent-gradient);
+      opacity: 0;
+      transition: opacity var(--transition-medium);
+      z-index: 0;
+    }
+    
+    .toc-item button .lesson-icon,
+    .toc-item button .lesson-title,
+    .toc-item button .completion-indicator {
+      position: relative;
+      z-index: 1;
+      transition: all var(--transition-medium);
+    }
+    
+    .toc-item button:hover {
+      border-color: var(--primary);
+      transform: translateX(8px);
+      box-shadow: var(--shadow-md);
+    }
+    
+    .toc-item button:hover::before {
+      opacity: 0.05;
+    }
+    
+    .toc-item button:hover .lesson-icon {
+      transform: scale(1.1);
+      background: var(--primary);
+      color: white;
+    }
+    
+    .toc-item.active button {
+      background: rgba(37, 99, 235, 0.08);
+      color: var(--primary);
+      font-weight: 600;
+      border-left: 4px solid var(--primary);
+    }
+    
+    .toc-item.active button .lesson-icon {
+      background: var(--accent-gradient);
+      color: white;
+    }
+    
+    .lesson-icon {
+      width: 36px;
+      height: 36px;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(37, 99, 235, 0.1);
+      color: var(--primary);
+      font-weight: 600;
+      font-size: 14px;
+      flex-shrink: 0;
+      transition: all var(--transition-medium);
+    }
+    
+    .lesson-title {
+      flex: 1;
+      text-align: left;
+    }
+    
+    .lesson-duration {
+      font-size: 12px;
+      color: var(--text-muted);
+      margin-top: 4px;
+      display: block;
+      transition: color var(--transition-medium);
+    }
+    
+    .completion-indicator {
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background: var(--border-light);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 10px;
+      color: transparent;
+      flex-shrink: 0;
+      transition: all var(--transition-medium);
+    }
+    
+    .toc-item.completed .completion-indicator {
+      background: var(--success);
+      color: white;
+    }
+    
+    .toc-item.completed .completion-indicator::before {
+      content: "✓";
+    }
+    
+    /* Content Area */
+    .content-area {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+    
+    /* Welcome Card */
+    .welcome-card {
+      background: var(--card-gradient);
+      border-radius: var(--radius-lg);
+      padding: 32px;
+      box-shadow: var(--shadow-md);
+      border: 1px solid var(--border-light);
+      margin-bottom: 8px;
+      position: relative;
+      overflow: hidden;
+      transition: all var(--transition-medium);
+    }
+    
+    .welcome-card::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 4px;
+      background: var(--accent-gradient);
+      transition: all var(--transition-medium);
+    }
+    
+    .welcome-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 16px;
+    }
+    
+    .welcome-header h2 {
+      font-size: 28px;
+      margin: 0;
+    }
+    
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+      margin-top: 24px;
+    }
+    
+    @media (max-width: 768px) {
+      .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+    
+    .stat-card {
+      background: var(--card-gradient);
+      border-radius: var(--radius-md);
+      padding: 20px;
+      text-align: center;
+      border: 1px solid var(--border-light);
+      transition: all var(--transition-medium);
+      cursor: pointer;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .stat-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: var(--accent-gradient);
+      opacity: 0;
+      transition: opacity var(--transition-medium);
+      z-index: 0;
+    }
+    
+    .stat-card .stat-value,
+    .stat-card .stat-label {
+      position: relative;
+      z-index: 1;
+      transition: all var(--transition-medium);
+    }
+    
+    .stat-card:hover {
+      transform: var(--hover-lift);
+      box-shadow: var(--shadow-md);
+      border-color: var(--primary);
+    }
+    
+    .stat-card:hover::before {
+      opacity: 0.05;
+    }
+    
+    .stat-card:hover .stat-value {
+      color: var(--primary);
+    }
+    
+    .stat-value {
+      font-size: 28px;
+      font-weight: 700;
+      color: var(--primary);
+      margin-bottom: 6px;
+      transition: all var(--transition-medium);
+    }
+    
+    .stat-label {
+      font-size: 13px;
+      color: var(--text-muted);
+      transition: color var(--transition-medium);
+    }
+    
+    /* Lesson Cards */
+    .lesson-card {
+      background: var(--card-gradient);
+      border-radius: var(--radius-lg);
+      padding: 28px;
+      box-shadow: var(--shadow-md);
+      border: 1px solid var(--border-light);
+      transition: all var(--transition-medium);
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .lesson-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: var(--accent-gradient);
+      opacity: 0;
+      transition: opacity var(--transition-medium);
+      z-index: 0;
+    }
+    
+    .lesson-card > * {
+      position: relative;
+      z-index: 1;
+    }
+    
+    .lesson-card:hover {
+      transform: var(--hover-lift);
+      box-shadow: var(--shadow-lg);
+      border-color: var(--primary);
+    }
+    
+    .lesson-card:hover::before {
+      opacity: 0.02;
+    }
+    
+    .lesson-card.completed {
+      border-left: 4px solid var(--success);
+    }
+    
+    .lesson-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 16px;
+    }
+    
+    .lesson-title-section {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+    
+    .lesson-number {
+      width: 48px;
+      height: 48px;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(37, 99, 235, 0.1);
+      color: var(--primary);
+      font-weight: 700;
+      font-size: 18px;
+      flex-shrink: 0;
+      transition: all var(--transition-medium);
+    }
+    
+    .lesson-card:hover .lesson-number {
+      background: var(--primary);
+      color: white;
+      transform: scale(1.05);
+    }
+    
+    .lesson-card.completed .lesson-number {
+      background: rgba(16, 185, 129, 0.1);
+      color: var(--success);
+    }
+    
+    .lesson-main-title h3 {
+      font-size: 22px;
+      margin: 0 0 4px 0;
+    }
+    
+    .lesson-meta {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      font-size: 14px;
+      color: var(--text-muted);
+    }
+    
+    .lesson-meta span {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    
+    .lesson-actions {
+      display: flex;
+      gap: 12px;
+    }
+    
+    .lesson-content {
+      margin-top: 20px;
+      padding-top: 20px;
+      border-top: 1px solid var(--border-light);
+      transition: all var(--transition-medium);
+    }
+    
+    .lesson-summary {
+      font-size: 16px;
+      color: var(--text-secondary);
+      margin-bottom: 20px;
+      line-height: 1.7;
+    }
+    
+    .lesson-points {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-bottom: 24px;
+    }
+    
+    .lesson-points li {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      padding: 8px 0;
+      transition: all var(--transition-medium);
+    }
+    
+    .lesson-points li:hover {
+      transform: translateX(8px);
+      color: var(--primary);
+    }
+    
+    .lesson-points li::before {
+      content: "";
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--primary);
+      margin-top: 10px;
+      flex-shrink: 0;
+      transition: all var(--transition-medium);
+    }
+    
+    .lesson-points li:hover::before {
+      background: var(--accent);
+      transform: scale(1.5);
+    }
+    
+    .lesson-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-top: 20px;
+      border-top: 1px solid var(--border-light);
+    }
+    
+    .lesson-tags {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+    
+    .tag {
+      background: rgba(37, 99, 235, 0.1);
+      color: var(--primary);
+      padding: 6px 12px;
+      border-radius: 20px;
+      font-size: 13px;
+      font-weight: 500;
+      transition: all var(--transition-medium);
+      border: 1px solid transparent;
+      cursor: pointer;
+    }
+    
+    .tag:hover {
+      background: var(--primary);
+      color: white;
+      transform: scale(1.05);
+      box-shadow: var(--shadow-sm);
+    }
+    
+    .tag.advanced {
+      background: rgba(245, 158, 11, 0.1);
+      color: #d97706;
+    }
+    
+    .tag.advanced:hover {
+      background: #f59e0b;
+      color: white;
+    }
+    
+    .tag.fundamental {
+      background: rgba(37, 99, 235, 0.1);
+      color: var(--primary);
+    }
+    
+    .tag.fundamental:hover {
+      background: var(--primary);
+      color: white;
+    }
+    
+    .tag.safety {
+      background: rgba(239, 68, 68, 0.1);
+      color: var(--danger);
+    }
+    
+    .tag.safety:hover {
+      background: var(--danger);
+      color: white;
+    }
+    
+    /* Interactive Quiz */
+    .quiz-container {
+      background: var(--card-gradient);
+      border-radius: var(--radius-lg);
+      padding: 32px;
+      box-shadow: var(--shadow-md);
+      border: 1px solid var(--border-light);
+      margin-top: 16px;
+      transition: all var(--transition-medium);
+    }
+    
+    .quiz-container:hover {
+      box-shadow: var(--shadow-lg);
+    }
+    
+    .quiz-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 24px;
+    }
+    
+    .quiz-header h3 {
+      font-size: 22px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    
+    .quiz-progress {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    
+    .quiz-progress-bar {
+      width: 120px;
+      height: 6px;
+      background: var(--border-light);
+      border-radius: 10px;
+      overflow: hidden;
+    }
+    
+    .quiz-progress-fill {
+      height: 100%;
+      background: var(--accent-gradient);
+      width: 33%;
+      border-radius: 10px;
+      transition: width 0.5s ease;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .quiz-progress-fill::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+      animation: shimmer 2s infinite;
+    }
+    
+    .quiz-question {
+      font-size: 18px;
+      font-weight: 600;
+      color: var(--text-primary);
+      margin-bottom: 24px;
+      line-height: 1.5;
+    }
+    
+    .quiz-choices {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 12px;
+      margin-bottom: 28px;
+    }
+    
+    .quiz-choice {
+      background: var(--card-gradient);
+      border: 2px solid var(--border-medium);
+      border-radius: var(--radius-md);
+      padding: 18px;
+      cursor: pointer;
+      transition: all var(--transition-medium);
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      text-align: left;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .quiz-choice::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: var(--accent-gradient);
+      opacity: 0;
+      transition: opacity var(--transition-medium);
+      z-index: 0;
+    }
+    
+    .quiz-choice > * {
+      position: relative;
+      z-index: 1;
+    }
+    
+    .quiz-choice:hover {
+      border-color: var(--primary);
+      transform: translateX(8px);
+      box-shadow: var(--shadow-md);
+    }
+    
+    .quiz-choice:hover::before {
+      opacity: 0.05;
+    }
+    
+    .quiz-choice.selected {
+      border-color: var(--primary);
+      background: rgba(37, 99, 235, 0.08);
+    }
+    
+    .quiz-choice.correct {
+      border-color: var(--success);
+      background: rgba(16, 185, 129, 0.08);
+    }
+    
+    .quiz-choice.incorrect {
+      border-color: var(--danger);
+      background: rgba(239, 68, 68, 0.08);
+    }
+    
+    .choice-letter {
+      width: 36px;
+      height: 36px;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(37, 99, 235, 0.1);
+      color: var(--text-secondary);
+      font-weight: 600;
+      flex-shrink: 0;
+      transition: all var(--transition-medium);
+    }
+    
+    .quiz-choice:hover .choice-letter {
+      background: var(--primary);
+      color: white;
+      transform: scale(1.1);
+    }
+    
+    .quiz-choice.selected .choice-letter {
+      background: var(--primary);
+      color: white;
+    }
+    
+    .quiz-choice.correct .choice-letter {
+      background: var(--success);
+      color: white;
+    }
+    
+    .quiz-choice.incorrect .choice-letter {
+      background: var(--danger);
+      color: white;
+    }
+    
+    .quiz-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 32px;
+      padding-top: 24px;
+      border-top: 1px solid var(--border-light);
+    }
+    
+    /* Quiz Results */
+    .score-circle {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      margin: 0 auto 24px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      background: conic-gradient(var(--success) 0deg 0deg, var(--border-light) 0deg 360deg);
+    }
+    
+    .score-inner {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      background: var(--card-gradient);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 32px;
+      font-weight: 700;
+      color: var(--primary);
+    }
+    
+    /* Certificate Section */
+    .certificate-section {
+      background: var(--card-gradient);
+      border-radius: var(--radius-lg);
+      padding: 32px;
+      box-shadow: var(--shadow-md);
+      border: 1px solid var(--border-light);
+      margin-top: 24px;
+      text-align: center;
+      transition: all var(--transition-medium);
+    }
+    
+    .certificate-section:hover {
+      box-shadow: var(--shadow-lg);
+    }
+    
+    .certificate-section h3 {
+      font-size: 24px;
+      margin-bottom: 12px;
+    }
+    
+    .certificate-section p {
+      color: var(--text-muted);
+      margin-bottom: 24px;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    
+    .certificate-preview {
+      background: var(--card-gradient);
+      border-radius: var(--radius-md);
+      padding: 24px;
+      border: 2px dashed var(--border-medium);
+      margin-bottom: 24px;
+      max-width: 500px;
+      margin-left: auto;
+      margin-right: auto;
+      cursor: pointer;
+      transition: all var(--transition-medium);
+    }
+    
+    .certificate-preview:hover {
+      border-color: var(--primary);
+      transform: scale(1.02);
+      box-shadow: var(--shadow-md);
+    }
+    
+    /* Footer */
+    .site-footer {
+      background: var(--card-gradient);
+      color: var(--text-secondary);
+      padding: 40px 0 24px;
+      margin-top: 64px;
+      border-top: 1px solid var(--border-light);
+      transition: all var(--transition-medium);
+    }
+    
+    .footer-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      flex-wrap: wrap;
+      gap: 32px;
+      margin-bottom: 32px;
+    }
+    
+    .footer-brand h3 {
+      color: var(--text-primary);
+      margin-bottom: 12px;
+    }
+    
+    .footer-links {
+      display: flex;
+      gap: 40px;
+    }
+    
+    .footer-links h4 {
+      color: var(--text-primary);
+      font-size: 16px;
+      margin-bottom: 16px;
+    }
+    
+    .footer-links ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    
+    .footer-links a {
+      color: var(--text-muted);
+      text-decoration: none;
+      transition: all var(--transition-medium);
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 4px 0;
+      position: relative;
+    }
+    
+    .footer-links a::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: var(--accent-gradient);
+      transition: width var(--transition-medium);
+    }
+    
+    .footer-links a:hover {
+      color: var(--primary);
+      transform: translateX(4px);
+    }
+    
+    .footer-links a:hover::after {
+      width: 100%;
+    }
+    
+    .footer-bottom {
+      text-align: center;
+      padding-top: 24px;
+      border-top: 1px solid var(--border-light);
+      color: var(--text-muted);
+      font-size: 14px;
+    }
+    
+    /* Animations */
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    
+    @keyframes pulse {
+      0% { box-shadow: 0 0 0 0 rgba(37, 99, 235, 0.4); }
+      70% { box-shadow: 0 0 0 10px rgba(37, 99, 235, 0); }
+      100% { box-shadow: 0 0 0 0 rgba(37, 99, 235, 0); }
+    }
+    
+    @keyframes shimmer {
+      0% { transform: translateX(-100%); }
+      100% { transform: translateX(100%); }
+    }
+    
+    @keyframes confetti-fall {
+      0% { transform: translateY(-100px) rotate(0deg); }
+      100% { transform: translateY(100vh) rotate(360deg); }
+    }
+    
+    .animate-in {
+      animation: fadeIn 0.5s ease forwards;
+    }
+    
+    .pulse {
+      animation: pulse 2s infinite;
+    }
+    
+    /* Theme toggle specific styles */
+    .theme-toggle {
+      position: relative;
+      width: 60px;
+      height: 30px;
+    }
+    
+    .theme-toggle input {
+      display: none;
+    }
+    
+    .theme-toggle label {
+      display: block;
+      width: 60px;
+      height: 30px;
+      background: var(--card-gradient);
+      border-radius: var(--radius-full);
+      border: 2px solid var(--border-light);
+      cursor: pointer;
+      position: relative;
+      transition: all var(--transition-medium);
+      box-shadow: var(--shadow-sm);
+    }
+    
+    .theme-toggle label:hover {
+      border-color: var(--primary);
+      transform: scale(1.05);
+    }
+    
+    .theme-toggle label::after {
+      content: '';
+      position: absolute;
+      top: 3px;
+      left: 3px;
+      width: 20px;
+      height: 20px;
+      background: var(--accent-gradient);
+      border-radius: 50%;
+      transition: all var(--transition-medium);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 12px;
+    }
+    
+    .theme-toggle input:checked + label::after {
+      left: calc(100% - 23px);
+      background: var(--warning);
+    }
+    
+    .theme-toggle label::before {
+      content: '🌙';
+      position: absolute;
+      left: 8px;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 14px;
+      opacity: 0.7;
+      transition: all var(--transition-medium);
+    }
+    
+    .theme-toggle input:checked + label::before {
+      content: '☀️';
+      left: auto;
+      right: 8px;
+    }
+    
+    /* Modal Styles */
+    .modal-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(15, 23, 42, 0.9);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 1000;
+      opacity: 0;
+      animation: fadeIn 0.3s ease forwards;
+      padding: 20px;
+    }
+    
+    .modal {
+      background: var(--card-gradient);
+      border-radius: var(--radius-lg);
+      max-width: 600px;
+      width: 100%;
+      max-height: 90vh;
+      overflow-y: auto;
+      box-shadow: var(--shadow-xl);
+      border: 1px solid var(--border-light);
+      animation: fadeIn 0.5s ease;
+    }
+    
+    .modal-header {
+      padding: 24px;
+      border-bottom: 1px solid var(--border-light);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    
+    .modal-body {
+      padding: 24px;
+    }
+    
+    .modal-footer {
+      padding: 24px;
+      border-top: 1px solid var(--border-light);
+      display: flex;
+      justify-content: flex-end;
+      gap: 12px;
+    }
+    
+    /* Toast Notification */
+    .toast {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      background: var(--card-gradient);
+      border-radius: var(--radius-md);
+      padding: 16px 24px;
+      box-shadow: var(--shadow-lg);
+      border-left: 4px solid var(--success);
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      z-index: 1001;
+      transform: translateY(100px);
+      opacity: 0;
+      transition: all var(--transition-medium);
+    }
+    
+    .toast.show {
+      transform: translateY(0);
+      opacity: 1;
+    }
+    
+    .toast i {
+      color: var(--success);
+      font-size: 20px;
+    }
+    
+    /* Dark mode specific adjustments */
+    [data-theme="dark"] .btn-icon {
+      border-color: var(--border-medium);
+    }
+    
+    [data-theme="dark"] .btn-icon:hover {
+      border-color: var(--primary-light);
+    }
+    
+    [data-theme="dark"] .btn-secondary {
+      background: rgba(30, 41, 59, 0.8);
+      border-color: var(--border-medium);
+    }
+    
+    [data-theme="dark"] .btn-secondary:hover {
+      border-color: var(--primary-light);
+    }
+    
+    [data-theme="dark"] .stat-card {
+      background: rgba(30, 41, 59, 0.8);
+    }
+    
+    [data-theme="dark"] .lesson-number {
+      background: rgba(59, 130, 246, 0.2);
+    }
+    
+    [data-theme="dark"] .lesson-card.completed .lesson-number {
+      background: rgba(16, 185, 129, 0.2);
+    }
+    
+    [data-theme="dark"] .choice-letter {
+      background: rgba(59, 130, 246, 0.2);
+    }
+    
+    [data-theme="dark"] .tag {
+      background: rgba(59, 130, 246, 0.2);
+    }
+    
+    [data-theme="dark"] .tag.advanced {
+      background: rgba(245, 158, 11, 0.2);
+    }
+    
+    [data-theme="dark"] .tag.safety {
+      background: rgba(239, 68, 68, 0.2);
+    }
+    
+    [data-theme="dark"] .toc-item.active button {
+      background: rgba(59, 130, 246, 0.15);
+    }
+    
+    [data-theme="dark"] .quiz-choice.selected {
+      background: rgba(59, 130, 246, 0.15);
+    }
+    
+    [data-theme="dark"] .quiz-choice.correct {
+      background: rgba(16, 185, 129, 0.15);
+    }
+    
+    [data-theme="dark"] .quiz-choice.incorrect {
+      background: rgba(239, 68, 68, 0.15);
+    }
+    
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
+      .header-inner {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 16px;
+      }
+      
+      .header-actions {
+        width: 100%;
+        justify-content: space-between;
+      }
+      
+      .welcome-header {
+        flex-direction: column;
+        gap: 16px;
+      }
+      
+      .lesson-header {
+        flex-direction: column;
+        gap: 16px;
+      }
+      
+      .lesson-actions {
+        width: 100%;
+        justify-content: center;
+        flex-wrap: wrap;
+      }
+      
+      .lesson-footer {
+        flex-direction: column;
+        gap: 16px;
+        align-items: flex-start;
+      }
+      
+      .footer-content {
+        flex-direction: column;
+        gap: 32px;
+      }
+      
+      .footer-links {
+        flex-wrap: wrap;
+      }
+      
+      .toc-item button:hover {
+        transform: translateX(4px);
+      }
+      
+      .quiz-choice:hover {
+        transform: translateX(4px);
+      }
+      
+      .quiz-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 16px;
+      }
+      
+      .quiz-progress {
+        width: 100%;
+        justify-content: space-between;
+      }
+    }
+    
+    /* Hover effect utilities */
+    .hover-lift {
+      transition: transform var(--transition-medium);
+    }
+    
+    .hover-lift:hover {
+      transform: var(--hover-lift);
+    }
+    
+    .hover-glow {
+      transition: box-shadow var(--transition-medium);
+    }
+    
+    .hover-glow:hover {
+      box-shadow: 0 0 20px rgba(37, 99, 235, 0.3);
+    }
+    
+    /* Focus states for accessibility */
+    button:focus-visible,
+    a:focus-visible {
+      outline: 2px solid var(--primary);
+      outline-offset: 2px;
+    }
+    
+    /* Loading animation */
+    .loading {
+      display: inline-block;
+      width: 20px;
+      height: 20px;
+      border: 2px solid var(--border-light);
+      border-top-color: var(--primary);
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+    }
+    
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+    
+    /* Utility Classes */
+    .hidden {
+      display: none !important;
+    }
+    
+    .text-center {
+      text-align: center;
+    }
+    
+    .mb-4 {
+      margin-bottom: 1rem;
+    }
+    
+    .mt-4 {
+      margin-top: 1rem;
+    }
+  </style>
+</head>
+<body data-theme="light">
+  <!-- Modern Header -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <div class="brand">
+        <div class="logo">I</div>
+        <div class="brand-text">
+          <h1>Internet Fundamentals Pro</h1>
+          <p>Master the digital world with interactive learning</p>
+        </div>
+      </div>
+      
+      <div class="header-actions">
+        <div class="theme-toggle">
+          <input type="checkbox" id="themeToggle" aria-label="Toggle dark mode">
+          <label for="themeToggle"></label>
+        </div>
+        
+        <button class="btn-icon" id="soundToggle" aria-label="Toggle sound">
+          <i class="fas fa-volume-up"></i>
+        </button>
+        
+        <button class="btn-primary" id="certificateBtn">
+          <i class="fas fa-award"></i> Get Certificate
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="container">
+    <div class="main-layout">
+      <!-- Sidebar Navigation -->
+      <aside class="sidebar">
+        <div class="toc-card">
+          <div class="toc-header">
+            <h3><i class="fas fa-book-open"></i> Course Modules</h3>
+          </div>
+          
+          <div class="progress-indicator">
+            <div class="progress-fill" id="progressFill"></div>
+          </div>
+          
+          <div class="progress-text">
+            <span id="progressPercent">0% Complete</span>
+            <span id="completedCount">0/9 Lessons</span>
+          </div>
+          
+          <ul class="toc-list" id="tocList">
+            <!-- Generated by JavaScript -->
+          </ul>
+        </div>
+        
+        <div class="toc-card" style="margin-top: 20px;">
+          <div class="toc-header">
+            <h3><i class="fas fa-trophy"></i> Your Achievements</h3>
+          </div>
+          <div class="stats-grid">
+            <div class="stat-card">
+              <div class="stat-value" id="lessonsCompleted">0</div>
+              <div class="stat-label">Lessons</div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-value" id="quizScore">0%</div>
+              <div class="stat-label">Quiz Score</div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-value" id="streakDays">0</div>
+              <div class="stat-label">Day Streak</div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-value" id="totalTime">0</div>
+              <div class="stat-label">Minutes</div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="toc-card" style="margin-top: 20px;">
+          <div class="toc-header">
+            <h3><i class="fas fa-cogs"></i> Course Controls</h3>
+          </div>
+          <div style="display: flex; flex-direction: column; gap: 12px;">
+            <button class="btn-secondary" id="resetProgressBtn">
+              <i class="fas fa-redo"></i> Reset Progress
+            </button>
+            <button class="btn-outline" id="exportNotesBtn">
+              <i class="fas fa-download"></i> Export Notes
+            </button>
+            <button class="btn-info" id="showHelpBtn">
+              <i class="fas fa-question-circle"></i> Help & Tips
+            </button>
+          </div>
+        </div>
+      </aside>
+      
+      <!-- Content Area -->
+      <div class="content-area">
+        <!-- Welcome Card -->
+        <section class="welcome-card animate-in">
+          <div class="welcome-header">
+            <div>
+              <h2>Welcome to Internet Fundamentals</h2>
+              <p style="color: var(--text-muted); margin-top: 8px;">Your journey to mastering the digital world starts here</p>
+            </div>
+            <div style="text-align: right;">
+              <div style="font-size: 14px; color: var(--text-muted);">Estimated completion time</div>
+              <div style="font-size: 20px; font-weight: 700; color: var(--primary);">2-3 hours</div>
+            </div>
+          </div>
+          
+          <p style="margin-top: 16px; line-height: 1.7; font-size: 16px;">
+            This comprehensive course will take you from internet basics to advanced concepts, 
+            ensuring you have the knowledge to navigate the digital world safely and effectively. 
+            Complete all lessons and the final quiz to earn your certificate.
+          </p>
+          
+          <div class="stats-grid">
+            <div class="stat-card">
+              <div class="stat-value">9</div>
+              <div class="stat-label">Interactive Lessons</div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-value">3</div>
+              <div class="stat-label">Hands-On Quizzes</div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-value">24/7</div>
+              <div class="stat-label">Lifetime Access</div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-value">100%</div>
+              <div class="stat-label">Practical Skills</div>
+            </div>
+          </div>
+        </section>
+        
+        <!-- Lessons Container -->
+        <div id="lessonsContainer">
+          <!-- Lessons will be generated by JavaScript -->
+        </div>
+        
+        <!-- Interactive Quiz -->
+        <section class="quiz-container animate-in">
+          <div class="quiz-header">
+            <h3><i class="fas fa-brain"></i> Knowledge Check</h3>
+            <div class="quiz-progress">
+              <span id="quizProgressText">Question 1 of 5</span>
+              <div class="quiz-progress-bar">
+                <div class="quiz-progress-fill" id="quizProgressFill"></div>
+              </div>
+            </div>
+          </div>
+          
+          <div id="quizContent">
+            <!-- Quiz content will be generated by JavaScript -->
+          </div>
+        </section>
+        
+        <!-- Certificate Section -->
+        <section class="certificate-section animate-in">
+          <h3>Earn Your Certificate</h3>
+          <p>Complete all lessons and pass the final quiz with at least 80% to unlock your personalized certificate of completion.</p>
+          
+          <div class="certificate-preview" id="previewCertificate">
+            <h4 style="color: var(--primary); margin-bottom: 16px;">Certificate of Completion</h4>
+            <p style="margin-bottom: 8px;"><strong>Internet Fundamentals Pro</strong></p>
+            <p style="margin-bottom: 16px; color: var(--text-muted);">Awarded to: <span id="userNamePreview">[Your Name]</span></p>
+            <p style="font-size: 14px; color: var(--text-muted);">For successfully completing all course requirements</p>
+          </div>
+          
+          <button class="btn-primary pulse" id="previewCertBtn">
+            <i class="fas fa-eye"></i> Preview Certificate
+          </button>
+        </section>
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-brand">
+          <h3>Internet Fundamentals Pro</h3>
+          <p>Empowering digital literacy through interactive education.</p>
+        </div>
+        
+        <div class="footer-links">
+          <div>
+            <h4>Course</h4>
+            <ul>
+              <li><a href="#lessonsContainer">All Lessons</a></li>
+              <li><a href="#quizContent">Take Quiz</a></li>
+              <li><a href="#" id="showGlossary">Glossary</a></li>
+            </ul>
+          </div>
+          
+          <div>
+            <h4>Resources</h4>
+            <ul>
+              <li><a href="#" id="showSafetyTips">Safety Tips</a></li>
+              <li><a href="#" id="showTools">Useful Tools</a></li>
+              <li><a href="#" id="showResources">Learning Resources</a></li>
+            </ul>
+          </div>
+          
+          <div>
+            <h4>Connect</h4>
+            <ul>
+              <li><a href="#"><i class="fab fa-twitter"></i> Twitter</a></li>
+              <li><a href="#"><i class="fab fa-linkedin"></i> LinkedIn</a></li>
+              <li><a href="#"><i class="fab fa-github"></i> GitHub</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      
+      <div class="footer-bottom">
+        <p>&copy; <span id="currentYear"></span> Internet Fundamentals Pro. All rights reserved.</p>
+        <p style="margin-top: 8px; font-size: 13px;">Built with HTML, CSS, JavaScript, and <i class="fas fa-heart" style="color: #ef4444;"></i></p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Toast Notification -->
+  <div class="toast" id="toast">
+    <i class="fas fa-check-circle"></i>
+    <span id="toastMessage">Operation completed successfully!</span>
+  </div>
+
+  <!-- JavaScript Implementation -->
+  <script>
+    // Enhanced course data with more details
+    const courseData = [
+      {
+        id: "what-is-internet",
+        title: "What is the Internet?",
+        summary: "The Internet is a global network of interconnected computers and devices that enables communication, data exchange, and access to information worldwide.",
+        points: [
+          "Global infrastructure connecting billions of devices worldwide",
+          "Enables communication, commerce, education, and entertainment",
+          "Built on standardized protocols (TCP/IP) for universal compatibility",
+          "Decentralized structure with no single controlling entity",
+          "Constantly evolving with new technologies and applications"
+        ],
+        duration: "15 min",
+        difficulty: "Beginner",
+        tags: ["fundamental", "theory"],
+        icon: "fas fa-globe"
+      },
+      {
+        id: "how-it-works",
+        title: "How the Internet Works",
+        summary: "Understanding the technical backbone: from data packets and IP addresses to servers, routers, and the client-server model.",
+        points: [
+          "Data transmission via packets using TCP/IP protocols",
+          "IP addresses uniquely identify devices on the network",
+          "DNS translates human-readable domains to IP addresses",
+          "Routers direct traffic between different networks",
+          "Servers host content and services for client devices"
+        ],
+        duration: "18 min",
+        difficulty: "Intermediate",
+        tags: ["technical", "networking"],
+        icon: "fas fa-cogs"
+      },
+      {
+        id: "devices",
+        title: "Internet-Connected Devices",
+        summary: "Beyond computers: exploring the vast ecosystem of smart devices that form the Internet of Things (IoT).",
+        points: [
+          "Traditional devices: computers, smartphones, tablets",
+          "IoT ecosystem: smart home devices, wearables, sensors",
+          "Industrial applications: automation, monitoring, control systems",
+          "Emerging technologies: AR/VR headsets, autonomous vehicles",
+          "Connectivity standards: Wi-Fi, Bluetooth, 5G, LoRaWAN"
+        ],
+        duration: "12 min",
+        difficulty: "Beginner",
+        tags: ["iot", "devices"],
+        icon: "fas fa-mobile-alt"
+      },
+      {
+        id: "what-you-can-do",
+        title: "Internet Applications",
+        summary: "Practical applications that transform how we communicate, work, learn, and entertain ourselves in the digital age.",
+        points: [
+          "Communication: email, messaging, video conferencing",
+          "Information access: search engines, digital libraries, news",
+          "E-commerce: online shopping, banking, payment systems",
+          "Cloud computing: storage, software, platform services",
+          "Digital entertainment: streaming, gaming, social media"
+        ],
+        duration: "20 min",
+        difficulty: "Beginner",
+        tags: ["applications", "practical"],
+        icon: "fas fa-th-large"
+      },
+      {
+        id: "requirements",
+        title: "Internet Requirements",
+        summary: "Essential components and services needed to establish and maintain reliable internet connectivity.",
+        points: [
+          "Hardware: modem, router, network interface card",
+          "Connection types: broadband, fiber, satellite, cellular",
+          "Software: operating system, browser, security tools",
+          "Service providers: ISPs, mobile carriers, hosting services",
+          "Cost considerations: plans, data caps, equipment fees"
+        ],
+        duration: "14 min",
+        difficulty: "Beginner",
+        tags: ["setup", "requirements"],
+        icon: "fas fa-wifi"
+      },
+      {
+        id: "terms",
+        title: "Key Internet Terminology",
+        summary: "Mastering the language of the internet: essential terms and concepts every user should understand.",
+        points: [
+          "Protocols: HTTP/HTTPS, FTP, SMTP, DNS",
+          "Infrastructure: bandwidth, latency, servers, cloud",
+          "Content: websites, web apps, APIs, databases",
+          "Security: encryption, firewalls, VPNs, certificates",
+          "Emerging terms: blockchain, edge computing, Web3"
+        ],
+        duration: "16 min",
+        difficulty: "Intermediate",
+        tags: ["terminology", "concepts"],
+        icon: "fas fa-book"
+      },
+      {
+        id: "dangers",
+        title: "Internet Threats & Risks",
+        summary: "Identifying and understanding the various threats in the digital landscape to build effective defenses.",
+        points: [
+          "Malware: viruses, ransomware, spyware, trojans",
+          "Social engineering: phishing, baiting, pretexting",
+          "Data breaches: unauthorized access, information theft",
+          "Online scams: fraud, identity theft, financial schemes",
+          "Content risks: misinformation, cyberbullying, illegal material"
+        ],
+        duration: "22 min",
+        difficulty: "Intermediate",
+        tags: ["safety", "threats"],
+        icon: "fas fa-shield-alt"
+      },
+      {
+        id: "safety",
+        title: "Secure Internet Practices",
+        summary: "Proactive strategies and best practices for maintaining privacy, security, and safety online.",
+        points: [
+          "Password management: strength, uniqueness, rotation",
+          "Multi-factor authentication (2FA/MFA) implementation",
+          "Privacy settings: social media, browsers, applications",
+          "Secure browsing: HTTPS, ad-blockers, privacy extensions",
+          "Data protection: encryption, backups, secure deletion"
+        ],
+        duration: "25 min",
+        difficulty: "Advanced",
+        tags: ["security", "privacy"],
+        icon: "fas fa-lock"
+      },
+      {
+        id: "benefits",
+        title: "Maximizing Internet Benefits",
+        summary: "Leveraging the internet's potential for personal growth, professional development, and societal impact.",
+        points: [
+          "Lifelong learning: online courses, tutorials, knowledge platforms",
+          "Remote work: collaboration tools, virtual offices, freelancing",
+          "Entrepreneurship: e-commerce, digital marketing, online services",
+          "Civic engagement: activism, petitions, community organization",
+          "Global connectivity: cultural exchange, international collaboration"
+        ],
+        duration: "18 min",
+        difficulty: "Intermediate",
+        tags: ["benefits", "optimization"],
+        icon: "fas fa-chart-line"
+      }
+    ];
+
+    // Enhanced quiz data
+    const questions = [
+      {
+        q: "What is the primary purpose of DNS in internet architecture?",
+        choices: [
+          "Translating domain names to IP addresses",
+          "Encrypting data transmission",
+          "Blocking malicious websites",
+          "Increasing internet speed"
+        ],
+        answer: 0,
+        explanation: "DNS (Domain Name System) converts human-readable domain names (like google.com) into IP addresses that computers use to identify each other on the network."
+      },
+      {
+        q: "Which of these represents the most secure password practice?",
+        choices: [
+          "Using a unique passphrase with special characters, numbers, and uppercase/lowercase letters",
+          "Using your pet's name followed by your birth year",
+          "Using the same password across multiple accounts but changing it every 6 months",
+          "Writing down all passwords in a notebook kept near your computer"
+        ],
+        answer: 0,
+        explanation: "A strong, unique passphrase combining different character types is the most secure option. Password reuse and simple patterns are common vulnerabilities."
+      },
+      {
+        q: "What does HTTPS provide that HTTP does not?",
+        choices: [
+          "Encrypted communication between browser and server",
+          "Faster page loading times",
+          "Better search engine optimization automatically",
+          "Access to more website features"
+        ],
+        answer: 0,
+        explanation: "HTTPS (Hypertext Transfer Protocol Secure) adds encryption via TLS/SSL to protect data in transit between your browser and the website server."
+      },
+      {
+        q: "What is the Internet of Things (IoT) primarily about?",
+        choices: [
+          "Connecting everyday physical objects to the internet",
+          "Making websites load faster on mobile devices",
+          "Creating virtual reality experiences",
+          "Improving social media algorithms"
+        ],
+        answer: 0,
+        explanation: "IoT refers to the network of physical objects embedded with sensors, software, and connectivity to exchange data with other devices over the internet."
+      },
+      {
+        q: "Which protocol is responsible for breaking data into packets for transmission over the internet?",
+        choices: [
+          "TCP (Transmission Control Protocol)",
+          "HTTP (Hypertext Transfer Protocol)",
+          "DNS (Domain Name System)",
+          "FTP (File Transfer Protocol)"
+        ],
+        answer: 0,
+        explanation: "TCP breaks data into packets, numbers them for proper reassembly, and ensures reliable delivery through error checking and retransmission."
+      }
+    ];
+
+    // Resource data
+    const resources = {
+      glossary: [
+        { term: "DNS", definition: "Domain Name System - translates domain names to IP addresses" },
+        { term: "IP Address", definition: "Internet Protocol address - unique identifier for devices on a network" },
+        { term: "HTTP/HTTPS", definition: "Hypertext Transfer Protocol (Secure) - protocols for web communication" },
+        { term: "Firewall", definition: "Network security system that monitors and controls traffic" },
+        { term: "VPN", definition: "Virtual Private Network - creates secure connection over public networks" },
+        { term: "Encryption", definition: "Process of encoding information to protect data" },
+        { term: "Bandwidth", definition: "Maximum data transfer rate of a network connection" },
+        { term: "Latency", definition: "Time delay in data transmission over a network" }
+      ],
+      safetyTips: [
+        "Use strong, unique passwords for each account",
+        "Enable two-factor authentication wherever possible",
+        "Keep software and operating systems updated",
+        "Be cautious of suspicious emails and links",
+        "Use HTTPS websites for secure browsing",
+        "Regularly backup important data",
+        "Use a reputable antivirus and firewall",
+        "Be mindful of information shared on social media"
+      ],
+      tools: [
+        { name: "Password Manager", description: "Securely store and generate strong passwords" },
+        { name: "VPN Service", description: "Encrypt your internet connection for privacy" },
+        { name: "Ad Blocker", description: "Block intrusive ads and trackers" },
+        { name: "Antivirus Software", description: "Protect against malware and viruses" },
+        { name: "Browser Extensions", description: "Enhance security and privacy while browsing" },
+        { name: "Backup Solution", description: "Automatically backup important files" }
+      ]
+    };
+
+    // State management
+    let appState = {
+      openedLessons: JSON.parse(localStorage.getItem("internet_course_opened")) || [],
+      completedLessons: JSON.parse(localStorage.getItem("internet_course_completed")) || [],
+      quizScore: parseInt(localStorage.getItem("internet_course_quiz_score")) || 0,
+      streakDays: parseInt(localStorage.getItem("internet_course_streak")) || 0,
+      totalTime: parseInt(localStorage.getItem("internet_course_time")) || 0,
+      userName: localStorage.getItem("internet_course_username") || "",
+      theme: localStorage.getItem("theme") || "light",
+      soundEnabled: localStorage.getItem("sound_enabled") !== "false",
+      notes: JSON.parse(localStorage.getItem("internet_course_notes")) || {},
+      quizState: {
+        currentQuestion: 0,
+        userAnswers: [],
+        showResults: false
+      }
+    };
+
+    // DOM elements
+    const tocList = document.getElementById("tocList");
+    const lessonsContainer = document.getElementById("lessonsContainer");
+    const progressFill = document.getElementById("progressFill");
+    const progressPercent = document.getElementById("progressPercent");
+    const completedCount = document.getElementById("completedCount");
+    const quizContent = document.getElementById("quizContent");
+    const quizProgressText = document.getElementById("quizProgressText");
+    const quizProgressFill = document.getElementById("quizProgressFill");
+    const currentYear = document.getElementById("currentYear");
+    const lessonsCompletedEl = document.getElementById("lessonsCompleted");
+    const quizScoreEl = document.getElementById("quizScore");
+    const streakDaysEl = document.getElementById("streakDays");
+    const totalTimeEl = document.getElementById("totalTime");
+    const themeToggle = document.getElementById("themeToggle");
+    const toast = document.getElementById("toast");
+    const toastMessage = document.getElementById("toastMessage");
+    const userNamePreview = document.getElementById("userNamePreview");
+
+    // Initialize
+    document.addEventListener("DOMContentLoaded", () => {
+      currentYear.textContent = new Date().getFullYear();
+      
+      // Apply saved theme
+      applyTheme(appState.theme);
+      if (appState.theme === "dark") {
+        themeToggle.checked = true;
+      }
+      
+      // Set user name in preview
+      if (appState.userName) {
+        userNamePreview.textContent = appState.userName;
+      }
+      
+      updateAchievements();
+      buildTOC();
+      buildLessons();
+      renderQuiz();
+      setupEventListeners();
+      
+      // Check for streak
+      checkStreak();
+      
+      // Show welcome message if first visit
+      if (!localStorage.getItem("internet_course_first_visit")) {
+        setTimeout(() => {
+          showToast("Welcome to Internet Fundamentals Pro! Start your learning journey.");
+        }, 1000);
+        localStorage.setItem("internet_course_first_visit", "true");
+      }
+    });
+
+    // Theme management
+    function applyTheme(theme) {
+      document.body.setAttribute("data-theme", theme);
+      localStorage.setItem("theme", theme);
+      appState.theme = theme;
+    }
+
+    // Toast notification system
+    function showToast(message, type = "success") {
+      toastMessage.textContent = message;
+      
+      // Set color based on type
+      if (type === "error") {
+        toast.style.borderLeftColor = "var(--danger)";
+        toast.querySelector("i").className = "fas fa-exclamation-circle";
+        toast.querySelector("i").style.color = "var(--danger)";
+      } else if (type === "info") {
+        toast.style.borderLeftColor = "var(--info)";
+        toast.querySelector("i").className = "fas fa-info-circle";
+        toast.querySelector("i").style.color = "var(--info)";
+      } else {
+        toast.style.borderLeftColor = "var(--success)";
+        toast.querySelector("i").className = "fas fa-check-circle";
+        toast.querySelector("i").style.color = "var(--success)";
+      }
+      
+      toast.classList.add("show");
+      
+      setTimeout(() => {
+        toast.classList.remove("show");
+      }, 3000);
+    }
+
+    // Build Table of Contents
+    function buildTOC() {
+      tocList.innerHTML = "";
+      
+      courseData.forEach((lesson, index) => {
+        const li = document.createElement("li");
+        li.className = `toc-item ${appState.completedLessons.includes(lesson.id) ? "completed" : ""}`;
+        li.id = `toc-${lesson.id}`;
+        
+        const button = document.createElement("button");
+        button.innerHTML = `
+          <div class="lesson-icon">
+            <i class="${lesson.icon}"></i>
+          </div>
+          <div class="lesson-title">
+            ${lesson.title}
+            <span class="lesson-duration">${lesson.duration} • ${lesson.difficulty}</span>
+          </div>
+          <div class="completion-indicator"></div>
+        `;
+        
+        button.addEventListener("click", () => {
+          scrollToLesson(lesson.id);
+        });
+        
+        li.appendChild(button);
+        tocList.appendChild(li);
+      });
+      
+      updateProgress();
+    }
+
+    // Build Lessons
+    function buildLessons() {
+      lessonsContainer.innerHTML = "";
+      
+      courseData.forEach((lesson, index) => {
+        const isOpened = appState.openedLessons.includes(lesson.id);
+        const isCompleted = appState.completedLessons.includes(lesson.id);
+        
+        const lessonCard = document.createElement("article");
+        lessonCard.className = `lesson-card animate-in ${isCompleted ? "completed" : ""}`;
+        lessonCard.id = `lesson-${lesson.id}`;
+        lessonCard.style.animationDelay = `${index * 0.1}s`;
+        
+        // Tags HTML
+        const tagsHTML = lesson.tags.map(tag => {
+          let className = "tag";
+          if (tag === "advanced") className = "tag advanced";
+          if (tag === "fundamental") className = "tag fundamental";
+          if (tag === "safety") className = "tag safety";
+          return `<span class="${className}">${tag}</span>`;
+        }).join("");
+        
+        // Points HTML
+        const pointsHTML = lesson.points.map(point => `<li>${point}</li>`).join("");
+        
+        // Check if lesson has notes
+        const hasNotes = appState.notes[lesson.id] && appState.notes[lesson.id].trim() !== "";
+        
+        lessonCard.innerHTML = `
+          <div class="lesson-header">
+            <div class="lesson-title-section">
+              <div class="lesson-number">${index + 1}</div>
+              <div class="lesson-main-title">
+                <h3>${lesson.title}</h3>
+                <div class="lesson-meta">
+                  <span><i class="far fa-clock"></i> ${lesson.duration}</span>
+                  <span><i class="fas fa-signal"></i> ${lesson.difficulty}</span>
+                  <span><i class="${lesson.icon}"></i></span>
+                </div>
+              </div>
+            </div>
+            <div class="lesson-actions">
+              <button class="btn-secondary toggle-lesson" data-lesson="${lesson.id}">
+                <i class="fas fa-${isOpened ? "minus" : "plus"}"></i> ${isOpened ? "Collapse" : "Expand"}
+              </button>
+              <button class="btn-secondary mark-complete" data-lesson="${lesson.id}">
+                <i class="fas fa-${isCompleted ? "check-circle" : "circle"}"></i> ${isCompleted ? "Completed" : "Mark Complete"}
+              </button>
+            </div>
+          </div>
+          
+          <div class="lesson-content" style="display: ${isOpened ? "block" : "none"};">
+            <p class="lesson-summary">${lesson.summary}</p>
+            
+            <ul class="lesson-points">
+              ${pointsHTML}
+            </ul>
+            
+            <div class="lesson-footer">
+              <div class="lesson-tags">
+                ${tagsHTML}
+                ${hasNotes ? '<span class="tag" style="background: rgba(139, 92, 246, 0.1); color: var(--accent);"><i class="fas fa-sticky-note"></i> Has Notes</span>' : ''}
+              </div>
+              <div>
+                <button class="btn-outline take-notes" data-lesson="${lesson.id}">
+                  <i class="fas fa-${hasNotes ? 'edit' : 'plus'}"></i> ${hasNotes ? 'Edit Notes' : 'Take Notes'}
+                </button>
+              </div>
+            </div>
+          </div>
+        `;
+        
+        lessonsContainer.appendChild(lessonCard);
+      });
+      
+      // Add event listeners to lesson buttons
+      document.querySelectorAll(".toggle-lesson").forEach(button => {
+        button.addEventListener("click", (e) => {
+          const lessonId = e.target.closest("button").dataset.lesson;
+          toggleLesson(lessonId);
+        });
+      });
+      
+      document.querySelectorAll(".mark-complete").forEach(button => {
+        button.addEventListener("click", (e) => {
+          const lessonId = e.target.closest("button").dataset.lesson;
+          markLessonComplete(lessonId);
+        });
+      });
+      
+      document.querySelectorAll(".take-notes").forEach(button => {
+        button.addEventListener("click", (e) => {
+          const lessonId = e.target.closest("button").dataset.lesson;
+          openNotesModal(lessonId);
+        });
+      });
+      
+      // Add click listeners to tags
+      document.querySelectorAll(".tag").forEach(tag => {
+        tag.addEventListener("click", (e) => {
+          const tagText = e.target.textContent.toLowerCase();
+          if (tagText.includes("notes")) {
+            const lessonCard = e.target.closest(".lesson-card");
+            const lessonId = lessonCard.id.replace("lesson-", "");
+            openNotesModal(lessonId);
+          }
+        });
+      });
+    }
+
+    // Setup all event listeners
+    function setupEventListeners() {
+      // Theme toggle
+      themeToggle.addEventListener("change", (e) => {
+        const theme = e.target.checked ? "dark" : "light";
+        applyTheme(theme);
+        showToast(`Switched to ${theme} mode`);
+      });
+      
+      // Sound toggle
+      const soundToggle = document.getElementById("soundToggle");
+      soundToggle.addEventListener("click", () => {
+        const icon = soundToggle.querySelector("i");
+        appState.soundEnabled = !appState.soundEnabled;
+        localStorage.setItem("sound_enabled", appState.soundEnabled);
+        
+        if (appState.soundEnabled) {
+          icon.className = "fas fa-volume-up";
+          showToast("Sound enabled");
+        } else {
+          icon.className = "fas fa-volume-mute";
+          showToast("Sound disabled");
+        }
+      });
+      
+      // Certificate button
+      const certificateBtn = document.getElementById("certificateBtn");
+      certificateBtn.addEventListener("click", openCertificateModal);
+      
+      // Preview certificate button
+      const previewCertBtn = document.getElementById("previewCertBtn");
+      previewCertBtn.addEventListener("click", openCertificateModal);
+      
+      // Preview certificate box
+      const previewCertificate = document.getElementById("previewCertificate");
+      previewCertificate.addEventListener("click", openCertificateModal);
+      
+      // Reset progress button
+      const resetProgressBtn = document.getElementById("resetProgressBtn");
+      resetProgressBtn.addEventListener("click", resetCourseProgress);
+      
+      // Export notes button
+      const exportNotesBtn = document.getElementById("exportNotesBtn");
+      exportNotesBtn.addEventListener("click", exportNotes);
+      
+      // Help button
+      const showHelpBtn = document.getElementById("showHelpBtn");
+      showHelpBtn.addEventListener("click", showHelpModal);
+      
+      // Footer links
+      document.getElementById("showGlossary").addEventListener("click", (e) => {
+        e.preventDefault();
+        showGlossaryModal();
+      });
+      
+      document.getElementById("showSafetyTips").addEventListener("click", (e) => {
+        e.preventDefault();
+        showSafetyTipsModal();
+      });
+      
+      document.getElementById("showTools").addEventListener("click", (e) => {
+        e.preventDefault();
+        showToolsModal();
+      });
+      
+      document.getElementById("showResources").addEventListener("click", (e) => {
+        e.preventDefault();
+        showResourcesModal();
+      });
+    }
+
+    // Toggle lesson visibility
+    function toggleLesson(lessonId) {
+      const lessonCard = document.getElementById(`lesson-${lessonId}`);
+      const content = lessonCard.querySelector(".lesson-content");
+      const button = lessonCard.querySelector(".toggle-lesson");
+      
+      if (content.style.display === "none") {
+        // Open lesson
+        content.style.display = "block";
+        button.innerHTML = `<i class="fas fa-minus"></i> Collapse`;
+        
+        if (!appState.openedLessons.includes(lessonId)) {
+          appState.openedLessons.push(lessonId);
+          localStorage.setItem("internet_course_opened", JSON.stringify(appState.openedLessons));
+          
+          // Add learning time
+          appState.totalTime += 2;
+          localStorage.setItem("internet_course_time", appState.totalTime);
+          updateAchievements();
+          
+          showToast("Lesson opened. Time logged!");
+        }
+      } else {
+        // Close lesson
+        content.style.display = "none";
+        button.innerHTML = `<i class="fas fa-plus"></i> Expand`;
+      }
+      
+      updateProgress();
+      
+      // Update TOC active state
+      updateTOCActiveState();
+    }
+
+    // Mark lesson as complete
+    function markLessonComplete(lessonId) {
+      const lessonCard = document.getElementById(`lesson-${lessonId}`);
+      const button = lessonCard.querySelector(".mark-complete");
+      const tocItem = document.getElementById(`toc-${lessonId}`);
+      
+      if (appState.completedLessons.includes(lessonId)) {
+        // Already completed - mark as incomplete
+        appState.completedLessons = appState.completedLessons.filter(id => id !== lessonId);
+        lessonCard.classList.remove("completed");
+        button.innerHTML = `<i class="fas fa-circle"></i> Mark Complete`;
+        if (tocItem) tocItem.classList.remove("completed");
+        showToast("Lesson marked as incomplete");
+      } else {
+        // Mark as complete
+        appState.completedLessons.push(lessonId);
+        lessonCard.classList.add("completed");
+        button.innerHTML = `<i class="fas fa-check-circle"></i> Completed`;
+        if (tocItem) tocItem.classList.add("completed");
+        
+        // Add learning time
+        appState.totalTime += 5;
+        localStorage.setItem("internet_course_time", appState.totalTime);
+        
+        showToast("Lesson completed! Great job!");
+      }
+      
+      localStorage.setItem("internet_course_completed", JSON.stringify(appState.completedLessons));
+      updateProgress();
+      updateAchievements();
+      
+      // Show celebration if all lessons completed
+      if (appState.completedLessons.length === courseData.length) {
+        setTimeout(() => {
+          showCelebration("all-lessons");
+        }, 500);
+      }
+    }
+
+    // Update progress indicators
+    function updateProgress() {
+      const completed = appState.completedLessons.length;
+      const total = courseData.length;
+      const percent = Math.round((completed / total) * 100);
+      
+      progressFill.style.width = `${percent}%`;
+      progressPercent.textContent = `${percent}% Complete`;
+      completedCount.textContent = `${completed}/${total} Lessons`;
+    }
+
+    // Update achievement stats
+    function updateAchievements() {
+      lessonsCompletedEl.textContent = appState.completedLessons.length;
+      quizScoreEl.textContent = `${appState.quizScore}%`;
+      streakDaysEl.textContent = appState.streakDays;
+      totalTimeEl.textContent = appState.totalTime;
+    }
+
+    // Update TOC active state
+    function updateTOCActiveState() {
+      // Remove active class from all TOC items
+      document.querySelectorAll('.toc-item').forEach(item => {
+        item.classList.remove('active');
+      });
+      
+      // Find the first opened lesson and mark it as active
+      for (const lessonId of appState.openedLessons) {
+        const tocItem = document.getElementById(`toc-${lessonId}`);
+        if (tocItem) {
+          tocItem.classList.add('active');
+          break;
+        }
+      }
+    }
+
+    // Check and update streak
+    function checkStreak() {
+      const today = new Date().toDateString();
+      const lastVisit = localStorage.getItem("internet_course_last_visit");
+      
+      if (!lastVisit) {
+        // First visit
+        localStorage.setItem("internet_course_last_visit", today);
+        appState.streakDays = 1;
+      } else if (lastVisit !== today) {
+        const lastDate = new Date(lastVisit);
+        const currentDate = new Date();
+        const diffTime = Math.abs(currentDate - lastDate);
+        const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+        
+        if (diffDays === 1) {
+          // Consecutive day
+          appState.streakDays += 1;
+          showToast(`Welcome back! ${appState.streakDays} day streak!`);
+        } else if (diffDays > 1) {
+          // Broken streak
+          appState.streakDays = 1;
+          showToast("New learning streak started!");
+        }
+        
+        localStorage.setItem("internet_course_last_visit", today);
+      }
+      
+      localStorage.setItem("internet_course_streak", appState.streakDays);
+      updateAchievements();
+    }
+
+    // Scroll to lesson
+    function scrollToLesson(lessonId) {
+      const lessonElement = document.getElementById(`lesson-${lessonId}`);
+      if (lessonElement) {
+        // Open the lesson if it's closed
+        if (!appState.openedLessons.includes(lessonId)) {
+          toggleLesson(lessonId);
+        }
+        
+        lessonElement.scrollIntoView({ behavior: "smooth", block: "start" });
+        
+        // Add visual highlight
+        lessonElement.style.boxShadow = "0 0 0 3px rgba(37, 99, 235, 0.3)";
+        setTimeout(() => {
+          lessonElement.style.boxShadow = "";
+        }, 1500);
+        
+        showToast(`Navigated to ${courseData.find(l => l.id === lessonId).title}`);
+      }
+    }
+
+    // Render quiz
+    function renderQuiz() {
+      const { currentQuestion, userAnswers, showResults } = appState.quizState;
+      
+      if (showResults) {
+        showQuizResults();
+        return;
+      }
+      
+      if (currentQuestion >= questions.length) {
+        appState.quizState.showResults = true;
+        showQuizResults();
+        return;
+      }
+      
+      const question = questions[currentQuestion];
+      const progressPercent = ((currentQuestion + 1) / questions.length) * 100;
+      
+      quizProgressText.textContent = `Question ${currentQuestion + 1} of ${questions.length}`;
+      quizProgressFill.style.width = `${progressPercent}%`;
+      
+      // Generate choices HTML
+      const choicesHTML = question.choices.map((choice, index) => {
+        const isSelected = userAnswers[currentQuestion] === index;
+        const letter = String.fromCharCode(65 + index); // A, B, C, D
+        
+        return `
+          <div class="quiz-choice ${isSelected ? 'selected' : ''}" data-choice="${index}">
+            <div class="choice-letter">${letter}</div>
+            <div>${choice}</div>
+          </div>
+        `;
+      }).join("");
+      
+      quizContent.innerHTML = `
+        <div class="quiz-question">${question.q}</div>
+        <div class="quiz-choices">${choicesHTML}</div>
+        <div class="quiz-footer">
+          <button class="btn-secondary" id="prevQuestion" ${currentQuestion === 0 ? 'disabled' : ''}>
+            <i class="fas fa-arrow-left"></i> Previous
+          </button>
+          <button class="btn-primary" id="nextQuestion">
+            ${currentQuestion === questions.length - 1 ? 'See Results' : 'Next Question'} 
+            <i class="fas fa-arrow-right"></i>
+          </button>
+        </div>
+      `;
+      
+      // Add event listeners to choices
+      document.querySelectorAll(".quiz-choice").forEach(choice => {
+        choice.addEventListener("click", () => {
+          const choiceIndex = parseInt(choice.dataset.choice);
+          appState.quizState.userAnswers[currentQuestion] = choiceIndex;
+          renderQuiz();
+        });
+      });
+      
+      // Previous button
+      const prevBtn = document.getElementById("prevQuestion");
+      if (prevBtn) {
+        prevBtn.addEventListener("click", () => {
+          if (currentQuestion > 0) {
+            appState.quizState.currentQuestion--;
+            renderQuiz();
+          }
+        });
+        
+        // Style disabled button
+        if (currentQuestion === 0) {
+          prevBtn.style.opacity = "0.5";
+          prevBtn.style.cursor = "not-allowed";
+        }
+      }
+      
+      // Next button
+      const nextBtn = document.getElementById("nextQuestion");
+      if (nextBtn) {
+        nextBtn.addEventListener("click", () => {
+          if (currentQuestion < questions.length - 1) {
+            appState.quizState.currentQuestion++;
+            renderQuiz();
+          } else {
+            // Calculate score
+            let score = 0;
+            for (let i = 0; i < questions.length; i++) {
+              if (appState.quizState.userAnswers[i] === questions[i].answer) {
+                score++;
+              }
+            }
+            
+            appState.quizScore = Math.round((score / questions.length) * 100);
+            localStorage.setItem("internet_course_quiz_score", appState.quizScore);
+            appState.quizState.showResults = true;
+            renderQuiz();
+            updateAchievements();
+            
+            // Show celebration if score is high
+            if (appState.quizScore >= 80) {
+              setTimeout(() => {
+                showCelebration("quiz-success");
+              }, 500);
+            }
+            
+            showToast(`Quiz completed! Score: ${appState.quizScore}%`);
+          }
+        });
+      }
+    }
+
+    // Show quiz results
+    function showQuizResults() {
+      let score = 0;
+      let resultsHTML = "";
+      
+      for (let i = 0; i < questions.length; i++) {
+        const question = questions[i];
+        const userAnswer = appState.quizState.userAnswers[i];
+        const isCorrect = userAnswer === question.answer;
+        
+        if (isCorrect) score++;
+        
+        const userAnswerText = userAnswer !== undefined ? question.choices[userAnswer] : "Not answered";
+        const correctAnswerText = question.choices[question.answer];
+        const letter = String.fromCharCode(65 + question.answer);
+        
+        resultsHTML += `
+          <div class="quiz-result-item" style="margin-bottom: 24px; padding-bottom: 20px; border-bottom: 1px solid var(--border-light);">
+            <div class="quiz-question" style="font-size: 16px;">${i + 1}. ${question.q}</div>
+            <div style="margin-top: 12px; display: flex; gap: 12px; align-items: center;">
+              <div style="width: 24px; height: 24px; border-radius: 50%; background: ${isCorrect ? 'var(--success)' : 'var(--danger)'}; color: white; display: flex; align-items: center; justify-content: center; font-size: 12px;">
+                <i class="fas fa-${isCorrect ? 'check' : 'times'}"></i>
+              </div>
+              <div style="flex: 1;">
+                <div style="font-size: 14px; color: var(--text-muted); margin-bottom: 4px;">Your answer:</div>
+                <div style="font-weight: 500; color: ${isCorrect ? 'var(--success)' : 'var(--danger)'};">${userAnswerText}</div>
+              </div>
+            </div>
+            ${!isCorrect ? `
+              <div style="margin-top: 12px; padding: 12px; background: rgba(16, 185, 129, 0.05); border-radius: 8px; border-left: 3px solid var(--success);">
+                <div style="font-size: 14px; color: var(--text-muted); margin-bottom: 4px;">Correct answer: <strong>${letter}. ${correctAnswerText}</strong></div>
+                <div style="font-size: 14px; color: var(--text-muted); margin-top: 8px;">${question.explanation}</div>
+              </div>
+            ` : ''}
+          </div>
+        `;
+      }
+      
+      const finalScore = Math.round((score / questions.length) * 100);
+      const scoreCircle = finalScore > 0 ? Math.round((finalScore / 100) * 360) : 0;
+      
+      // Update score circle gradient
+      const scoreCircleElement = document.querySelector('.score-circle');
+      if (scoreCircleElement) {
+        scoreCircleElement.style.background = `conic-gradient(var(--success) 0deg ${scoreCircle}deg, var(--border-light) ${scoreCircle}deg 360deg)`;
+      }
+      
+      quizContent.innerHTML = `
+        <div class="quiz-result">
+          <h4>Quiz Results</h4>
+          <div class="score-circle">
+            <div class="score-inner">
+              ${finalScore}%
+            </div>
+          </div>
+          <p style="margin-bottom: 24px; font-size: 16px; text-align: center;">
+            ${finalScore >= 80 ? "🎉 Excellent work! You've mastered the key concepts." : 
+              finalScore >= 60 ? "👍 Good job! Review the questions you missed to improve." :
+              "📚 Keep learning! Review the course materials and try again."}
+          </p>
+          
+          <div style="max-height: 400px; overflow-y: auto; padding-right: 8px;">
+            ${resultsHTML}
+          </div>
+          
+          <div class="quiz-footer">
+            <button class="btn-secondary" id="retakeQuiz">
+              <i class="fas fa-redo"></i> Retake Quiz
+            </button>
+            <button class="btn-primary" id="reviewCourse">
+              <i class="fas fa-book-open"></i> Review Course
+            </button>
+          </div>
+        </div>
+      `;
+      
+      document.getElementById("retakeQuiz")?.addEventListener("click", () => {
+        appState.quizState = {
+          currentQuestion: 0,
+          userAnswers: [],
+          showResults: false
+        };
+        renderQuiz();
+        showToast("Quiz restarted. Good luck!");
+      });
+      
+      document.getElementById("reviewCourse")?.addEventListener("click", () => {
+        // Scroll to first incomplete lesson or first lesson
+        const incompleteLesson = courseData.find(lesson => !appState.completedLessons.includes(lesson.id));
+        if (incompleteLesson) {
+          scrollToLesson(incompleteLesson.id);
+        } else {
+          scrollToLesson(courseData[0].id);
+        }
+      });
+    }
+
+    // Show celebration animation
+    function showCelebration(type) {
+      const message = type === "all-lessons" ? 
+        "🎉 Congratulations! You've completed all lessons!" :
+        "🏆 Quiz Master! You scored 80% or higher!";
+      
+      // Create celebration modal
+      const modal = document.createElement("div");
+      modal.className = "modal-overlay";
+      modal.innerHTML = `
+        <div class="modal">
+          <div class="modal-header">
+            <h3>Achievement Unlocked!</h3>
+            <button class="btn-icon close-modal">
+              <i class="fas fa-times"></i>
+            </button>
+          </div>
+          <div class="modal-body" style="text-align: center;">
+            <div style="font-size: 64px; margin-bottom: 20px;">${type === "all-lessons" ? "🎓" : "🏆"}</div>
+            <h3 style="margin-bottom: 16px; color: var(--primary);">${type === "all-lessons" ? "Course Master" : "Quiz Champion"}</h3>
+            <p style="margin-bottom: 24px; font-size: 18px; color: var(--text-secondary);">${message}</p>
+            <p style="color: var(--text-muted);">You're doing amazing! Keep up the great work!</p>
+          </div>
+          <div class="modal-footer">
+            <button class="btn-primary" id="continueLearning">
+              Continue Learning
+            </button>
+          </div>
+        </div>
+      `;
+      
+      document.body.appendChild(modal);
+      
+      // Create confetti effect
+      createConfetti();
+      
+      // Add event listeners
+      modal.querySelector(".close-modal").addEventListener("click", () => {
+        document.body.removeChild(modal);
+      });
+      
+      modal.querySelector("#continueLearning").addEventListener("click", () => {
+        document.body.removeChild(modal);
+      });
+      
+      // Auto-close after 5 seconds
+      setTimeout(() => {
+        if (document.body.contains(modal)) {
+          document.body.removeChild(modal);
+        }
+      }, 5000);
+    }
+
+    // Create confetti effect
+    function createConfetti() {
+      const colors = ['#2563eb', '#0ea5a4', '#8b5cf6', '#10b981', '#f59e0b'];
+      
+      for (let i = 0; i < 50; i++) {
+        const confetti = document.createElement('div');
+        confetti.style.cssText = `
+          position: fixed;
+          width: ${Math.random() * 10 + 5}px;
+          height: ${Math.random() * 10 + 5}px;
+          background: ${colors[Math.floor(Math.random() * colors.length)]};
+          border-radius: ${Math.random() > 0.5 ? '50%' : '0'};
+          top: -20px;
+          left: ${Math.random() * 100}vw;
+          opacity: ${Math.random() * 0.5 + 0.5};
+          animation: confetti-fall ${Math.random() * 3 + 2}s linear forwards;
+          z-index: 999;
+        `;
+        
+        document.body.appendChild(confetti);
+        
+        // Remove after animation
+        setTimeout(() => {
+          if (document.body.contains(confetti)) {
+            document.body.removeChild(confetti);
+          }
+        }, 5000);
+      }
+    }
+
+    // Open notes modal
+    function openNotesModal(lessonId) {
+      const lesson = courseData.find(l => l.id === lessonId);
+      const currentNotes = appState.notes[lessonId] || "";
+      
+      const modal = document.createElement("div");
+      modal.className = "modal-overlay";
+      modal.innerHTML = `
+        <div class="modal">
+          <div class="modal-header">
+            <h3><i class="fas fa-edit"></i> Notes: ${lesson.title}</h3>
+            <button class="btn-icon close-modal">
+              <i class="fas fa-times"></i>
+            </button>
+          </div>
+          <div class="modal-body">
+            <p style="color: var(--text-muted); margin-bottom: 16px;">Add your personal notes for this lesson. They will be saved automatically.</p>
+            <textarea id="notesText" placeholder="Type your notes here..." 
+              style="width: 100%; height: 200px; padding: 16px; border: 1px solid var(--border-medium); border-radius: 12px; font-family: 'Inter', sans-serif; font-size: 16px; resize: vertical; margin-bottom: 20px; background: var(--card-gradient); color: var(--text-primary);">
+              ${currentNotes}
+            </textarea>
+            
+            <div style="display: flex; justify-content: space-between; align-items: center;">
+              <div style="font-size: 14px; color: var(--text-muted);">
+                <i class="fas fa-info-circle"></i> Notes are saved automatically
+              </div>
+              <div>
+                <button class="btn-danger" id="clearNotes">
+                  <i class="fas fa-trash"></i> Clear Notes
+                </button>
+              </div>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button class="btn-primary" id="saveNotes">
+              <i class="fas fa-save"></i> Save & Close
+            </button>
+          </div>
+        </div>
+      `;
+      
+      document.body.appendChild(modal);
+      
+      // Auto-save notes as user types (with debounce)
+      let saveTimeout;
+      const notesText = modal.querySelector("#notesText");
+      notesText.addEventListener("input", () => {
+        clearTimeout(saveTimeout);
+        saveTimeout = setTimeout(() => {
+          saveNotes(lessonId, notesText.value);
+        }, 1000);
+      });
+      
+      // Close modal button
+      modal.querySelector(".close-modal").addEventListener("click", () => {
+        // Save before closing
+        saveNotes(lessonId, notesText.value);
+        document.body.removeChild(modal);
+      });
+      
+      // Save button
+      modal.querySelector("#saveNotes").addEventListener("click", () => {
+        saveNotes(lessonId, notesText.value);
+        document.body.removeChild(modal);
+        showToast("Notes saved successfully!");
+      });
+      
+      // Clear notes button
+      modal.querySelector("#clearNotes").addEventListener("click", () => {
+        if (confirm("Are you sure you want to clear all notes for this lesson?")) {
+          notesText.value = "";
+          saveNotes(lessonId, "");
+          showToast("Notes cleared");
+        }
+      });
+      
+      // Focus on textarea
+      setTimeout(() => {
+        notesText.focus();
+      }, 100);
+    }
+
+    // Save notes to local storage
+    function saveNotes(lessonId, notesText) {
+      appState.notes[lessonId] = notesText;
+      localStorage.setItem("internet_course_notes", JSON.stringify(appState.notes));
+      
+      // Update lesson card to show notes indicator
+      const lessonCard = document.getElementById(`lesson-${lessonId}`);
+      if (lessonCard) {
+        const notesButton = lessonCard.querySelector(".take-notes");
+        const tagsContainer = lessonCard.querySelector(".lesson-tags");
+        
+        if (notesText.trim() !== "") {
+          // Update button
+          notesButton.innerHTML = `<i class="fas fa-edit"></i> Edit Notes`;
+          
+          // Add or update notes tag
+          let notesTag = tagsContainer.querySelector('.tag[style*="rgba(139, 92, 246, 0.1)"]');
+          if (!notesTag) {
+            notesTag = document.createElement("span");
+            notesTag.className = "tag";
+            notesTag.style.cssText = "background: rgba(139, 92, 246, 0.1); color: var(--accent);";
+            notesTag.innerHTML = '<i class="fas fa-sticky-note"></i> Has Notes';
+            notesTag.addEventListener("click", () => openNotesModal(lessonId));
+            tagsContainer.appendChild(notesTag);
+          }
+        } else {
+          // Update button
+          notesButton.innerHTML = `<i class="fas fa-plus"></i> Take Notes`;
+          
+          // Remove notes tag
+          const notesTag = tagsContainer.querySelector('.tag[style*="rgba(139, 92, 246, 0.1)"]');
+          if (notesTag) {
+            tagsContainer.removeChild(notesTag);
+          }
+        }
+      }
+    }
+
+    // Open certificate modal
+    function openCertificateModal() {
+      const allCompleted = appState.completedLessons.length === courseData.length;
+      const quizPassed = appState.quizScore >= 80;
+      
+      if (!allCompleted || !quizPassed) {
+        showToast("Complete all lessons and score at least 80% on the quiz to unlock your certificate!", "info");
+        return;
+      }
+      
+      // Ask for name if not set
+      if (!appState.userName) {
+        const name = prompt("Enter your name for the certificate:", "Your Name");
+        if (name) {
+          appState.userName = name;
+          localStorage.setItem("internet_course_username", name);
+          userNamePreview.textContent = name;
+        } else {
+          return; // User cancelled
+        }
+      }
+      
+      const modal = document.createElement("div");
+      modal.className = "modal-overlay";
+      modal.innerHTML = `
+        <div class="modal" style="max-width: 800px;">
+          <div class="modal-header">
+            <h3><i class="fas fa-award"></i> Certificate of Completion</h3>
+            <button class="btn-icon close-modal">
+              <i class="fas fa-times"></i>
+            </button>
+          </div>
+          <div class="modal-body" style="text-align: center; padding: 40px; background: linear-gradient(135deg, rgba(37, 99, 235, 0.05) 0%, rgba(14, 165, 164, 0.05) 100%);">
+            <div style="border: 20px solid #fbbf24; padding: 40px; border-radius: 10px; background: var(--card-gradient); position: relative;">
+              <div style="position: absolute; top: -60px; left: 50%; transform: translateX(-50%); background: #fbbf24; color: #92400e; padding: 12px 24px; border-radius: 30px; font-weight: 700; font-size: 18px;">
+                <i class="fas fa-award"></i> Certificate of Completion
+              </div>
+              
+              <h1 style="color: var(--primary); margin-top: 20px; margin-bottom: 10px;">Internet Fundamentals Pro</h1>
+              <p style="color: var(--text-muted); margin-bottom: 30px;">This certifies that</p>
+              
+              <div style="font-size: 32px; font-weight: 700; color: var(--text-primary); margin-bottom: 30px; padding: 10px; border-bottom: 2px solid var(--border-light); display: inline-block;">
+                ${appState.userName}
+              </div>
+              
+              <p style="color: var(--text-muted); margin-bottom: 30px; max-width: 500px; margin-left: auto; margin-right: auto;">
+                has successfully completed all requirements of the Internet Fundamentals Pro course, demonstrating comprehensive understanding of internet technologies, safety practices, and practical applications.
+              </p>
+              
+              <div style="display: flex; justify-content: space-between; margin-top: 40px; padding-top: 30px; border-top: 1px solid var(--border-light);">
+                <div style="text-align: center;">
+                  <div style="font-weight: 700; color: var(--primary);">Date</div>
+                  <div style="color: var(--text-muted);">${new Date().toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}</div>
+                </div>
+                
+                <div style="text-align: center;">
+                  <div style="font-weight: 700; color: var(--primary);">Certificate ID</div>
+                  <div style="color: var(--text-muted); font-family: monospace;">INT-${Date.now().toString().slice(-8)}</div>
+                </div>
+                
+                <div style="text-align: center;">
+                  <div style="font-weight: 700; color: var(--primary);">Score</div>
+                  <div style="color: var(--text-muted);">${appState.quizScore}%</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <div class="modal-footer">
+            <button class="btn-secondary" id="printCertificate">
+              <i class="fas fa-print"></i> Print
+            </button>
+            <button class="btn-primary" id="downloadCertificate">
+              <i class="fas fa-download"></i> Download PDF
+            </button>
+            <button class="btn-success" id="shareCertificate">
+              <i class="fas fa-share-alt"></i> Share
+            </button>
+          </div>
+        </div>
+      `;
+      
+      document.body.appendChild(modal);
+      
+      // Close modal
+      modal.querySelector(".close-modal").addEventListener("click", () => {
+        document.body.removeChild(modal);
+      });
+      
+      // Print certificate
+      modal.querySelector("#printCertificate").addEventListener("click", () => {
+        window.print();
+        showToast("Print dialog opened");
+      });
+      
+      // Download certificate (simulated)
+      modal.querySelector("#downloadCertificate").addEventListener("click", () => {
+        showToast("Certificate download would be generated in a production environment!", "info");
+      });
+      
+      // Share certificate
+      modal.querySelector("#shareCertificate").addEventListener("click", () => {
+        if (navigator.share) {
+          navigator.share({
+            title: 'Internet Fundamentals Pro Certificate',
+            text: `I completed the Internet Fundamentals Pro course with a score of ${appState.quizScore}%!`,
+            url: window.location.href
+          }).then(() => {
+            showToast('Certificate shared successfully!');
+          }).catch(err => {
+            showToast('Sharing cancelled or failed', 'error');
+          });
+        } else {
+          showToast('Web Share API not supported in your browser', 'info');
+        }
+      });
+    }
+
+    // Reset course progress
+    function resetCourseProgress() {
+      if (confirm("Are you sure you want to reset all course progress? This will clear your completed lessons, quiz scores, notes, and statistics. This cannot be undone.")) {
+        // Clear all course-related data
+        localStorage.removeItem("internet_course_opened");
+        localStorage.removeItem("internet_course_completed");
+        localStorage.removeItem("internet_course_quiz_score");
+        localStorage.removeItem("internet_course_streak");
+        localStorage.removeItem("internet_course_time");
+        localStorage.removeItem("internet_course_notes");
+        
+        // Reset app state
+        appState = {
+          openedLessons: [],
+          completedLessons: [],
+          quizScore: 0,
+          streakDays: 0,
+          totalTime: 0,
+          userName: appState.userName,
+          theme: appState.theme,
+          soundEnabled: appState.soundEnabled,
+          notes: {},
+          quizState: {
+            currentQuestion: 0,
+            userAnswers: [],
+            showResults: false
+          }
+        };
+        
+        // Rebuild everything
+        buildTOC();
+        buildLessons();
+        renderQuiz();
+        updateAchievements();
+        
+        showToast("Course progress has been reset", "info");
+      }
+    }
+
+    // Export notes
+    function exportNotes() {
+      const notesCount = Object.keys(appState.notes).filter(key => appState.notes[key].trim() !== "").length;
+      
+      if (notesCount === 0) {
+        showToast("No notes to export", "info");
+        return;
+      }
+      
+      let notesText = "INTERNET FUNDAMENTALS PRO - COURSE NOTES\n";
+      notesText += "Generated on: " + new Date().toLocaleDateString() + "\n";
+      notesText += "===========================================\n\n";
+      
+      courseData.forEach(lesson => {
+        if (appState.notes[lesson.id] && appState.notes[lesson.id].trim() !== "") {
+          notesText += `LESSON: ${lesson.title}\n`;
+          notesText += `NOTES:\n${appState.notes[lesson.id]}\n\n`;
+          notesText += "-------------------------------------------\n\n";
+        }
+      });
+      
+      // Create download link
+      const blob = new Blob([notesText], { type: 'text/plain' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = `internet-fundamentals-notes-${new Date().toISOString().slice(0, 10)}.txt`;
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      URL.revokeObjectURL(url);
+      
+      showToast(`Exported ${notesCount} note${notesCount > 1 ? 's' : ''}`);
+    }
+
+    // Show help modal
+    function showHelpModal() {
+      const modal = document.createElement("div");
+      modal.className = "modal-overlay";
+      modal.innerHTML = `
+        <div class="modal">
+          <div class="modal-header">
+            <h3><i class="fas fa-question-circle"></i> Help & Tips</h3>
+            <button class="btn-icon close-modal">
+              <i class="fas fa-times"></i>
+            </button>
+          </div>
+          <div class="modal-body">
+            <div style="display: flex; flex-direction: column; gap: 24px;">
+              <div>
+                <h4 style="margin-bottom: 12px; color: var(--primary);"><i class="fas fa-book"></i> How to Use This Course</h4>
+                <ul style="padding-left: 20px; display: flex; flex-direction: column; gap: 8px;">
+                  <li>Start with Lesson 1 and work your way through sequentially</li>
+                  <li>Click "Expand" to view lesson details and "Mark Complete" when finished</li>
+                  <li>Take notes for each lesson to reinforce learning</li>
+                  <li>Complete the quiz at the end to test your knowledge</li>
+                  <li>Earn your certificate by completing all lessons and scoring 80%+ on the quiz</li>
+                </ul>
+              </div>
+              
+              <div>
+                <h4 style="margin-bottom: 12px; color: var(--primary);"><i class="fas fa-lightbulb"></i> Learning Tips</h4>
+                <ul style="padding-left: 20px; display: flex; flex-direction: column; gap: 8px;">
+                  <li>Spend at least 15-20 minutes per lesson for optimal retention</li>
+                  <li>Review completed lessons periodically to reinforce knowledge</li>
+                  <li>Take advantage of the interactive elements and quizzes</li>
+                  <li>Use the notes feature to jot down key concepts</li>
+                  <li>Maintain your daily streak for consistent learning</li>
+                </ul>
+              </div>
+              
+              <div>
+                <h4 style="margin-bottom: 12px; color: var(--primary);"><i class="fas fa-cog"></i> Features</h4>
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px;">
+                  <div style="background: rgba(37, 99, 235, 0.05); padding: 12px; border-radius: 8px;">
+                    <div style="font-weight: 600; margin-bottom: 4px;">Dark/Light Mode</div>
+                    <div style="font-size: 14px; color: var(--text-muted);">Toggle theme for comfortable viewing</div>
+                  </div>
+                  <div style="background: rgba(16, 185, 129, 0.05); padding: 12px; border-radius: 8px;">
+                    <div style="font-weight: 600; margin-bottom: 4px;">Progress Tracking</div>
+                    <div style="font-size: 14px; color: var(--text-muted);">Monitor your completion and time spent</div>
+                  </div>
+                  <div style="background: rgba(139, 92, 246, 0.05); padding: 12px; border-radius: 8px;">
+                    <div style="font-weight: 600; margin-bottom: 4px;">Local Storage</div>
+                    <div style="font-size: 14px; color: var(--text-muted);">All data saved locally in your browser</div>
+                  </div>
+                  <div style="background: rgba(245, 158, 11, 0.05); padding: 12px; border-radius: 8px;">
+                    <div style="font-weight: 600; margin-bottom: 4px;">Export Notes</div>
+                    <div style="font-size: 14px; color: var(--text-muted);">Download your notes as a text file</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button class="btn-primary close-modal">
+              Got it!
+            </button>
+          </div>
+        </div>
+      `;
+      
+      document.body.appendChild(modal);
+      
+      // Close modal buttons
+      modal.querySelectorAll(".close-modal").forEach(button => {
+        button.addEventListener("click", () => {
+          document.body.removeChild(modal);
+        });
+      });
+    }
+
+    // Show glossary modal
+    function showGlossaryModal() {
+      const modal = document.createElement("div");
+      modal.className = "modal-overlay";
+      modal.innerHTML = `
+        <div class="modal">
+          <div class="modal-header">
+            <h3><i class="fas fa-book"></i> Internet Glossary</h3>
+            <button class="btn-icon close-modal">
+              <i class="fas fa-times"></i>
+            </button>
+          </div>
+          <div class="modal-body">
+            <div style="max-height: 400px; overflow-y: auto; padding-right: 8px;">
+              <div style="display: flex; flex-direction: column; gap: 16px;">
+                ${resources.gossary.map(item => `
+                  <div style="padding: 16px; background: rgba(37, 99, 235, 0.05); border-radius: 8px; border-left: 4px solid var(--primary);">
+                    <div style="font-weight: 700; color: var(--primary); margin-bottom: 4px;">${item.term}</div>
+                    <div style="color: var(--text-secondary);">${item.definition}</div>
+                  </div>
+                `).join('')}
+              </div>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button class="btn-primary close-modal">
+              Close
+            </button>
+          </div>
+        </div>
+      `;
+      
+      document.body.appendChild(modal);
+      
+      modal.querySelector(".close-modal").addEventListener("click", () => {
+        document.body.removeChild(modal);
+      });
+    }
+
+    // Show safety tips modal
+    function showSafetyTipsModal() {
+      const modal = document.createElement("div");
+      modal.className = "modal-overlay";
+      modal.innerHTML = `
+        <div class="modal">
+          <div class="modal-header">
+            <h3><i class="fas fa-shield-alt"></i> Internet Safety Tips</h3>
+            <button class="btn-icon close-modal">
+              <i class="fas fa-times"></i>
+            </button>
+          </div>
+          <div class="modal-body">
+            <div style="max-height: 400px; overflow-y: auto; padding-right: 8px;">
+              <div style="display: flex; flex-direction: column; gap: 12px;">
+                ${resources.safetyTips.map((tip, index) => `
+                  <div style="display: flex; align-items: flex-start; gap: 12px; padding: 12px; background: rgba(16, 185, 129, 0.05); border-radius: 8px;">
+                    <div style="width: 24px; height: 24px; border-radius: 50%; background: var(--success); color: white; display: flex; align-items: center; justify-content: center; flex-shrink: 0; font-weight: 700;">${index + 1}</div>
+                    <div style="color: var(--text-secondary);">${tip}</div>
+                  </div>
+                `).join('')}
+              </div>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button class="btn-primary close-modal">
+              Close
+            </button>
+          </div>
+        </div>
+      `;
+      
+      document.body.appendChild(modal);
+      
+      modal.querySelector(".close-modal").addEventListener("click", () => {
+        document.body.removeChild(modal);
+      });
+    }
+
+    // Show tools modal
+    function showToolsModal() {
+      const modal = document.createElement("div");
+      modal.className = "modal-overlay";
+      modal.innerHTML = `
+        <div class="modal">
+          <div class="modal-header">
+            <h3><i class="fas fa-tools"></i> Useful Internet Tools</h3>
+            <button class="btn-icon close-modal">
+              <i class="fas fa-times"></i>
+            </button>
+          </div>
+          <div class="modal-body">
+            <div style="max-height: 400px; overflow-y: auto; padding-right: 8px;">
+              <div style="display: grid; grid-template-columns: 1fr; gap: 12px;">
+                ${resources.tools.map(tool => `
+                  <div style="padding: 16px; background: var(--card-gradient); border: 1px solid var(--border-light); border-radius: 8px;">
+                    <div style="font-weight: 700; color: var(--primary); margin-bottom: 8px;">${tool.name}</div>
+                    <div style="color: var(--text-secondary); font-size: 14px;">${tool.description}</div>
+                  </div>
+                `).join('')}
+              </div>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button class="btn-primary close-modal">
+              Close
+            </button>
+          </div>
+        </div>
+      `;
+      
+      document.body.appendChild(modal);
+      
+      modal.querySelector(".close-modal").addEventListener("click", () => {
+        document.body.removeChild(modal);
+      });
+    }
+
+    // Show resources modal
+    function showResourcesModal() {
+      const modal = document.createElement("div");
+      modal.className = "modal-overlay";
+      modal.innerHTML = `
+        <div class="modal">
+          <div class="modal-header">
+            <h3><i class="fas fa-external-link-alt"></i> Additional Learning Resources</h3>
+            <button class="btn-icon close-modal">
+              <i class="fas fa-times"></i>
+            </button>
+          </div>
+          <div class="modal-body">
+            <div style="display: flex; flex-direction: column; gap: 24px;">
+              <div>
+                <h4 style="margin-bottom: 12px; color: var(--primary);">Recommended Websites</h4>
+                <ul style="padding-left: 20px; display: flex; flex-direction: column; gap: 8px;">
+                  <li><a href="https://www.khanacademy.org/computing" target="_blank" style="color: var(--primary); text-decoration: none;">Khan Academy - Computing</a></li>
+                  <li><a href="https://www.codecademy.com/learn/paths/web-development" target="_blank" style="color: var(--primary); text-decoration: none;">Codecademy - Web Development</a></li>
+                  <li><a href="https://www.coursera.org/courses?query=internet%20basics" target="_blank" style="color: var(--primary); text-decoration: none;">Coursera - Internet Basics</a></li>
+                  <li><a href="https://developer.mozilla.org/en-US/docs/Learn" target="_blank" style="color: var(--primary); text-decoration: none;">MDN Web Docs</a></li>
+                </ul>
+              </div>
+              
+              <div>
+                <h4 style="margin-bottom: 12px; color: var(--primary);">Further Reading</h4>
+                <ul style="padding-left: 20px; display: flex; flex-direction: column; gap: 8px;">
+                  <li>"The Internet for Dummies" by John R. Levine</li>
+                  <li>"How the Internet Works" by Preston Gralla</li>
+                  <li>"The Tangled Web" by Michal Zalewski</li>
+                  <li>"Cybersecurity for Beginners" by Raef Meeuwisse</li>
+                </ul>
+              </div>
+              
+              <div>
+                <h4 style="margin-bottom: 12px; color: var(--primary);">Practice Platforms</h4>
+                <ul style="padding-left: 20px; display: flex; flex-direction: column; gap: 8px;">
+                  <li>TryHackMe - Cybersecurity practice</li>
+                  <li>HackTheBox - Security challenges</li>
+                  <li>FreeCodeCamp - Web development projects</li>
+                  <li>Google's Digital Garage - Digital skills</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button class="btn-primary close-modal">
+              Close
+            </button>
+          </div>
+        </div>
+      `;
+      
+      document.body.appendChild(modal);
+      
+      modal.querySelector(".close-modal").addEventListener("click", () => {
+        document.body.removeChild(modal);
+      });
+    }
+
+    // Utility function to play sound (if enabled)
+    function playSound(type) {
+      if (!appState.soundEnabled) return;
+      
+      // In a real application, you would load and play actual sound files
+      // For this demo, we'll just log to console
+      console.log(`Playing ${type} sound`);
+    }
+
+    // Make functions available globally for debugging
+    window.appState = appState;
+    window.showToast = showToast;
+    window.resetCourseProgress = resetCourseProgress;
+  </script>
+</body>
+</html>

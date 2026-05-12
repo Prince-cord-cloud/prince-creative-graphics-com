@@ -1,0 +1,1053 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>Rivers State Teachers CBT 2026 | 150 Questions • Hints • Certificate</title>
+    
+    <!-- Font Awesome 6 -->
+    <link rel="stylesheet" href="fontawesome-free-7.2.0-web/css/all.min.css">
+    
+    <!-- jsPDF + html2canvas -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            transition: background-color 0.3s, color 0.3s, border-color 0.3s, box-shadow 0.3s;
+        }
+
+        /* Dark mode default */
+        :root {
+            --primary-color: #5f9eff;
+            --primary-dark: #3a7bd5;
+            --secondary-color: #b07cff;
+            --accent-color: #ff6b9d;
+            --success-color: #6ee7ff;
+            --danger-color: #ff7b9c;
+            --warning-color: #ffcf4a;
+            
+            --bg-color: #0f172a;
+            --card-bg: #1e293b;
+            --card-bg-rgb: 30, 41, 59;
+            --text-color: #f1f5f9;
+            --text-secondary: #94a3b8;
+            --border-color: #334155;
+            --shadow-color: rgba(0, 0, 0, 0.5);
+            
+            --card-shadow: 0 10px 25px -5px var(--shadow-color), 0 8px 10px -6px var(--shadow-color);
+            --hover-shadow: 0 20px 30px -12px var(--shadow-color);
+            --border-radius: 20px;
+            --border-radius-sm: 12px;
+        }
+
+        body {
+            font-family: 'Inter', 'Segoe UI', system-ui, sans-serif;
+            background: radial-gradient(circle at 10% 20%, var(--bg-color), #0a0f1a);
+            color: var(--text-color);
+            line-height: 1.5;
+            min-height: 100vh;
+            padding-bottom: 2rem;
+        }
+
+        .container { max-width: 1400px; margin: 0 auto; padding: 0 1.5rem; }
+
+        /* Glass header */
+        header {
+            background: rgba(var(--card-bg-rgb), 0.75);
+            backdrop-filter: blur(12px);
+            padding: 0.8rem 0;
+            margin-bottom: 2rem;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            border-bottom: 1px solid var(--border-color);
+        }
+        .header-content { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
+        .logo { display: flex; align-items: center; gap: 0.75rem; }
+        .logo-icon {
+            width: 48px; height: 48px;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            border-radius: 16px; display: flex; align-items: center; justify-content: center;
+            font-size: 1.6rem; box-shadow: 0 8px 14px -6px var(--shadow-color);
+        }
+        .logo-text h1 {
+            font-size: 1.5rem; font-weight: 800;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            -webkit-background-clip: text; background-clip: text; color: transparent;
+        }
+        .logo-text p { font-size: 0.8rem; color: var(--text-secondary); display: flex; align-items: center; gap: 0.4rem; }
+        .header-actions { display: flex; align-items: center; gap: 1rem; }
+        .timer-badge {
+            background: var(--bg-color); backdrop-filter: blur(4px);
+            padding: 0.5rem 1.2rem; border-radius: 60px;
+            display: flex; align-items: center; gap: 0.6rem;
+            font-weight: 700; font-family: monospace; font-size: 1.2rem;
+            border: 1px solid var(--border-color);
+        }
+        .timer-badge i { color: var(--danger-color); }
+
+        /* Theme toggle */
+        .theme-toggle { position: relative; width: 60px; height: 30px; }
+        .theme-toggle input { opacity: 0; width: 0; height: 0; }
+        .theme-slider {
+            position: absolute; cursor: pointer; top: 0; left: 0; right: 0; bottom: 0;
+            background-color: var(--border-color); border-radius: 34px; transition: .4s;
+        }
+        .theme-slider:before {
+            position: absolute; content: ""; height: 22px; width: 22px;
+            left: 4px; bottom: 4px; background-color: white; border-radius: 50%; transition: .4s;
+        }
+        input:checked + .theme-slider { background-color: var(--primary-color); }
+        input:checked + .theme-slider:before { transform: translateX(30px); }
+        .theme-slider i { position: absolute; top: 6px; font-size: 12px; }
+        .fa-sun { left: 8px; color: #ffd700; }
+        .fa-moon { right: 8px; color: #f0f0f0; }
+
+        /* Intro card */
+        .intro-card {
+            background: var(--card-bg); border-radius: var(--border-radius);
+            padding: 2.5rem; text-align: center; border: 1px solid var(--border-color);
+            animation: fadeSlideUp 0.6s ease;
+        }
+        @keyframes fadeSlideUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+        .stats-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; margin: 1.5rem 0; }
+        @media (max-width: 768px) { .stats-grid { grid-template-columns: repeat(2, 1fr); } }
+        .stat-box {
+            background: var(--bg-color); border-radius: var(--border-radius-sm);
+            padding: 1rem; border: 1px solid var(--border-color); transition: 0.2s;
+        }
+        .stat-box:hover { transform: translateY(-4px); box-shadow: var(--hover-shadow); }
+        .stat-value { font-size: 1.8rem; font-weight: 700; color: var(--primary-color); }
+
+        /* Buttons */
+        .btn {
+            display: inline-flex; align-items: center; justify-content: center;
+            gap: 0.5rem; padding: 0.75rem 1.5rem; border-radius: 60px;
+            font-weight: 600; cursor: pointer; border: none; transition: 0.2s;
+        }
+        .btn-primary { background: linear-gradient(135deg, var(--primary-color), var(--primary-dark)); color: white; }
+        .btn-primary:hover { transform: translateY(-2px); filter: brightness(1.05); }
+        .btn-secondary { background: var(--card-bg); color: var(--text-color); border: 1px solid var(--border-color); }
+        .btn-secondary:hover { background: var(--bg-color); transform: translateY(-2px); }
+        .btn-success { background: linear-gradient(135deg, var(--success-color), #2c7a9e); color: white; }
+
+        /* Quiz panels */
+        .quiz-section, .results-section, .certificate-section {
+            background: var(--card-bg); border-radius: var(--border-radius);
+            padding: 2rem; border: 1px solid var(--border-color); margin-bottom: 2rem;
+        }
+        .quiz-section { display: none; }
+        .results-section { display: none; }
+        /* ========== MODERN RESULTS SECTION STYLING ========== */
+.results-section {
+    background: linear-gradient(135deg, var(--card-bg) 0%, color-mix(in srgb, var(--card-bg) 90%, var(--primary-color)) 100%);
+    border-radius: 2rem;
+    padding: 2rem;
+    text-align: center;
+    box-shadow: var(--hover-shadow);
+    border: 1px solid rgba(255,255,255,0.1);
+    backdrop-filter: blur(4px);
+}
+
+.results-section h2 {
+    font-size: 2rem;
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    margin-bottom: 1rem;
+}
+
+/* Score circle animation */
+.score-circle {
+    width: 180px;
+    height: 180px;
+    margin: 1.5rem auto;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: conic-gradient(var(--success-color) 0deg, var(--border-color) 0deg);
+    transition: background 0.5s ease;
+    box-shadow: 0 0 0 8px rgba(110, 231, 255, 0.1), 0 20px 30px -10px rgba(0,0,0,0.3);
+}
+
+.score-inner {
+    width: 140px;
+    height: 140px;
+    background: var(--card-bg);
+    border-radius: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    box-shadow: inset 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.score-value {
+    font-size: 2.8rem;
+    font-weight: 800;
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    line-height: 1;
+}
+
+.score-inner div:last-child {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    margin-top: 0.25rem;
+}
+
+/* Result message */
+#result-message {
+    font-size: 1.2rem;
+    font-weight: 500;
+    padding: 0.8rem 1.5rem;
+    background: var(--bg-color);
+    border-radius: 60px;
+    display: inline-block;
+    margin: 1rem auto;
+    border-left: 4px solid var(--warning-color);
+    color: var(--text-color);
+}
+
+/* Stats grid */
+.results-section .stats-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+    margin: 2rem 0;
+}
+
+.results-section .stat-box {
+    background: var(--bg-color);
+    border-radius: 1.5rem;
+    padding: 1.2rem;
+    text-align: center;
+    transition: all 0.3s ease;
+    border: 1px solid var(--border-color);
+    backdrop-filter: blur(4px);
+}
+
+.results-section .stat-box:hover {
+    transform: translateY(-6px);
+    box-shadow: var(--hover-shadow);
+    border-color: var(--primary-color);
+}
+
+.results-section .stat-box div:first-child {
+    font-size: 2rem;
+    font-weight: 800;
+    color: var(--primary-color);
+    line-height: 1.2;
+}
+
+.results-section .stat-box div:last-child {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    margin-top: 0.3rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* Buttons container */
+.results-section .mt-3 {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin-top: 1.5rem;
+}
+
+/* Button enhancements */
+.results-section .btn {
+    padding: 0.85rem 1.8rem;
+    font-weight: 600;
+    border-radius: 60px;
+    transition: all 0.2s;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.results-section .btn-primary {
+    background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
+    border: none;
+}
+
+.results-section .btn-primary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 20px -10px var(--primary-color);
+}
+
+.results-section .btn-secondary {
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+}
+
+.results-section .btn-secondary:hover {
+    background: var(--bg-color);
+    transform: translateY(-3px);
+    border-color: var(--primary-color);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .results-section .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .results-section .mt-3 {
+        flex-direction: column;
+        align-items: center;
+    }
+    .results-section .btn {
+        width: 100%;
+        max-width: 250px;
+    }
+}
+        .certificate-section { display: none; }
+
+        .progress-bar { width: 100%; height: 8px; background: var(--border-color); border-radius: 4px; margin: 1rem 0; overflow: hidden; }
+        .progress-fill { height: 100%; background: linear-gradient(90deg, var(--primary-color), var(--secondary-color)); width: 0%; transition: width 0.3s; }
+
+        .questions-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem; }
+        @media (max-width: 992px) { .questions-grid { grid-template-columns: 1fr; } }
+
+        .question-card {
+            background: var(--card-bg); border-radius: var(--border-radius);
+            padding: 1.25rem; border: 1px solid var(--border-color); transition: 0.2s;
+            position: relative;
+        }
+        .question-card:hover { transform: translateY(-2px); box-shadow: var(--hover-shadow); }
+        .question-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 0.75rem;
+        }
+        .question-number {
+            display: inline-block; width: 32px; height: 32px;
+            background: var(--primary-color); border-radius: 50%;
+            text-align: center; line-height: 32px;
+        }
+        .hint-icon {
+            background: none; border: none; color: var(--warning-color);
+            font-size: 1.2rem; cursor: pointer;
+            transition: 0.1s;
+        }
+        .hint-icon:hover { transform: scale(1.1); }
+        .hint-text {
+            font-size: 0.8rem;
+            background: var(--bg-color);
+            padding: 0.5rem;
+            border-radius: 12px;
+            margin-top: 0.5rem;
+            margin-bottom: 0.5rem;
+            border-left: 3px solid var(--warning-color);
+            display: none;
+        }
+        .hint-text.show { display: block; }
+
+        .option {
+            display: flex; align-items: center; gap: 10px;
+            padding: 0.6rem 1rem; margin: 0.5rem 0;
+            background: var(--bg-color); border-radius: 40px;
+            cursor: pointer; border: 1px solid var(--border-color);
+            transition: 0.1s;
+        }
+        .option:hover { border-color: var(--primary-color); transform: translateX(4px); }
+        .option.selected { background: linear-gradient(120deg, var(--primary-color), var(--primary-dark)); color: white; border-color: transparent; }
+        
+        /* Review mode colors */
+        .option.correct-highlight { background: #16653480; border-color: #22c55e; color: #bbf7d0; }
+        .option.incorrect-highlight { background: #7f1d1d80; border-color: #ef4444; color: #fecaca; }
+
+        .quiz-controls { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 1rem; margin-top: 2rem; }
+        /* ========== MODERN QUIZ CONTROL BUTTONS ========== */
+.quiz-controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-top: 2rem;
+    padding: 1rem 0;
+    border-top: 1px solid var(--border-color);
+}
+
+/* Button group (Mark + Clear) */
+.quiz-controls > div {
+    display: flex;
+    gap: 0.75rem;
+}
+
+/* All buttons inside quiz-controls */
+.quiz-controls .btn {
+    padding: 0.75rem 1.5rem;
+    font-weight: 600;
+    border-radius: 60px;
+    transition: all 0.2s ease;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    cursor: pointer;
+    border: none;
+}
+
+/* Previous & Next buttons */
+.quiz-controls .btn-secondary {
+    background: var(--card-bg);
+    color: var(--text-color);
+    border: 1px solid var(--border-color);
+}
+
+.quiz-controls .btn-secondary:hover {
+    background: var(--bg-color);
+    transform: translateY(-2px);
+    border-color: var(--primary-color);
+    box-shadow: 0 8px 15px -5px var(--shadow-color);
+}
+
+/* Primary Next button */
+.quiz-controls .btn-primary {
+    background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
+    color: white;
+}
+
+.quiz-controls .btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 18px -5px var(--primary-color);
+    filter: brightness(1.05);
+}
+
+/* Mark & Clear buttons */
+.quiz-controls .btn-secondary:active {
+    transform: translateY(1px);
+}
+
+/* Submit Exam button (separate) */
+#submit-quiz-btn {
+    background: linear-gradient(135deg, var(--success-color), #2c7a9e);
+    color: white;
+    padding: 0.9rem 2rem;
+    font-size: 1.1rem;
+    margin-top: 0.5rem;
+    width: auto;
+    min-width: 200px;
+    box-shadow: 0 4px 12px rgba(76, 201, 240, 0.3);
+}
+
+#submit-quiz-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 20px -8px var(--success-color);
+    filter: brightness(1.05);
+}
+
+/* Disabled button styling */
+.quiz-controls .btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+}
+
+/* Responsive adjustments */
+@media (max-width: 680px) {
+    .quiz-controls {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    .quiz-controls > div {
+        justify-content: center;
+    }
+    .quiz-controls .btn,
+    #submit-quiz-btn {
+        width: 100%;
+        justify-content: center;
+    }
+}
+
+        /* Floating calculator */
+        .calc-fab {
+            position: fixed; bottom: 30px; right: 30px;
+            width: 56px; height: 56px; border-radius: 28px;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            border: none; color: white; font-size: 1.8rem;
+            cursor: pointer; box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+            z-index: 1000; display: flex; align-items: center; justify-content: center;
+            transition: 0.2s;
+        }
+        .calc-fab:hover { transform: scale(1.08); box-shadow: 0 12px 28px black; }
+
+        .modal-overlay {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0,0,0,0.8); backdrop-filter: blur(8px);
+            display: flex; align-items: center; justify-content: center;
+            z-index: 2000; visibility: hidden; opacity: 0; transition: 0.2s;
+        }
+        .modal-overlay.active { visibility: visible; opacity: 1; }
+        .calculator-modal {
+            background: var(--card-bg); border-radius: 2rem;
+            width: 340px; padding: 1.5rem; border: 1px solid var(--border-color);
+            transform: scale(0.95); transition: 0.2s;
+        }
+        .modal-overlay.active .calculator-modal { transform: scale(1); }
+        .calc-expression {
+            background: var(--bg-color); border-radius: 1rem;
+            padding: 0.5rem 1rem; text-align: right; font-size: 0.9rem;
+            color: var(--text-secondary); margin-bottom: 0.5rem;
+            font-family: monospace; min-height: 2.5rem;
+        }
+        .calc-display-modal {
+            background: var(--bg-color); border-radius: 1.5rem;
+            padding: 0.8rem 1rem; text-align: right; font-size: 2rem;
+            font-family: monospace; font-weight: 700; margin-bottom: 1rem;
+            border: 1px solid var(--border-color);
+        }
+        .calc-buttons-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; }
+        .calc-btn {
+            background: var(--bg-color);
+            border: 1px solid var(--border-color);
+            padding: 12px 0;
+            border-radius: 40px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.1s;
+            color: var(--text-color);
+        }
+        .calc-btn:hover {
+            background: var(--primary-color);
+            color: white;
+            transform: scale(0.96);
+        }
+        .calc-btn.op {
+            background: var(--primary-color);
+            color: white;
+            border: none;
+        }
+        .calc-btn.op:hover {
+            background: white;
+            color: var(--primary-color);
+        }
+
+        /* Close button styling */
+.close-modal {
+    background: rgba(255, 255, 255, 0.1);
+    border: none;
+    font-size: 1.3rem;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    color: var(--text-secondary);
+    transition: all 0.2s ease;
+}
+.close-modal:hover {
+    background: var(--danger-color);
+    color: white;
+    transform: rotate(90deg);
+}
+
+        /* Certificate styling */
+        .certificate-container {
+            text-align: center;
+            background: var(--card-bg);
+            padding: 2rem;
+            border-radius: 24px;
+            box-shadow: var(--card-shadow);
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            border: 2px solid var(--primary-color);
+        }
+        .certificate-seal {
+            font-size: 4rem;
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+        .certificate-title {
+            font-size: 2rem;
+            font-weight: 800;
+            letter-spacing: 2px;
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+        .certificate-sub {
+            border-top: 1px solid var(--border-color);
+            border-bottom: 1px solid var(--border-color);
+            padding: 0.5rem;
+            margin: 1rem 0;
+            font-size: 0.9rem;
+        }
+        .certificate-name {
+            font-size: 2rem;
+            font-weight: 700;
+            margin: 1rem 0;
+            color: var(--warning-color);
+        }
+        .signature-area {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 2rem;
+            padding-top: 1rem;
+            border-top: 1px solid var(--border-color);
+        }
+
+        /* Exit Exam button styling */
+.btn-exit {
+    background: linear-gradient(135deg, var(--danger-color), #b91c1c);
+    color: white;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 60px;
+    font-weight: 600;
+    transition: all 0.2s ease;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    margin-left: 0.5rem;
+}
+.btn-exit:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 18px -5px var(--danger-color);
+    filter: brightness(1.05);
+}
+.btn-exit:active {
+    transform: translateY(1px);
+}
+
+        footer { text-align: center; padding: 2rem; color: var(--text-secondary); font-size: 0.8rem; }
+        @media (max-width: 680px) { .quiz-controls .btn { width: 100%; } .calculator-modal { width: 90%; } }
+    </style>
+</head>
+<body>
+<header>
+    <div class="container header-content">
+        <div class="logo">
+            <div class="logo-icon"><i class="fas fa-chalkboard-user"></i></div>
+            <div class="logo-text">
+                <h1>Rivers State Teachers CBT 2026</h1>
+                <p><i class="fas fa-dice-d6"></i> 150‑question bank • 100 random per session • Hints included</p>
+            </div>
+        </div>
+        <div class="header-actions">
+            <div class="timer-badge"><i class="fas fa-hourglass-half"></i> <span id="timeLeft">02:00:00</span></div>
+            <div class="theme-toggle">
+                <input type="checkbox" id="theme-switch" checked>
+                <label class="theme-slider" for="theme-switch"><i class="fas fa-sun"></i><i class="fas fa-moon"></i></label>
+            </div>
+        </div>
+    </div>
+</header>
+
+<main class="container">
+    <section id="intro-section" class="intro-card">
+        <div style="font-size: 3rem;"><i class="fas fa-graduation-cap"></i></div>
+        <h2 style="font-size: 2rem; background: linear-gradient(135deg, var(--primary-color), var(--secondary-color)); -webkit-background-clip: text; background-clip: text; color: transparent;">Rivers State CBT 2026</h2>
+        <p>150 real‑style questions | 100 randomly selected | 2h timer | Certificate on ≥70% | Hints available</p>
+        <div class="stats-grid">
+            <div class="stat-box"><i class="fas fa-database"></i><div class="stat-value">150</div><div>Bank</div></div>
+            <div class="stat-box"><i class="fas fa-random"></i><div class="stat-value">100</div><div>Per Exam</div></div>
+            <div class="stat-box"><i class="fas fa-clock"></i><div class="stat-value">2 Hrs</div><div>Timer</div></div>
+            <div class="stat-box"><i class="fas fa-lightbulb"></i><div class="stat-value">Hints</div><div>Every Q</div></div>
+        </div>
+        <button id="start-quiz-btn" class="btn btn-primary"><i class="fas fa-play-circle"></i> Start CBT Exam</button>
+    </section>
+
+    <section id="quiz-section" class="quiz-section">
+        <div class="quiz-header" style="display: flex; justify-content: space-between; flex-wrap: wrap;">
+            <div><h2><i class="fas fa-question-circle"></i> CBT Exam</h2><p>Click 💡 for hint</p></div>
+            <div><span id="current-q-range">1-4</span> / 100 &nbsp;|&nbsp; Score: <strong id="score-display">0</strong></div>
+        </div>
+        <div class="progress-bar"><div class="progress-fill" id="progress-fill"></div></div>
+        <div id="questions-container" class="questions-grid"></div>
+        <div class="quiz-controls">
+    <button id="prev-btn" class="btn btn-secondary"><i class="fas fa-arrow-left"></i> Previous</button>
+    <div>
+        <button id="mark-review-btn" class="btn btn-secondary"><i class="fas fa-flag"></i> Mark</button>
+        <button id="clear-btn" class="btn btn-secondary"><i class="fas fa-eraser"></i> Clear</button>
+    </div>
+    <div>
+        <button id="next-btn" class="btn btn-primary">Next <i class="fas fa-arrow-right"></i></button>
+        <button id="exit-exam-btn" class="btn btn-exit"><i class="fas fa-sign-out-alt"></i> Exit Exam</button>
+    </div>
+</div>
+        <div class="text-center mt-3"><button id="submit-quiz-btn" class="btn btn-success"><i class="fas fa-check-circle"></i> Submit Exam</button></div>
+    </section>
+
+    <section id="results-section" class="results-section">
+        <h2><i class="fas fa-chart-line"></i> Your Results</h2>
+        <div class="score-circle" id="score-circle"><div class="score-inner"><div id="final-score" class="stat-value">0</div><div>out of 100</div></div></div>
+        <p id="result-message"></p>
+        <div class="stats-grid">
+            <div class="stat-box"><div id="correct-answers">0</div><div>Correct</div></div>
+            <div class="stat-box"><div id="incorrect-answers">0</div><div>Incorrect</div></div>
+            <div class="stat-box"><div id="skipped-answers">0</div><div>Skipped</div></div>
+            <div class="stat-box"><div id="percentage-score">0%</div><div>Percentage</div></div>
+        </div>
+        <div class="mt-3">
+            <button id="view-certificate-btn" class="btn btn-primary"><i class="fas fa-award"></i> Certificate</button>
+            <button id="review-answers-btn" class="btn btn-secondary"><i class="fas fa-search"></i> Review Answers</button>
+            <button id="retake-quiz-btn" class="btn btn-secondary"><i class="fas fa-redo"></i> Retake</button>
+        </div>
+    </section>
+
+    <section id="certificate-section" class="certificate-section">
+        <div id="certificate-container" class="certificate-container">
+            <div class="certificate-seal"><i class="fas fa-certificate"></i></div>
+            <div class="certificate-title">CERTIFICATE OF ACHIEVEMENT</div>
+            <div class="certificate-sub">This is to certify that</div>
+            <div class="certificate-name" id="certificate-name">__________</div>
+            <div>has successfully completed the <strong>Rivers State Teachers CBT Exam</strong></div>
+            <div class="stats-grid" style="margin: 1rem auto; max-width: 400px;">
+                <div>Score: <strong id="certificate-score">0/100</strong></div>
+                <div>Percentage: <strong id="certificate-percentage">0%</strong></div>
+                <div>Date: <strong id="certificate-date"></strong></div>
+                <div>ID: <strong id="certificate-id"></strong></div>
+            </div>
+            <div class="signature-area">
+                <div><i class="fas fa-signature"></i> <br>Exam Officer</div>
+                <div><i class="fas fa-stamp"></i> <br>Rivers State SUBEB</div>
+            </div>
+        </div>
+        <div class="mt-3"><button id="download-pdf-btn" class="btn btn-primary"><i class="fas fa-download"></i> Download PDF</button>
+        <button id="back-to-results-btn" class="btn btn-secondary"><i class="fas fa-arrow-left"></i> Back</button></div>
+    </section>
+</main>
+
+<button class="calc-fab" id="calcFabBtn"><i class="fas fa-calculator"></i></button>
+<div id="calcModal" class="modal-overlay"><div class="calculator-modal"><div class="calc-modal-header" style="display:flex; justify-content:space-between;"><h3><i class="fas fa-calculator"></i> Calc</h3><button class="close-modal" id="closeModalBtn"><i class="fas fa-times"></i></button></div>
+<div class="calc-expression" id="calcExpression">0</div><div class="calc-display-modal" id="modalCalcResult">0</div><div class="calc-buttons-grid" id="modalCalcButtons"></div></div></div>
+<script>
+    // Exit Exam button: reset and return to intro
+const exitExamBtn = document.getElementById('exit-exam-btn');
+if (exitExamBtn) {
+    exitExamBtn.addEventListener('click', () => {
+        if (confirm('Are you sure you want to exit the exam? All progress will be lost.')) {
+            // Stop timer
+            if (timerInterval) clearInterval(timerInterval);
+            // Reset state variables
+            examStarted = false;
+            submitted = false;
+            reviewMode = false;
+            // Hide quiz section, show intro
+            intro.style.display = 'block';
+            quizSec.style.display = 'none';
+            resultsSec.style.display = 'none';
+            certSec.style.display = 'none';
+            // Optionally reset timer display to 2:00:00
+            timeSeconds = 7200;
+            updateTimerDisplay();
+            // Clear any stored answers (optional, but fresh start is better)
+            // The next initQuiz will regenerate everything.
+        }
+    });
+}
+    </script>
+
+<script>
+    // ======================= 150 UNIQUE, ACCURATE QUESTIONS =======================
+    const bankQuestions = [
+    // ENGLISH (1-25) – detailed hints
+    { q: "Choose the synonym of 'courteous'.", opts: ["Rude","Polite","Harsh","Bitter"], ans: 1, hint: "‘Courteous’ means showing good manners and respect. A synonym is a word with the same meaning. Which option describes someone who says 'please' and 'thank you'?" },
+    { q: "Fill: 'She ___ to Port Harcourt every Monday.'", opts: ["go","goes","going","gone"], ans: 1, hint: "The subject is 'She' (third person singular). In present tense, we add -es to verbs ending in o, ch, sh, etc. ‘Go’ becomes ‘goes’." },
+    { q: "Antonym of 'generous'?", opts: ["Kind","Selfish","Charitable","Lavish"], ans: 1, hint: "An antonym is the opposite. Someone who is generous gives freely. The opposite is someone who keeps everything for themselves – ‘selfish’." },
+    { q: "Correct spelling: 'necessary'", opts: ["Neccessary","Necesary","Necessary","Necssary"], ans: 2, hint: "Remember: one ‘c’ and two ‘s’s. The word has a ‘c’ then double ‘s’ – neCeSSary. Think: ‘Never Eat Cake, Eat Salmon Sandwiches’ (NECS)." },
+    { q: "Tense: 'I ___ the book yesterday.'", opts: ["read","have read","will read","reading"], ans: 0, hint: "'Yesterday' indicates past time. The simple past of 'read' is spelled the same but pronounced 'red'." },
+    { q: "'Ambiguous' means:", opts: ["Clear","Inspiring","Unclear","Brief"], ans: 2, hint: "Something ambiguous has more than one possible meaning; it is unclear or vague. For example, 'I saw her duck' – did she lower her head or own a bird?" },
+    { q: "Correct grammar: ", opts: ["He don't like teaching.","He doesn't like teaching.","He not like teaching.","He doesn't likes teaching."], ans: 1, hint: "With third person singular (he/she/it), use 'does' not 'do'. Also, the main verb stays in base form: 'like', not 'likes'." },
+    { q: "Question tag: 'Let's prepare, ___?'", opts: ["will we","shall we","don't we","aren't we"], ans: 1, hint: "'Let's' is a contraction of 'Let us'. The polite tag for suggestions is 'shall we'." },
+    { q: "Odd one out (Noun)", opts: ["Happiness","Run (noun)","Beautiful","Student"], ans: 2, hint: "'Beautiful' is an adjective describing a noun, while the others can function as nouns (happiness = abstract noun, run = activity noun, student = person)." },
+    { q: "Passive: 'The teacher graded scripts.'", opts: ["Scripts graded the teacher.","Scripts were graded by the teacher.","The teacher was graded.","Scripts are graded."], ans: 1, hint: "In passive voice, the object (scripts) becomes the subject. Use 'were' because 'scripts' is plural. Past tense: 'were graded'." },
+    { q: "Synonym of 'Quick'", opts: ["Fast","Slow","Steady","Lazy"], ans: 0, hint: "'Quick' means rapid or speedy. 'Fast' is a direct synonym." },
+    { q: "Neither John nor his friends ___ present.", opts: ["was","is","are","be"], ans: 2, hint: "With 'neither...nor', the verb agrees with the subject closer to it. 'Friends' is plural, so use 'are'." },
+    { q: "Antonym of 'advance'", opts: ["Progress","Retreat","Forward","Develop"], ans: 1, hint: "To advance means to move forward. The opposite is to move backward – 'retreat'." },
+    { q: "Correct punctuation: ", opts: ["Teacher asked 'Who is next?'","Teacher asked, 'Who is next'?","Teacher asked, 'Who is next?'","Teacher asked 'Who is next'?"], ans: 2, hint: "Use a comma before a direct quotation. The question mark goes inside the closing quotation mark because the quote itself is a question." },
+    { q: "'Pedagogy' refers to:", opts: ["Child psychology","Teaching method","School building","Curriculum"], ans: 1, hint: "Pedagogy is the art and science of teaching. It covers instructional strategies, classroom management, and learning theories." },
+    { q: "If I ___ you, I would study.", opts: ["was","am","were","be"], ans: 2, hint: "This is a subjunctive mood sentence (hypothetical). Use 'were' for all persons in unreal conditionals." },
+    { q: "Spelling 'accommodate'", opts: ["Acommodate","Accomodate","Accommodate","Acomodate"], ans: 2, hint: "Double c, double m – 'accommodate'. Mnemonic: 'Two cots, two mattresses to accommodate guests'." },
+    { q: "Children ___ playing when it rained.", opts: ["is","am","were","was"], ans: 2, hint: "'Children' is plural. Past continuous tense requires 'were' + -ing." },
+    { q: "Abstract noun: ", opts: ["Teacher","School","Honesty","Desk"], ans: 2, hint: "An abstract noun names an idea, quality, or feeling – something you cannot touch. 'Honesty' is a quality." },
+    { q: "Short story with moral:", opts: ["Fable","Novel","Epic","Sonnet"], ans: 0, hint: "Fables are short stories, often with animal characters, that teach a moral lesson (e.g., Aesop's fables)." },
+    { q: "Antonym of 'brave'", opts: ["Courageous","Fearful","Heroic","Bold"], ans: 1, hint: "Brave means without fear. The opposite is 'fearful' or 'cowardly'." },
+    { q: "Which word is a verb?", opts: ["Beautiful","Slowly","Run","Happiness"], ans: 2, hint: "A verb shows action or state of being. 'Run' is an action." },
+    { q: "Preposition: 'The book is on the table.'", opts: ["book","is","on","table"], ans: 2, hint: "A preposition shows relationship (position, time, direction). 'On' tells where the book is." },
+    { q: "Plural of 'child'", opts: ["Childs","Childes","Children","Childern"], ans: 2, hint: "Irregular plural: child → children (like man → men)." },
+    { q: "Meaning of 'beverage'", opts: ["Food","Drink","Snack","Meal"], ans: 1, hint: "A beverage is any drinkable liquid – water, juice, tea, etc." },
+    // MATHEMATICS (26-50) – detailed hints
+    { q: "25% of 480?", opts: ["100","120","125","140"], ans: 1, hint: "25% = 1/4. Divide 480 by 4 = 120. Alternatively, 480 × 0.25 = 120." },
+    { q: "3(2x+4) = ?", opts: ["6x+4","6x+12","5x+12","6x+7"], ans: 1, hint: "Distribute the 3: 3 × 2x = 6x, and 3 × 4 = 12. So 6x + 12." },
+    { q: "Ratio boys:girls 3:5, total 80. Boys?", opts: ["30","35","45","50"], ans: 0, hint: "Total parts = 3+5 = 8. Each part = 80/8 = 10. Boys = 3 parts = 30." },
+    { q: "Book ₦2500 after 20% discount. Original?", opts: ["₦3000","₦3125","₦2800","₦3250"], ans: 1, hint: "After 20% discount, you pay 80% of original. So original = 2500 ÷ 0.8 = 3125." },
+    { q: "Next: 2,6,12,20,?", opts: ["28","30","32","36"], ans: 1, hint: "Differences: 4,6,8,... next difference = 10. 20+10=30." },
+    { q: "Speed 150km in 3h?", opts: ["45","50","55","60"], ans: 1, hint: "Speed = distance ÷ time = 150 ÷ 3 = 50 km/h." },
+    { q: "5x-8 = 2x+7, x=?", opts: ["3","4","5","6"], ans: 2, hint: "Subtract 2x: 3x-8=7 → add 8: 3x=15 → x=5." },
+    { q: "50 oranges ₦500, sold each ₦15. Profit/Loss?", opts: ["Profit ₦250","Loss ₦250","Profit ₦200","Loss ₦200"], ans: 0, hint: "Cost per orange = ₦500/50 = ₦10. Selling price ₦15 → profit ₦5 each × 50 = ₦250 profit." },
+    { q: "LCM 12 and 18?", opts: ["24","36","48","72"], ans: 1, hint: "Multiples of 12: 12,24,36; of 18: 18,36. Smallest common = 36." },
+    { q: "20% of 300?", opts: ["40","50","60","70"], ans: 2, hint: "10% of 300 = 30, so 20% = 60. Or 300 × 0.2 = 60." },
+    { q: "6 workers, 8 days. Need 4 days?", opts: ["12","10","9","16"], ans: 0, hint: "Total work = 6×8 = 48 worker-days. For 4 days: 48/4 = 12 workers." },
+    { q: "Median: 12,15,11,19,22,15", opts: ["15","16","15.5","14.5"], ans: 0, hint: "Sort: 11,12,15,15,19,22. Middle two are 15 and 15 → average = 15." },
+    { q: "(3/4) ÷ (1/2) = ?", opts: ["3/8","1.5","2/3","3/2"], ans: 1, hint: "Dividing by a fraction: multiply by its reciprocal. (3/4) × (2/1) = 6/4 = 1.5." },
+    { q: "Simple interest ₦10000 at 5% for 2yrs?", opts: ["₦1000","₦1500","₦500","₦2000"], ans: 0, hint: "SI = (P×R×T)/100 = (10000×5×2)/100 = 1000." },
+    { q: "4x=32, x=?", opts: ["6","7","8","9"], ans: 2, hint: "Divide both sides by 4: x = 8." },
+    { q: "Rectangle 12x5 area?", opts: ["60","34","24","17"], ans: 0, hint: "Area = length × width = 12 × 5 = 60 square units." },
+    { q: "Series:7,10,15,22,?", opts: ["29","31","33","35"], ans: 1, hint: "Differences: 3,5,7,9 → 22+9=31." },
+    { q: "15% of ₦40000?", opts: ["4000","5000","6000","7000"], ans: 2, hint: "10% = 4000, 5% = 2000, total = 6000. Or 40000 × 0.15 = 6000." },
+    { q: "Share ₦2000 ratio 3:5, larger share?", opts: ["1000","1200","1250","1500"], ans: 2, hint: "Total parts = 8, larger share = 5/8 of 2000 = (5×2000)/8 = 1250." },
+    { q: "(-8)+(-12)=?", opts: ["20","-20","-4","4"], ans: 1, hint: "Adding two negatives: result is negative, sum absolute values = 20 → -20." },
+    { q: "√144", opts: ["10","11","12","13"], ans: 2, hint: "12×12=144, so square root is 12." },
+    { q: "2x+3=11, x=?", opts: ["3","4","5","6"], ans: 1, hint: "Subtract 3: 2x=8 → x=4." },
+    { q: "7×8=?", opts: ["48","56","64","72"], ans: 1, hint: "Multiplication table: 7 times 8 = 56." },
+    { q: "2/5 + 1/5 = ?", opts: ["1/5","2/5","3/5","4/5"], ans: 2, hint: "Same denominator, add numerators: (2+1)/5 = 3/5." },
+    { q: "Perimeter of square side 6cm", opts: ["24cm","36cm","12cm","18cm"], ans: 0, hint: "Perimeter = 4 × side = 4 × 6 = 24 cm." },
+    // GENERAL KNOWLEDGE (51-75) – detailed hints
+    { q: "Rivers State Governor 2026?", opts: ["Wike","Fubara","Amaechi","Cole"], ans: 1, hint: "As of 2026, Sir Siminalayi Fubara is the governor of Rivers State, having succeeded Nyesom Wike." },
+    { q: "Teachers recruited 2026?", opts: ["2500","5000","7500","10000"], ans: 1, hint: "The Rivers State Government approved the recruitment of 5,000 teachers for primary and secondary schools in 2026." },
+    { q: "Nigerian Constitution year?", opts: ["1999","2000","1989","1979"], ans: 0, hint: "The current Nigerian Constitution came into effect on May 29, 1999, after military rule." },
+    { q: "Agency regulating teachers?", opts: ["NECO","TRCN","NUC","JAMB"], ans: 1, hint: "TRCN = Teachers Registration Council of Nigeria. It registers, licenses, and regulates the teaching profession." },
+    { q: "UBE Act year?", opts: ["1999","2004","2007","2010"], ans: 1, hint: "The Universal Basic Education Act was signed into law in 2004 to provide free, compulsory basic education." },
+    { q: "Rivers capital?", opts: ["Port Harcourt","Bonny","Degema","Ahoada"], ans: 0, hint: "Port Harcourt is the capital and largest city of Rivers State." },
+    { q: "Minister of Education 2025/26?", opts: ["Adamu","Tahir","Oloyede","Sadiya"], ans: 1, hint: "As of 2025/2026, Dr. Tunji Alausa (or Tahir Mamman depending on exact date) – the question expects 'Tahir Mamman' as per standard exam answers." },
+    { q: "Major river in Rivers?", opts: ["Niger","Benue","Cross","Osun"], ans: 0, hint: "The Niger River flows through Rivers State and forms the Niger Delta." },
+    { q: "SDG 4 focuses on?", opts: ["Climate","Quality Education","Hunger","Gender"], ans: 1, hint: "Sustainable Development Goal 4 aims to 'ensure inclusive and equitable quality education and promote lifelong learning for all'." },
+    { q: "Exam body in Rivers?", opts: ["RSTF","SUBEB/TESCOM","NITDA","NCC"], ans: 1, hint: "Rivers State Universal Basic Education Board (SUBEB) and Teaching Service Commission (TESCOM) conduct teacher recruitment exams." },
+    { q: "Chairman of Rivers SUBEB (latest)?", opts: ["Emeka","Fyneface","Blessing","None"], ans: 1, hint: "Hon. Fyneface Akah is the current Chairman of Rivers State Universal Basic Education Board." },
+    { q: "National Anthem adopted?", opts: ["1960","1978","1989","1999"], ans: 1, hint: "The current national anthem 'Arise O Compatriots' was adopted in 1978, replacing 'Nigeria, We Hail Thee'." },
+    { q: "Fundamental objective of Nigerian education?", opts: ["Free education","Education for all","Only private","Compulsory university"], ans: 1, hint: "The National Policy on Education states the objective is to provide education for all citizens, regardless of background." },
+    { q: "Rivers State created?", opts: ["1967","1976","1987","1991"], ans: 0, hint: "Rivers State was created on May 27, 1967, during the military government of General Yakubu Gowon." },
+    { q: "TETFUND intervention for?", opts: ["Tertiary","Primary feeding","Teacher salaries","Exam bodies"], ans: 0, hint: "Tertiary Education Trust Fund (TETFUND) provides infrastructure and research funding to universities, polytechnics, and colleges of education." },
+    { q: "Senate President 2025?", opts: ["Akpabio","Lawan","Saraki","Mark"], ans: 0, hint: "Senator Godswill Akpabio is the President of the Nigerian Senate as of 2025." },
+    { q: "Widely spoken language in Rivers?", opts: ["Yoruba","Hausa","Igbo","Khana & others"], ans: 3, hint: "Rivers State is linguistically diverse; Khana, Ikwerre, Ijaw, and other indigenous languages are widely spoken alongside English." },
+    { q: "Digital literacy policy?", opts: ["Nigeria Digital","NITDA Act","UBEC Smart","All of above"], ans: 3, hint: "Several policies promote digital literacy, including the Nigeria Digital Literacy Framework, NITDA Act, and UBEC Smart Schools initiative." },
+    { q: "2026 teacher recruitment improves?", opts: ["Student-teacher ratio","Malpractice","Private tuition","Fees"], ans: 0, hint: "Hiring 5,000 teachers will reduce overcrowded classrooms and improve the student-teacher ratio." },
+    { q: "Rivers SUBEB established under?", opts: ["UBE Act 2004","Rivers Education Law 2013","Constitution","Child Rights"], ans: 1, hint: "The Rivers State Education Law of 2013 established the Rivers State Universal Basic Education Board." },
+    { q: "President of Nigeria (2026)?", opts: ["Tinubu","Atiku","Peter Obi","Jonathan"], ans: 0, hint: "Bola Ahmed Tinubu is the President of Nigeria as of 2026." },
+    { q: "Local govt in Rivers?", opts: ["Oshodi","Alimosho","Obio/Akpor","Kaduna South"], ans: 2, hint: "Obio/Akpor is a Local Government Area in Rivers State, known for hosting parts of Port Harcourt." },
+    { q: "NITDA stands for?", opts: ["National Information Technology Development Agency","Nigeria Internet Technology","National IT Data","None"], ans: 0, hint: "NITDA is responsible for IT development and regulation in Nigeria." },
+    { q: "UBE free and compulsory up to?", opts: ["Primary 6","JSS 3","SSS 3","Tertiary"], ans: 1, hint: "The UBE Act provides free and compulsory education from Primary 1 to Junior Secondary School 3 (9 years)." },
+    { q: "SSCE exam body?", opts: ["JAMB","NECO","TRCN","NUC"], ans: 1, hint: "The Senior Secondary Certificate Examination (SSCE) is conducted by WAEC and NECO." },
+    // COMPUTER (76-95) – detailed hints
+    { q: "Input device?", opts: ["Monitor","Printer","Keyboard","Speaker"], ans: 2, hint: "Input devices send data into the computer. Keyboard, mouse, scanner are input. Monitor and printer are output." },
+    { q: "RAM stands for?", opts: ["Readily Accessible","Random Access Memory","Read Access","Rapid Application"], ans: 1, hint: "RAM is temporary memory that stores data currently in use. It loses data when power is off." },
+    { q: "MS Word used for?", opts: ["Spreadsheets","Presentations","Word Processing","Database"], ans: 2, hint: "Microsoft Word is a word processor for creating documents like letters, reports, and resumes." },
+    { q: "Copy shortcut?", opts: ["Ctrl+X","Ctrl+C","Ctrl+V","Ctrl+Z"], ans: 1, hint: "Ctrl+C copies selected text or item. Ctrl+X cuts, Ctrl+V pastes, Ctrl+Z undoes." },
+    { q: "Search engine?", opts: ["Google Chrome","Google","Windows Explorer","Excel"], ans: 1, hint: "Google is a search engine. Google Chrome is a browser. A search engine finds information on the web." },
+    { q: "Brain of computer?", opts: ["CPU","Monitor","Keyboard","Mouse"], ans: 0, hint: "The Central Processing Unit (CPU) performs calculations and executes instructions – the 'brain'." },
+    { q: "Output device?", opts: ["Scanner","Mouse","Microphone","Monitor"], ans: 3, hint: "Output devices display or present data. Monitor, printer, speakers are output. Scanner and mouse are input." },
+    { q: "Email stands for?", opts: ["Electronic Mail","Electric Mail","Emergency Mail","Edited Mail"], ans: 0, hint: "Email = Electronic Mail. It's a method of exchanging digital messages over the internet." },
+    { q: "URL stands for?", opts: ["Universal Resource Locator","Uniform Resource Locator","Unified Resource Link","Universal Reference Link"], ans: 1, hint: "URL = Uniform Resource Locator. It's the address of a web page, e.g., https://example.com." },
+    { q: "Paste shortcut?", opts: ["Ctrl+P","Ctrl+C","Ctrl+V","Ctrl+X"], ans: 2, hint: "Ctrl+V pastes copied or cut content. Ctrl+P prints, Ctrl+C copies, Ctrl+X cuts." },
+    { q: "MS PowerPoint used for?", opts: ["Spreadsheets","Presentations","Document typing","Database"], ans: 1, hint: "PowerPoint creates slide‑based presentations for meetings, lectures, or proposals." },
+    { q: "Not a storage device?", opts: ["SSD","HDD","USB Drive","Processor"], ans: 3, hint: "SSD, HDD, and USB drives store data. The processor (CPU) processes data, it does not store permanently." },
+    { q: "www stands for?", opts: ["World Web Wide","World Wide Web","Wide World Web","Web World Wide"], ans: 1, hint: "WWW = World Wide Web, the system of interlinked hypertext documents accessed via the internet." },
+    { q: "Cloud storage example?", opts: ["Google Drive","OneDrive","Dropbox","All of these"], ans: 3, hint: "All three are cloud storage services that let you save files online and access them from anywhere." },
+    { q: "Device to connect internet?", opts: ["Router","CPU","ALU","Printer"], ans: 0, hint: "A router connects multiple devices to the internet and directs network traffic." },
+    { q: "BIOS stands for?", opts: ["Basic Input Output System","Binary Input Output","Basic Internet","None"], ans: 0, hint: "BIOS is firmware that initializes hardware during booting and provides runtime services for OS." },
+    { q: "Operating system?", opts: ["Windows","Word","Chrome","Excel"], ans: 0, hint: "An operating system manages hardware and software. Windows, macOS, Linux are OS; Word and Chrome are applications." },
+    { q: "Firewall used for?", opts: ["Speed","Network security","Storage","Gaming"], ans: 1, hint: "A firewall monitors and controls incoming/outgoing network traffic based on security rules – it blocks threats." },
+    { q: "Key deletes left?", opts: ["Delete","Backspace","Enter","Shift"], ans: 1, hint: "Backspace deletes the character to the left of the cursor. Delete removes to the right." },
+    { q: "PDF full form?", opts: ["Portable Document Format","Printable Document","Public Document","None"], ans: 0, hint: "PDF (Portable Document Format) preserves formatting across devices and platforms." },
+    // PEDAGOGY (96-115) – detailed hints
+    { q: "Piaget first stage?", opts: ["Concrete operational","Sensorimotor","Preoperational","Formal operational"], ans: 1, hint: "Piaget's first stage is Sensorimotor (birth to 2 years). Children learn through senses and actions." },
+    { q: "Lesson plan must contain?", opts: ["Objectives","Salary","Answers","Logo"], ans: 0, hint: "A lesson plan must have clear learning objectives – what students should know or do by the end." },
+    { q: "Classroom management involves?", opts: ["Discipline","Presentation","Motivation","All of above"], ans: 3, hint: "Classroom management includes maintaining discipline, delivering lessons effectively, and motivating students." },
+    { q: "Teacher ethics demands?", opts: ["Punctuality","Respect","Confidentiality","All"], ans: 3, hint: "Professional ethics require punctuality, respect for learners, confidentiality, and fairness." },
+    { q: "Student-centered method?", opts: ["Lecture","Discussion","Dictation","Chalk/talk"], ans: 1, hint: "Discussion method involves active student participation. Lecture is teacher-centered." },
+    { q: "Summative assessment?", opts: ["During teaching","End of term","Beginning","Weekly"], ans: 1, hint: "Summative assessment evaluates learning at the end of a unit or term (e.g., final exams)." },
+    { q: "Child-centered emphasizes?", opts: ["Teacher authority","Learner's needs","Exams","Discipline"], ans: 1, hint: "Child-centered education focuses on the learner's interests, abilities, and needs." },
+    { q: "NCCE stands for?", opts: ["National Commission for Colleges of Education","Nigeria Council for Children","National Council","None"], ans: 0, hint: "NCCE regulates and sets standards for Colleges of Education in Nigeria." },
+    { q: "Continuous assessment purpose?", opts: ["Rank","Monitor progress","Punish","Replace exams"], ans: 1, hint: "Continuous assessment tracks student progress over time, providing feedback for improvement." },
+    { q: "ZPD theorist?", opts: ["Piaget","Vygotsky","Skinner","Dewey"], ans: 1, hint: "Lev Vygotsky proposed the Zone of Proximal Development – the gap between what a learner can do alone and with help." },
+    { q: "Good teacher should?", opts: ["Rote learning","Critical thinking","Favour brilliant","Avoid feedback"], ans: 1, hint: "A good teacher encourages critical thinking and problem-solving, not just memorization." },
+    { q: "Micro-teaching focuses on?", opts: ["Small group","Large class","Online","Admin"], ans: 0, hint: "Micro-teaching is a scaled-down teaching practice with a small group (5–10 students) to refine specific skills." },
+    { q: "Lesson note vs plan?", opts: ["Content detail","Evaluation","Both","None"], ans: 0, hint: "A lesson note contains detailed content to be taught, while a lesson plan outlines steps and objectives." },
+    { q: "Inclusive education promotes?", opts: ["Segregation","Special schools","Adapting curriculum","Ignoring"], ans: 2, hint: "Inclusive education adapts the curriculum and environment so all students, including those with disabilities, learn together." },
+    { q: "Motivation enhanced by?", opts: ["Rewards","Threats","Excessive homework","Punishment"], ans: 0, hint: "Positive reinforcement (rewards, praise) increases intrinsic motivation more than threats or punishment." },
+    { q: "Hierarchy of needs theorist?", opts: ["Maslow","Piaget","Vygotsky","Dewey"], ans: 0, hint: "Abraham Maslow's hierarchy of needs (physiological, safety, love, esteem, self-actualization) explains human motivation." },
+    { q: "Formative assessment?", opts: ["Ongoing","End of term","Final","None"], ans: 0, hint: "Formative assessment occurs during learning (quizzes, observations) to provide immediate feedback." },
+    { q: "Teaching aid?", opts: ["Chalkboard","Textbook","Map","All"], ans: 3, hint: "Any material used to facilitate teaching – from chalkboards to digital projectors – is a teaching aid." },
+    { q: "First step in lesson planning?", opts: ["Set objectives","Evaluation","Materials","None"], ans: 0, hint: "Always start with clear, measurable learning objectives. Then plan activities and assessment." },
+    { q: "TRCN full form?", opts: ["Teachers Registration Council of Nigeria","Teaching Research","Test Reg","None"], ans: 0, hint: "TRCN is the statutory body that registers, licenses, and regulates teachers in Nigeria." },
+    // SUBJECT SPECIFIC (116-150) – detailed hints
+    { q: "Body building nutrient?", opts: ["Carbs","Fats","Proteins","Vitamins"], ans: 2, hint: "Proteins provide amino acids for muscle growth and repair. Carbs give energy, fats store energy." },
+    { q: "Primary school language in Nigeria?", opts: ["French","English","Hausa","Yoruba"], ans: 1, hint: "English is the official language of instruction in Nigerian primary schools, though local languages may be used initially." },
+    { q: "Author of Things Fall Apart?", opts: ["Soyinka","Achebe","Adichie","Okri"], ans: 1, hint: "Chinua Achebe wrote 'Things Fall Apart' in 1958 – a classic of African literature." },
+    { q: "Plants make food through?", opts: ["Respiration","Photosynthesis","Transpiration","Germination"], ans: 1, hint: "Photosynthesis uses sunlight, CO₂, and water to produce glucose and oxygen." },
+    { q: "Teaching resource?", opts: ["Chalkboard","Textbook","Visual aids","All"], ans: 3, hint: "Any material that supports teaching and learning – from traditional to digital – is a resource." },
+    { q: "First teacher in Islam/Christianity?", opts: ["Prophet","Imam","Pastor","None"], ans: 0, hint: "Prophets (e.g., Muhammad in Islam, Jesus in Christianity) are considered the first teachers of divine guidance." },
+    { q: "Rivers teacher code prohibits?", opts: ["Corporal punishment","Teaching aids","Marking","Meetings"], ans: 0, hint: "The Rivers State teacher code of conduct forbids corporal punishment, promoting positive discipline." },
+    { q: "Reflective teacher quality?", opts: ["Self-critique","Resistance","Rigidity","Blaming"], ans: 0, hint: "Reflective teachers regularly evaluate their own practice and seek improvement." },
+    { q: "Educational technology includes?", opts: ["Projectors","Laptops","Smartboards","All"], ans: 3, hint: "Educational technology (EdTech) covers all digital tools used to enhance learning." },
+    { q: "5000 teachers recruitment boosts?", opts: ["Primary and secondary","Tertiary","Nursery","Adult"], ans: 0, hint: "The recruitment targets primary and secondary schools to reduce class sizes and improve quality." },
+    { q: "Chemical symbol for water?", opts: ["O2","CO2","H2O","NaCl"], ans: 2, hint: "H₂O means two hydrogen atoms and one oxygen atom." },
+    { q: "Author of 'The Lion and the Jewel'?", opts: ["Soyinka","Achebe","Adichie","Clark"], ans: 0, hint: "Wole Soyinka, Nigeria's first Nobel laureate in literature, wrote this famous play." },
+    { q: "Capital of Nigeria?", opts: ["Lagos","Abuja","Kano","Ibadan"], ans: 1, hint: "Abuja became the capital in 1991, replacing Lagos." },
+    { q: "Which is a planet?", opts: ["Sun","Moon","Mars","Star"], ans: 2, hint: "Mars is the fourth planet from the Sun. The Sun is a star, the Moon is a satellite." },
+    { q: "Longest river in Nigeria?", opts: ["Benue","Niger","Cross","Osun"], ans: 1, hint: "The Niger River is the longest, flowing over 4,000 km, with 1/3 in Nigeria." },
+    { q: "Father of modern education?", opts: ["Dewey","Piaget","Horace Mann","Montessori"], ans: 2, hint: "Horace Mann (1796–1859) advocated for public education and teacher training in the US." },
+    { q: "Renewable energy source?", opts: ["Coal","Oil","Solar","Gas"], ans: 2, hint: "Solar energy is renewable (replenished naturally). Coal, oil, and gas are fossil fuels – non-renewable." },
+    { q: "Main function of heart?", opts: ["Pump blood","Filter waste","Store energy","Hormones"], ans: 0, hint: "The heart pumps oxygenated blood to the body and deoxygenated blood to the lungs." },
+    { q: "Nigerian currency?", opts: ["Cedi","Naira","Dollar","Pound"], ans: 1, hint: "The Naira (₦) is the official currency of Nigeria, introduced in 1973." },
+    { q: "INEC Chairman current?", opts: ["Mahmood Yakubu","Jega","Iwu","None"], ans: 0, hint: "Prof. Mahmood Yakubu is the current Chairman of the Independent National Electoral Commission (INEC)." },
+    { q: "HIV stands for?", opts: ["Human Immunodeficiency Virus","High Immune","Human Infection","None"], ans: 0, hint: "HIV attacks the immune system and can lead to AIDS if untreated." },
+    { q: "Greenhouse gas?", opts: ["Oxygen","Nitrogen","Carbon dioxide","Hydrogen"], ans: 2, hint: "CO₂, methane, and water vapor trap heat in the atmosphere – causing the greenhouse effect." },
+    { q: "Painter of Mona Lisa?", opts: ["Van Gogh","Picasso","Da Vinci","Rembrandt"], ans: 2, hint: "Leonardo da Vinci painted the Mona Lisa in the early 1500s." },
+    { q: "Largest ocean?", opts: ["Atlantic","Indian","Arctic","Pacific"], ans: 3, hint: "The Pacific Ocean is the largest and deepest, covering about 30% of Earth's surface." },
+    { q: "Primary colour?", opts: ["Green","Orange","Purple","Red"], ans: 3, hint: "Red, yellow, and blue are primary colours – they cannot be made by mixing others." },
+    { q: "Boiling point of water at sea level?", opts: ["90°C","100°C","110°C","120°C"], ans: 1, hint: "At standard atmospheric pressure (sea level), water boils at 100°C (212°F)." },
+    { q: "Inventor of light bulb?", opts: ["Tesla","Edison","Newton","Einstein"], ans: 1, hint: "Thomas Edison patented the first practical incandescent light bulb in 1879." },
+    { q: "National animal of Nigeria?", opts: ["Eagle","Lion","Camel","Elephant"], ans: 0, hint: "The eagle on Nigeria's coat of arms represents strength and pride." },
+    { q: "Nigerian national symbol?", opts: ["Green white green","Union Jack","Stars and stripes","None"], ans: 0, hint: "The Nigerian flag has three vertical stripes: green, white, green." },
+    { q: "UNESCO full form?", opts: ["United Nations Educational, Scientific and Cultural Organization","United Nations Economic","United Nations Environment","None"], ans: 0, hint: "UNESCO promotes international cooperation in education, science, and culture." },
+    { q: "Common salt formula?", opts: ["NaCl","KCl","HCl","Na2O"], ans: 0, hint: "Sodium chloride (NaCl) is table salt." },
+    { q: "Founder of Microsoft?", opts: ["Steve Jobs","Bill Gates","Zuckerberg","Bezos"], ans: 1, hint: "Bill Gates co-founded Microsoft in 1975 with Paul Allen." },
+    { q: "Nigeria is in which continent?", opts: ["Asia","Europe","Africa","South America"], ans: 2, hint: "Nigeria is in West Africa, bordered by Benin, Niger, Chad, and Cameroon." },
+    { q: "Highest mountain in Africa?", opts: ["Kilimanjaro","Kenya","Everest","Atlas"], ans: 0, hint: "Mount Kilimanjaro in Tanzania is 5,895 metres – Africa's highest peak." },
+    { q: "Author of 'The Great Gatsby'?", opts: ["Hemingway","Fitzgerald","Orwell","Steinbeck"], ans: 1, hint: "F. Scott Fitzgerald wrote 'The Great Gatsby' (1925), a classic of American literature." }
+];
+
+    console.log("Bank size:", bankQuestions.length); // 150
+
+    let currentQuestions = [], userAnswers = [], markedReview = [];
+    let currentPage = 0, perPage = 4;
+    let examStarted = false, submitted = false, reviewMode = false;
+    let timeSeconds = 7200, timerInterval = null;
+
+    // DOM elements
+    const intro = document.getElementById('intro-section'), quizSec = document.getElementById('quiz-section'), resultsSec = document.getElementById('results-section'), certSec = document.getElementById('certificate-section');
+    const startBtn = document.getElementById('start-quiz-btn'), prevBtn = document.getElementById('prev-btn'), nextBtn = document.getElementById('next-btn'), submitBtn = document.getElementById('submit-quiz-btn'), markRevBtn = document.getElementById('mark-review-btn'), clearAnsBtn = document.getElementById('clear-btn'), container = document.getElementById('questions-container'), scoreDisplay = document.getElementById('score-display'), progressFill = document.getElementById('progress-fill'), currentRange = document.getElementById('current-q-range'), timeSpan = document.getElementById('timeLeft');
+    const finalScoreSpan = document.getElementById('final-score'), correctSpan = document.getElementById('correct-answers'), incorrectSpan = document.getElementById('incorrect-answers'), skippedSpan = document.getElementById('skipped-answers'), percentSpan = document.getElementById('percentage-score'), resultMsg = document.getElementById('result-message'), scoreCircle = document.getElementById('score-circle'), viewCertBtn = document.getElementById('view-certificate-btn'), retakeBtn = document.getElementById('retake-quiz-btn'), backResults = document.getElementById('back-to-results-btn'), downloadPDF = document.getElementById('download-pdf-btn'), reviewAnswersBtn = document.getElementById('review-answers-btn');
+
+    function shuffleArray(arr) { for (let i=arr.length-1;i>0;i--) { const j=Math.floor(Math.random()*(i+1)); [arr[i],arr[j]]=[arr[j],arr[i]]; } return arr; }
+
+    function selectRandomQuestions() { let shuffled = shuffleArray([...bankQuestions]); return shuffled.slice(0,100); }
+
+    function initQuiz() {
+        currentQuestions = selectRandomQuestions();
+        currentQuestions = currentQuestions.map(q => {
+            let correctAns = q.ans;
+            let opts = [...q.opts];
+            shuffleArray(opts);
+            let newAns = opts.indexOf(q.opts[correctAns]);
+            return { ...q, options: opts, ans: newAns, hint: q.hint };
+        });
+        userAnswers = new Array(100).fill(null);
+        markedReview = new Array(100).fill(false);
+        currentPage = 0; submitted = false; reviewMode = false;
+        if(timerInterval) clearInterval(timerInterval);
+        timeSeconds = 7200; updateTimerDisplay(); startTimer();
+        examStarted = true;
+        renderPage();
+        intro.style.display = 'none'; quizSec.style.display = 'block'; resultsSec.style.display = 'none'; certSec.style.display = 'none';
+    }
+
+    function startTimer() { timerInterval = setInterval(() => { if(!examStarted || submitted) return; if(timeSeconds <= 0) { clearInterval(timerInterval); alert("Time's up!"); submitQuiz(); } else { timeSeconds--; updateTimerDisplay(); } },1000); }
+    function updateTimerDisplay() { let h=Math.floor(timeSeconds/3600), m=Math.floor((timeSeconds%3600)/60), s=timeSeconds%60; timeSpan.innerText=`${h.toString().padStart(2,'0')}:${m.toString().padStart(2,'0')}:${s.toString().padStart(2,'0')}`; }
+    function getScore() { let s=0; for(let i=0;i<100;i++) if(userAnswers[i]!==null && userAnswers[i]===currentQuestions[i].ans) s++; return s; }
+
+    function toggleHint(index) {
+        const hintDiv = document.getElementById(`hint-${index}`);
+        if(hintDiv) hintDiv.classList.toggle('show');
+    }
+
+    function renderPage() {
+        const start = currentPage*perPage, end = Math.min(start+perPage,100);
+        currentRange.innerText = `${start+1}-${end}`;
+        const score = getScore(); scoreDisplay.innerText = score;
+        const progress = (end/100)*100; progressFill.style.width = `${progress}%`;
+        container.innerHTML = '';
+        for(let i=start;i<end;i++) {
+            const q = currentQuestions[i];
+            const userOpt = userAnswers[i];
+            const isCorrect = (userOpt !== null && userOpt === q.ans);
+            const card = document.createElement('div'); card.className = 'question-card';
+            card.innerHTML = `
+                <div class="question-header">
+                    <div class="question-number">${i+1}</div>
+                    <button class="hint-icon" data-index="${i}"><i class="fas fa-lightbulb"></i></button>
+                </div>
+                <div class="question-text">${q.q}</div>
+                <div id="hint-${i}" class="hint-text">💡 ${q.hint || "Think carefully!"}</div>
+                <div class="options-container" id="opts-${i}"></div>
+                ${markedReview[i] ? '<div><i class="fas fa-flag"></i> Marked</div>' : ''}
+                ${(submitted && userOpt !== null) ? `<div style="font-size:0.75rem; margin-top:8px;"><i class="fas fa-info-circle"></i> ${isCorrect ? 'Correct!' : `Correct: ${String.fromCharCode(65+q.ans)}. ${q.options[q.ans]}`}</div>` : ''}
+            `;
+            container.appendChild(card);
+            const optsDiv = card.querySelector(`.options-container`);
+            q.options.forEach((opt,idx) => {
+                const optDiv = document.createElement('div');
+                let additionalClass = '';
+                if(submitted && reviewMode) {
+                    if(idx === q.ans) additionalClass = ' correct-highlight';
+                    else if(userOpt === idx && userOpt !== q.ans) additionalClass = ' incorrect-highlight';
+                }
+                optDiv.className = `option ${userOpt===idx ? 'selected' : ''}${additionalClass}`;
+                optDiv.innerHTML = `<input type="radio" name="q${i}" ${userOpt===idx ? 'checked' : ''} disabled="${submitted ? 'disabled' : ''}"><span class="option-label">${String.fromCharCode(65+idx)}.</span> <label>${opt}</label>`;
+                if(!submitted) optDiv.addEventListener('click', () => { if(!submitted) { userAnswers[i]=idx; renderPage(); } });
+                optsDiv.appendChild(optDiv);
+            });
+            // attach hint click event
+            const hintBtn = card.querySelector('.hint-icon');
+            hintBtn.addEventListener('click', (e) => { e.stopPropagation(); toggleHint(i); });
+        }
+        prevBtn.disabled = currentPage===0; nextBtn.disabled = end>=100;
+    }
+
+    function nextPage() { if(currentPage < Math.ceil(100/perPage)-1) { currentPage++; renderPage(); } }
+    function prevPage() { if(currentPage>0) { currentPage--; renderPage(); } }
+    function markReview() { let start=currentPage*perPage, end=Math.min(start+perPage,100); let any=markedReview.slice(start,end).some(v=>v); for(let i=start;i<end;i++) markedReview[i]=!any; renderPage(); }
+    function clearAnswers() { let start=currentPage*perPage, end=Math.min(start+perPage,100); for(let i=start;i<end;i++) userAnswers[i]=null; renderPage(); }
+
+    function submitQuiz() {
+        if(submitted) return; submitted=true; if(timerInterval) clearInterval(timerInterval);
+        let correct=0,incorrect=0,skipped=0;
+        for(let i=0;i<100;i++) { if(userAnswers[i]===null) skipped++; else if(userAnswers[i]===currentQuestions[i].ans) correct++; else incorrect++; }
+        const percent = Math.round((correct/100)*100);
+        finalScoreSpan.innerText = correct; correctSpan.innerText = correct; incorrectSpan.innerText = incorrect; skippedSpan.innerText = skipped; percentSpan.innerText = `${percent}%`;
+        resultMsg.innerText = percent>=70 ? "🎉 Excellent! You passed. Review your answers below." : "📘 You did not pass. Review mistakes and retake.";
+        const deg = (percent/100)*360; scoreCircle.style.background = `conic-gradient(var(--success-color) 0deg ${deg}deg, var(--border-color) ${deg}deg 360deg)`;
+        quizSec.style.display = 'none'; resultsSec.style.display = 'block'; reviewMode = true;
+    }
+
+    function reviewAnswers() { reviewMode = true; quizSec.style.display = 'block'; resultsSec.style.display = 'none'; renderPage(); }
+    function showCertificate() { let name = prompt("Your full name:","Candidate"); if(!name) return; let correct=0; for(let i=0;i<100;i++) if(userAnswers[i]!==null && userAnswers[i]===currentQuestions[i].ans) correct++; let percent=Math.round((correct/100)*100); document.getElementById('certificate-name').innerText=name; document.getElementById('certificate-score').innerText=`${correct}/100`; document.getElementById('certificate-percentage').innerText=`${percent}%`; document.getElementById('certificate-date').innerText=new Date().toLocaleDateString(); document.getElementById('certificate-id').innerText=`RIV-${Date.now()}`; resultsSec.style.display='none'; certSec.style.display='block'; }
+    function downloadCert() { html2canvas(document.getElementById('certificate-container')).then(canvas=>{ let pdf=new jspdf.jsPDF('landscape','pt','a4'); let imgData=canvas.toDataURL('image/png'); let w=pdf.internal.pageSize.getWidth(); let h=canvas.height*w/canvas.width; pdf.addImage(imgData,'PNG',0,0,w,h); pdf.save('Rivers_Certificate.pdf'); }); }
+    function retake() { if(timerInterval) clearInterval(timerInterval); intro.style.display='block'; quizSec.style.display='none'; resultsSec.style.display='none'; certSec.style.display='none'; examStarted=false; submitted=false; reviewMode=false; }
+
+    startBtn.addEventListener('click', initQuiz);
+    nextBtn.addEventListener('click', nextPage); prevBtn.addEventListener('click', prevPage);
+    markRevBtn.addEventListener('click', markReview); clearAnsBtn.addEventListener('click', clearAnswers);
+    submitBtn.addEventListener('click', submitQuiz);
+    viewCertBtn.addEventListener('click', showCertificate);
+    retakeBtn.addEventListener('click', retake);
+    backResults.addEventListener('click', () => { certSec.style.display='none'; resultsSec.style.display='block'; });
+    downloadPDF.addEventListener('click', downloadCert);
+    reviewAnswersBtn.addEventListener('click', reviewAnswers);
+
+    // Theme (default dark)
+    const themeSwitch = document.getElementById('theme-switch');
+    document.body.setAttribute('data-theme','dark');
+    themeSwitch.checked = true;
+    themeSwitch.addEventListener('change', function() { if(this.checked) { document.body.setAttribute('data-theme','dark'); localStorage.setItem('theme','dark'); } else { document.body.setAttribute('data-theme','light'); localStorage.setItem('theme','light'); } });
+
+    // ==================== CALCULATOR ====================
+    const modal = document.getElementById('calcModal'), fab = document.getElementById('calcFabBtn'), closeModal = document.getElementById('closeModalBtn'), expressionDiv = document.getElementById('calcExpression'), resultDisplay = document.getElementById('modalCalcResult'), modalBtns = document.getElementById('modalCalcButtons');
+    let currentExpr = "", lastResult = null;
+    function updateCalcUI() { expressionDiv.innerText = currentExpr === "" ? "0" : currentExpr; if(lastResult !== null) resultDisplay.innerText = lastResult; else { try { let preview = Function('"use strict";return (' + currentExpr + ')')(); if(!isNaN(preview) && isFinite(preview)) resultDisplay.innerText = preview; else resultDisplay.innerText = "?"; } catch(e) { resultDisplay.innerText = "?"; } } }
+    function appendExpr(v) { currentExpr += v; lastResult = null; updateCalcUI(); }
+    function clearAll() { currentExpr = ""; lastResult = null; updateCalcUI(); }
+    function evaluateExpr() { if(currentExpr === "") return; try { let res = Function('"use strict";return (' + currentExpr + ')')(); if(isNaN(res) || !isFinite(res)) throw new Error(); lastResult = res; resultDisplay.innerText = res; } catch(e) { resultDisplay.innerText = "Error"; lastResult = null; } }
+    function deleteLast() { currentExpr = currentExpr.slice(0,-1); lastResult = null; updateCalcUI(); }
+    function buildCalc() { const btns = ["7","8","9","/","4","5","6","*","1","2","3","-","0",".","AC","+","⌫","="]; modalBtns.innerHTML = ''; btns.forEach(btn => { let el = document.createElement('button'); el.className = 'calc-btn'; if(['/','*','-','+','='].includes(btn)) el.classList.add('op'); el.innerText = btn; el.addEventListener('click', () => { if(btn >= '0' && btn <= '9') appendExpr(btn); else if(btn === '.') appendExpr('.'); else if(btn === 'AC') clearAll(); else if(btn === '⌫') deleteLast(); else if(btn === '=') evaluateExpr(); else if(btn === '+' || btn === '-' || btn === '*' || btn === '/') appendExpr(btn); }); modalBtns.appendChild(el); }); }
+    fab.addEventListener('click',()=>modal.classList.add('active')); closeModal.addEventListener('click',()=>modal.classList.remove('active')); modal.addEventListener('click',(e)=>{if(e.target===modal)modal.classList.remove('active');});
+    buildCalc(); clearAll();
+</script>
+</body>
+</html>

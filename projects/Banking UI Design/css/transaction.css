@@ -1,0 +1,187 @@
+   /* Transaction list & modal styles – matches e-wallet theme */
+    .tx-history-container {
+        background: var(--bg-device, #f7f7f9);
+        padding: 20px;
+        min-height: 100%;
+    }
+    .tx-history-title {
+        font-size: 22px;
+        font-weight: 800;
+        color: var(--text-primary, #1e1e2d);
+        margin-bottom: 20px;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+    .tx-history-title i {
+        color: var(--see-more, #6a1bca);
+        font-size: 24px;
+    }
+    .tx-list {
+        display: flex;
+        flex-direction: column;
+        gap: 14px;
+    }
+    .tx-card {
+        background: var(--card-white, #ffffff);
+        border-radius: 24px;
+        padding: 16px 18px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        cursor: pointer;
+        transition: all 0.2s ease;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02);
+        border: 1px solid var(--tx-border, #f0f0f5);
+    }
+    .tx-card:active {
+        transform: scale(0.98);
+        background: var(--tx-hover, #f8f8fc);
+    }
+    .tx-left-icon {
+        width: 52px;
+        height: 52px;
+        background: var(--icon-bg, #f4f5f9);
+        border-radius: 28px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 24px;
+        margin-right: 14px;
+    }
+    .tx-info {
+        flex: 1;
+    }
+    .tx-info h4 {
+        font-size: 16px;
+        font-weight: 700;
+        color: var(--text-primary, #1e1e2d);
+        margin-bottom: 4px;
+    }
+    .tx-meta {
+        display: flex;
+        gap: 12px;
+        font-size: 12px;
+        color: var(--text-secondary, #6c6c74);
+    }
+    .tx-right {
+        text-align: right;
+    }
+    .tx-amount {
+        font-weight: 800;
+        font-size: 18px;
+        margin-bottom: 6px;
+    }
+    .tx-amount.positive { color: #2ed573; }
+    .tx-amount.negative { color: #ff4757; }
+    .tx-status {
+        font-size: 11px;
+        font-weight: 600;
+        padding: 4px 10px;
+        border-radius: 40px;
+        display: inline-block;
+    }
+    .status-success {
+        background: #e0f7e8;
+        color: #1e9c4a;
+    }
+    .status-pending {
+        background: #fff0db;
+        color: #e67e22;
+    }
+
+    /* Modal overlay */
+    .tx-modal-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.7);
+        backdrop-filter: blur(6px);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 1000;
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.25s ease;
+    }
+    .tx-modal-overlay.active {
+        opacity: 1;
+        visibility: visible;
+    }
+    .tx-modal {
+        background: var(--card-white, #ffffff);
+        width: 85%;
+        max-width: 340px;
+        border-radius: 32px;
+        padding: 24px 22px;
+        position: relative;
+        transform: scale(0.95);
+        transition: transform 0.2s ease;
+        box-shadow: 0 20px 35px rgba(0,0,0,0.2);
+    }
+    .tx-modal-overlay.active .tx-modal {
+        transform: scale(1);
+    }
+    .modal-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 20px;
+        border-bottom: 1px solid var(--tx-border, #eef2f8);
+        padding-bottom: 12px;
+    }
+    .modal-header h3 {
+        font-size: 20px;
+        font-weight: 800;
+        color: var(--text-primary, #1e1e2d);
+    }
+    .close-modal {
+        background: none;
+        border: none;
+        font-size: 24px;
+        cursor: pointer;
+        color: var(--text-secondary, #8e8e93);
+    }
+    .detail-row {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 16px;
+        font-size: 14px;
+    }
+    .detail-label {
+        color: var(--text-secondary, #6c6c74);
+        font-weight: 500;
+    }
+    .detail-value {
+        font-weight: 600;
+        color: var(--text-primary, #1e1e2d);
+        text-align: right;
+    }
+    .detail-value.amount-large {
+        font-size: 24px;
+        font-weight: 800;
+        color: #2ed573;
+    }
+    .detail-value.negative-amount {
+        color: #ff4757;
+    }
+    .receipt-note {
+        background: var(--icon-bg, #f4f5f9);
+        padding: 12px;
+        border-radius: 20px;
+        margin-top: 14px;
+        font-size: 12px;
+        text-align: center;
+        color: var(--text-secondary, #555);
+    }
+    .dark-theme .status-success {
+        background: #1e3a2f;
+        color: #6fcf97;
+    }
+    .dark-theme .status-pending {
+        background: #3e2a1f;
+        color: #f39c12;
+    }
